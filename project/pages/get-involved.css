@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .envelope-card:hover .envelope-flap {
+            transform: translateY(-32px);
+        }
+        
+        .envelope-card:hover .envelope-letter {
+            opacity: 1;
+            transform: translate(-50%, -48px);
+        }
+        
+        .envelope-card.active .envelope-flap {
+            transform: translateY(-32px);
+        }
+        
+        .envelope-card.active .envelope-letter {
+            opacity: 1;
+            transform: translate(-50%, -48px);
+        }
