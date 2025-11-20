@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purpose Pinoy | Programs</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Tab Icon -->
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/images/Purpose Pinoy Logo .png">
+
+    <!-- Scripts -->
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+</head>
+
+<body>
+    <!-- Navbar Component -->
+    <div w3-include-html="/components/navbar.html"></div>
+
+    <div class="max-w-6xl mx-auto px-4 py-10">
+        <h1 class="text-3xl font-bold underline">
+            Programs
+        </h1>
+    </div>
+
+
+    <!-- Footer Component -->
+    <div w3-include-html="/components/footer.html"></div>
+
+    <!-- Mobile Navbar Logic -->
+    <script>
+        w3.includeHTML(function () {
+
+            // MOBILE MENU LOGIC 
+            const btn = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+
+            if (btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            }
+
+            // ACTIVE LINK HIGHLIGHT LOGIC
+            let currentPath = window.location.pathname;
+
+            if (currentPath === '/') {
+                currentPath = '/index.html';
+            }
+
+            const navLinks = document.querySelectorAll('nav a');
+
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+
+                if (linkPath === currentPath) {
+                    // Standard links
+                    if (!link.classList.contains('bg-blue-600')) {
+                        link.classList.add('text-blue-600', 'font-bold');
+                        link.classList.remove('text-gray-600');
+                    }
+                    // Button links
+                    if (link.classList.contains('bg-blue-600')) {
+                        link.classList.add('ring-2', 'ring-offset-2', 'ring-blue-600');
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
