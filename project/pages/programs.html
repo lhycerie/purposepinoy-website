@@ -14,16 +14,155 @@
 
     <!-- Scripts -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
+
+<!-- 
+    TODO LIST:
+    [ ] Standardize fonts to Brand Kit
+    [ ] Standardize page layouts
+    [ ] Add AOS Scroll Animations
+    [ ] Add other UI improvements
+-->
 
 <body>
     <!-- Navbar Component -->
     <div w3-include-html="/components/navbar.html"></div>
 
-    <div class="max-w-6xl mx-auto px-4 py-10">
-        <h1 class="text-3xl font-bold underline">
-            Programs
+    <!-- HERO HEADER -->
+    <section class="bg-[#ECB138] py-10 text-center px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-black mb-4">
+            Our Impact in Action
         </h1>
+        <p class="text-xl text-black/80 font-light max-w-2xl mx-auto">
+            Real initiatives. Real change. See what we are working on.
+        </p>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div class="max-w-6xl mx-auto px-4 py-12">
+
+        <!-- Section Title -->
+        <div class="mb-10 border-b border-gray-200 pb-4">
+            <h2 class="text-3xl font-bold text-[#2B4692]">Current Programs</h2>
+            <p class="text-gray-500 mt-1">Ongoing initiatives for this season.</p>
+        </div>
+
+        <!-- PROGRAMS -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+
+            <!-- Program 1: Thrift for Good -->
+            <div
+                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
+                <div class="h-56 bg-gray-200 relative">
+                    <img src="https://images.unsplash.com/photo-1701186280075-89b0e7b01b39?q=80&w=1170&auto=format&fit=crop"
+                        class="w-full h-full object-cover" alt="Thrift for Good">
+                    <div
+                        class="absolute top-4 left-4 bg-[#ECB138] text-black text-xs font-bold px-3 py-1 rounded-full uppercase">
+                        Partnership
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Thrift for Good & The HOPE Foundation</h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-1 leading-relaxed text-justify">
+                        Our Thrift for Good initiative combines sustainable fashion with community impact. We organize
+                        group thrift trips to source clothing, sell curated pieces online to raise funds, and then
+                        donate unsold items to the HOPE Foundation. During our visit, members host a “free shopping”
+                        event, promoting dignity and confidence for women and girls healing from trauma. We will also
+                        conduct a basic perfume-making vocational workshop to equip them with hands-on skills.
+                        <br><br>
+                        <strong>Impact:</strong> Hosting "free shopping" events to promote dignity for women healing
+                        from trauma.
+                    </p>
+                    <button
+                        class="w-full bg-gray-100 text-[#2B4692] font-bold py-2 rounded hover:bg-[#2B4692] hover:text-white transition">
+                        Volunteer for this
+                    </button>
+                </div>
+            </div>
+
+            <!-- Program 2: Toy Drive -->
+            <div
+                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
+                <div class="h-56 bg-gray-200 relative">
+                    <img src="https://images.unsplash.com/photo-1512909481869-0eaa1e9817ba?q=80&w=2070&auto=format&fit=crop"
+                        class="w-full h-full object-cover" alt="Toy Drive">
+                    <div
+                        class="absolute top-4 left-4 bg-[#941B12] text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
+                        Outreach
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Street Children Christmas Toy Drive</h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-1 leading-relaxed text-justify">
+                        Spread joy this December with our road-trip style outreach! The Street Children Christmas Toy
+                        Drive is a hands-on initiative designed to bring festive cheer and inclusion to street children
+                        across selected locations. Funds raised from our Thrift for Good program will be used to
+                        purchase and distribute toys, ensuring every child receives a gift and experiences the holiday
+                        season with warmth.
+
+                        <br><br>
+                        <strong>Impact:</strong> Distributing toys and gifts to ensure every child experiences the
+                        warmth of the holidays.
+                    </p>
+                    <button
+                        class="w-full bg-gray-100 text-[#941B12] font-bold py-2 rounded hover:bg-[#941B12] hover:text-white transition">
+                        Donate Toys
+                    </button>
+                </div>
+            </div>
+
+            <!-- Program 3: Relief Ops -->
+            <div
+                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
+                <div class="h-56 bg-gray-200 relative">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop"
+                        class="w-full h-full object-cover" alt="Relief">
+                    <div
+                        class="absolute top-4 left-4 bg-[#2B4692] text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
+                        Relief Ops
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Red Cross PH - Typhoon Uwan Relief</h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-1 leading-relaxed text-justify">
+                        We are committed to immediate relief efforts by collaborating with Red Cross Philippines in
+                        Mandaluyong. We are fundraising to provide essential goods to families affected by recent
+                        typhoons. Our focus is on practical assistance through food items (canned goods, instant
+                        noodles, bottled water) and vital hygiene kits (toothbrushes, toothpaste, sanitary napkins,
+                        etc.).
+                        <br><br>
+                        <strong>Impact:</strong> Providing essential food items (canned goods, rice) and vital hygiene
+                        kits.
+                    </p>
+                    <button
+                        class="w-full bg-gray-100 text-[#2B4692] font-bold py-2 rounded hover:bg-[#2B4692] hover:text-white transition">
+                        Donate Funds
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Call to Action Banner -->
+        <div class="bg-[#2B4692] rounded-2xl p-10 text-center text-white shadow-lg relative overflow-hidden">
+            <div
+                class="absolute top-0 left-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-x-10 -translate-y-10">
+            </div>
+
+            <h2 class="text-3xl font-bold mb-4 relative z-10">Have an idea for a program?</h2>
+            <p class="text-blue-100 mb-8 max-w-xl mx-auto relative z-10">
+                We are always looking for new ways to help our community. If you have a project proposal or want to lead
+                an initiative, let us know!
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdR8mEZzAJTeVyYDWpfMV8C02dideY84v8CbBK2JZjed0EVaw/viewform"
+                target="_blank"
+                class="inline-block bg-[#ECB138] text-black font-bold py-3 px-8 rounded-full hover:bg-white hover:text-[#2B4692] transition duration-300 shadow-md relative z-10">
+                Propose a Project
+            </a>
+        </div>
+
     </div>
 
 

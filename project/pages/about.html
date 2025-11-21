@@ -14,7 +14,17 @@
 
     <!-- Scripts -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
+<!-- 
+    TODO LIST:
+    [ ] Standardize fonts to Brand Kit
+    [ ] Standardize page layouts
+    [ ] Add AOS Scroll Animations
+    [ ] Add "Partners" logo strip (Home/About)
+    [ ] Add other UI improvements
+-->
 
 <body>
 
@@ -22,10 +32,98 @@
     <div w3-include-html="/components/navbar.html"></div>
 
 
-    <div class="max-w-6xl mx-auto px-4 py-10">
-        <h1 class="text-3xl font-bold underline">
-            About Us - Vision Mission
+    <!-- Content Body -->
+    <section class="bg-[#2B4692] py-10 text-center px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
+            Our Driving Force
         </h1>
+        <p class="text-xl text-[#ECB138] font-light max-w-2xl mx-auto">
+            Igniting Entrepreneurship. Breaking the Cycle.
+        </p>
+    </section>
+
+    <div class="max-w-7xl mx-auto px-4 py-12">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+
+            <!-- MISSION SECTION -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col h-full">
+                <div class="bg-[#941B12] h-2 w-full"></div>
+
+                <div class="p-8 flex-1 flex flex-col">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-rocket text-[#941B12] text-xl"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-[#941B12] tracking-widest uppercase">Mission</h2>
+                    </div>
+
+                    <p class="text-base leading-relaxed text-gray-600 text-justify flex-grow">
+                        Purpose Pinoy’s mission is to develop young Filipinos into
+                        <span class="text-[#941B12] font-bold">compassionate, capable, and solutions-oriented
+                            leaders</span>
+                        who can design and implement initiatives that respond to real community
+                        <span class="text-[#941B12] font-bold">needs</span>, observed daily in Metro Manila.
+                        Through <span class="text-[#941B12] font-bold">accessible</span> volunteer programs,
+                        <span class="text-[#941B12] font-bold">youth-led</span> fundraising, and
+                        <span class="text-[#941B12] font-bold">social entrepreneurship</span> projects,
+                        we create avenues for meaningful civic engagement and skill-building.
+                        Our work focuses on reducing poverty through livelihood and financial literacy programs
+                        <span class="text-[#941B12] font-bold">(SDG 1)</span> and expanding access to educational
+                        support
+                        and entrepreneurial pursuits <span class="text-[#941B12] font-bold">(SDG 8)</span>.
+                        By fostering youth leadership grounded in
+                        <span class="text-[#941B12] font-bold">empathy, innovation, and community partnership</span>,
+                        we aim to cultivate changemakers who uplift themselves while uplifting others.
+                    </p>
+                </div>
+            </div>
+
+            <!-- VISION -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col h-full">
+                <div class="bg-[#2B4692] h-2 w-full"></div>
+
+                <div class="p-8 flex-1 flex flex-col">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-eye text-[#2B4692] text-xl"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-[#2B4692] tracking-widest uppercase">Vision</h2>
+                    </div>
+
+                    <p class="text-base leading-relaxed text-gray-600 text-justify flex-grow">
+                        Purpose Pinoy envisions a generation of
+                        <span class="text-[#941B12] font-bold">Filipino youth</span> who are equipped,
+                        <span class="text-[#941B12] font-bold">empowered</span>, and mobilized to drive sustainable
+                        progress
+                        in their communities. Through <span class="text-[#941B12] font-bold">collaborative
+                            planning</span>,
+                        we aspire to build a future where young people play a
+                        <span class="text-[#941B12] font-bold">central role</span> in advancing
+                        <span class="text-[#941B12] font-bold underline decoration-2 underline-offset-4">SDG 1: No
+                            Poverty</span> and
+                        <span class="text-[#941B12] font-bold underline decoration-2 underline-offset-4">SDG 8: Decent
+                            Work And Economic Growth</span>,
+                        creating <span class="text-[#941B12] font-bold">inclusive opportunities</span> that strengthen
+                        community
+                        resilience and open pathways to long-term growth in our
+                        <span class="text-[#941B12] font-bold">homeland</span>. We believe in a Philippines where
+                        <span class="text-[#941B12] font-bold">youth leadership</span> is not an exception but a
+                        standard for national development.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FUTURE CONTENT PLACEHOLDER -->
+        <div class="border-t border-gray-200 pt-12">
+            <h2 class="text-3xl font-bold text-center text-[#2B4692] mb-8">Our Team & History</h2>
+            <div class="bg-white border-2 border-dashed border-gray-300 rounded-xl p-12 text-center text-gray-400">
+                Penge po pang content &lt;33
+            </div>
+        </div>
+
     </div>
 
 
