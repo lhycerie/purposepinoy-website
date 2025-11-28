@@ -13,9 +13,24 @@
                 <a href="/pages/about.html" class="text-gray-600 hover:text-blue-600 font-medium transition">
                     About Us
                 </a>
-                <a href="/pages/programs.html" class="text-gray-600 hover:text-blue-600 font-medium transition">
+               <!-- Programs Dropdown -->
+                <div class="relative group">
+                <button class="text-gray-600 hover:text-blue-600 font-medium transition flex items-center gap-1">
                     Programs
+                 <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                 </svg>
+                </button>
+                <!-- Dropdown Menu -->
+                <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                 <a href="/pages/programs.html" class="block px-4 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg transition">
+                     Current Programs
                 </a>
+                 <a href="/pages/pastevents.html" class="block px-4 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-b-lg transition">
+                     Past Events
+                </a>
+                    </div>
+                </div>
                 <a href="/pages/get-involved.html" class="text-gray-600 hover:text-blue-600 font-medium transition">
                     Get Involved
                 </a>
