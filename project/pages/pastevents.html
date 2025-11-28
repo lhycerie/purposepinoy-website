@@ -15,6 +15,49 @@
     <!-- Scripts -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .event-card-hero {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+        
+        .event-card-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: inherit;
+            filter: blur(8px);
+            transform: scale(1.1);
+            z-index: 0;
+        }
+        
+        .event-card-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .event-card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .gallery-img {
+            transition: transform 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        .rotate-transition {
+            transition: transform 0.3s ease;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,146 +78,289 @@
     <div class="max-w-6xl mx-auto px-4 py-12">
 
         <!-- Event 1: Pasong Buaya -->
-        <div class="mb-20">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <!-- Image -->
-                <div class="order-2 lg:order-1">
-                    <img src="/assets/images/pasongbuaya1.png" 
-                         alt="Pasong Buaya Event" 
-                         class="w-full h-auto rounded-xl shadow-lg">
-                </div>
-                
-                <!-- Content -->
-                <div class="order-1 lg:order-2">
-                    <div class="inline-block bg-[#ECB138] text-black text-xs font-bold px-3 py-1 rounded-full uppercase mb-4">
-                        Community Outreach
+        <div class="mb-12 bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+            <!-- Card Hero with Blurred Background -->
+            <div class="event-card-hero min-h-[500px] md:min-h-[600px]" style="background-image: url('/assets/images/pasongbuaya1.png');">
+                <div class="event-card-content p-8 md:p-12 flex flex-col justify-center min-h-[500px] md:min-h-[600px]">
+                    <div class="max-w-2xl">
+                        <div class="inline-block bg-[#ECB138] text-black text-xs font-bold px-3 py-1 rounded-full uppercase mb-4">
+                            Community Outreach
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+                            Pasong Buaya
+                        </h2>
+                        <p class="text-white text-lg leading-relaxed mb-6 drop-shadow-md">
+                            Our team visited the Pasong Buaya community to conduct educational workshops and distribute essential supplies. This event brought together volunteers and community members in a meaningful exchange of knowledge, resources, and hope.
+                        </p>
+                        
+                        <!-- Quick Info -->
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-center text-white">
+                                <i class="fas fa-map-marker-alt w-5 text-[#ECB138]"></i>
+                                <span class="ml-2 drop-shadow-md">Pasong Buaya, Philippines</span>
+                            </div>
+                            <div class="flex items-center text-white">
+                                <i class="fas fa-calendar-alt w-5 text-[#ECB138]"></i>
+                                <span class="ml-2 drop-shadow-md">Date: [Add Date]</span>
+                            </div>
+                        </div>
+
+                        <!-- Expand Button -->
+                        <button onclick="toggleEvent('event1')" 
+                                class="inline-flex items-center gap-2 bg-white text-[#2B4692] font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition shadow-lg">
+                            <span id="event1-btn-text">View Full Details & Gallery</span>
+                            <i id="event1-icon" class="fas fa-chevron-down rotate-transition"></i>
+                        </button>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#2B4692] mb-4">
-                        Pasong Buaya
-                    </h2>
-                    <p class="text-gray-600 text-base leading-relaxed mb-6">
-                        Our team visited the Pasong Buaya community to conduct educational workshops and distribute essential supplies. This event brought together volunteers and community members in a meaningful exchange of knowledge, resources, and hope. Through interactive sessions and personal connections, we were able to make a lasting impact on the lives of local students and families.
-                    </p>
+                </div>
+            </div>
+
+            <!-- Expandable Section -->
+            <div id="event1-details" class="hidden">
+                <div class="px-6 md:px-8 py-8">
                     
-                    <!-- Event Details -->
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt w-6 text-[#2B4692]"></i>
-                            <span class="ml-2"><strong>Location:</strong> Pasong Buaya, Philippines</span>
-                        </div>
-                        <div class="flex items-center text-gray-700">
-                            <i class="fas fa-users w-6 text-[#2B4692]"></i>
-                            <span class="ml-2"><strong>Participants:</strong> Placeholder</span>
-                        </div>
+                    <!-- Full Description -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-[#2B4692] mb-3">About This Event</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Through interactive sessions and personal connections, we were able to make a lasting impact on the lives of local students and families. Our volunteers worked closely with community leaders to identify needs and deliver meaningful support.
+                        </p>
                     </div>
 
                     <!-- Impact Stats -->
-                    <div class="bg-gray-50 rounded-lg p-6">
-                        <h3 class="font-bold text-[#2B4692] mb-3">Impact Highlights</h3>
-                        <ul class="space-y-2 text-gray-600">
+                    <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                        <h3 class="font-bold text-[#2B4692] mb-4 text-lg">Impact Highlights</h3>
+                        <ul class="space-y-3 text-gray-600">
                             <li class="flex items-start">
-                                <span class="text-[#ECB138] mr-2">✓</span>
+                                <span class="text-[#ECB138] mr-3 text-xl">✓</span>
                                 <span>Reached over 100 students with educational materials</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-[#ECB138] mr-2">✓</span>
+                                <span class="text-[#ECB138] mr-3 text-xl">✓</span>
                                 <span>Distributed school supplies and hygiene kits</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-[#ECB138] mr-2">✓</span>
+                                <span class="text-[#ECB138] mr-3 text-xl">✓</span>
                                 <span>Conducted motivational workshops and activities</span>
                             </li>
                         </ul>
                     </div>
+
+                    <!-- Photo Gallery -->
+                    <div>
+                        <h3 class="text-xl font-bold text-[#2B4692] mb-4">Photo Gallery</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <!-- Add your additional photos here -->
+                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event1', 0)">
+                                <img src="/assets/images/pasongbuaya5.jpg" 
+                                     alt="Pasong Buaya 1" 
+                                     class="w-full h-48 object-cover">
+                            </div>
+                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event1', 1)">
+                                <img src="/assets/images/pasongbuaya2.JPG" 
+                                     alt="Pasong Buaya 2" 
+                                     class="w-full h-48 object-cover">
+                            </div>
+                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event1', 2)">
+                                <img src="/assets/images/pasongbuaya3.JPG" 
+                                     alt="Pasong Buaya 3" 
+                                     class="w-full h-48 object-cover">
+                            </div>
+                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event1', 3)">
+                                <img src="/assets/images/pasongbuaya4.JPG" 
+                                     alt="Pasong Buaya 4" 
+                                     class="w-full h-48 object-cover">
+                            </div>
+                           
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-    
-
         <!-- Event 2: ROTARACT X PURPOSE PINOY -->
-        <div class="mb-20">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <!-- Content -->
-                <div class="order-1">
-                    <div class="inline-block bg-[#941B12] text-white text-xs font-bold px-3 py-1 rounded-full uppercase mb-4">
-                        Partnership
+        <div class="mb-12 bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+            <!-- Blurred bg -->
+            <div class="event-card-hero min-h-[400px] md:min-h-[500px]" style="background-image: url('/assets/images/rotaract1.png');">
+                <div class="event-card-content p-6 md:p-10 flex flex-col justify-center min-h-[400px] md:min-h-[500px]">
+                    <div class="max-w-2xl">
+                        <div class="inline-block bg-[#941B12] text-white text-xs font-bold px-3 py-1 rounded-full uppercase mb-4">
+                            Partnership
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+                            ROTARACT X PURPOSE PINOY
+                        </h2>
+                        <p class="text-white text-lg leading-relaxed mb-6 drop-shadow-md">
+                            In partnership with Rotaract, we launched a community support initiative to provide micro-entrepreneurs and small business owners with resources and mentorship.
+                        </p>
+                        
+                        <!-- Quick Info -->
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-center text-white">
+                                <i class="fas fa-map-marker-alt w-5 text-[#ECB138]"></i>
+                                <span class="ml-2 drop-shadow-md">Local Community, Philippines</span>
+                            </div>
+                            <div class="flex items-center text-white">
+                                <i class="fas fa-handshake w-5 text-[#ECB138]"></i>
+                                <span class="ml-2 drop-shadow-md">Partner: Rotaract Philippines</span>
+                            </div>
+                        </div>
+
+                        <!-- Expand button -->
+                        <button onclick="toggleEvent('event2')" 
+                                class="inline-flex items-center gap-2 bg-white text-[#2B4692] font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition shadow-lg">
+                            <span id="event2-btn-text">View Full Details & Gallery</span>
+                            <i id="event2-icon" class="fas fa-chevron-down rotate-transition"></i>
+                        </button>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#2B4692] mb-4">
-                        ROTARACT X PURPOSE PINOY
-                    </h2>
-                    <p class="text-gray-600 text-base leading-relaxed mb-6">
-                        In partnership with Rotaract, we launched a community support initiative to provide micro-entrepreneurs and small business owners with resources and mentorship. This collaboration brought together young professionals and community members to foster economic empowerment and sustainable livelihoods in underserved areas.
-                    </p>
+                </div>
+            </div>
+
+            <!-- Expandable section -->
+            <div id="event2-details" class="hidden">
+                <div class="px-6 md:px-8 py-8">
                     
-                    <!-- Event Details -->
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center text-gray-700">
-                            <i class="fas fa-map-marker-alt w-6 text-[#2B4692]"></i>
-                            <span class="ml-2"><strong>Location:</strong> Local Community, Philippines</span>
-                        </div>
-                        <div class="flex items-center text-gray-700">
-                            <i class="fas fa-handshake w-6 text-[#2B4692]"></i>
-                            <span class="ml-2"><strong>Partner:</strong> Rotaract Philippines</span>
-                        </div>
+                    <!-- Description -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-[#2B4692] mb-3">About This Event</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            This collaboration brought together young professionals and community members to foster economic empowerment and sustainable livelihoods in underserved areas. We focused on building lasting relationships and providing practical business support.
+                        </p>
                     </div>
 
-                    <!-- Impact Stats -->
-                    <div class="bg-gray-50 rounded-lg p-6">
-                        <h3 class="font-bold text-[#2B4692] mb-3">Impact Highlights</h3>
-                        <ul class="space-y-2 text-gray-600">
+                    <!-- Impact -->
+                    <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                        <h3 class="font-bold text-[#2B4692] mb-4 text-lg">Impact Highlights</h3>
+                        <ul class="space-y-3 text-gray-600">
                             <li class="flex items-start">
-                                <span class="text-[#ECB138] mr-2">✓</span>
+                                <span class="text-[#ECB138] mr-3 text-xl">✓</span>
                                 <span>Supported local sari-sari store owners</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-[#ECB138] mr-2">✓</span>
+                                <span class="text-[#ECB138] mr-3 text-xl">✓</span>
                                 <span>Provided business mentorship and resources</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-[#ECB138] mr-2">✓</span>
+                                <span class="text-[#ECB138] mr-3 text-xl">✓</span>
                                 <span>Built lasting partnerships with community entrepreneurs</span>
                             </li>
                         </ul>
                     </div>
-                </div>
 
-                <!-- Image -->
-                <div class="order-2">
-                    <img src="/assets/images/rotaract1.png" 
-                         alt="ROTARACT X PURPOSE PINOY Event" 
-                         class="w-full h-auto rounded-xl shadow-lg">
+                    <!-- Photo Gallery -->
+                    <div>
+                        <h3 class="text-xl font-bold text-[#2B4692] mb-4">Photo Gallery</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <!-- Photo gallery -->
+                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event2', 0)">
+                                <img src="/assets/images/rotaract5.jpg" 
+                                     alt="Rotaract 1" 
+                                     class="w-full h-48 object-cover">
+                            </div>
+                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event2', 1)">
+                                <img src="/assets/images/rotaract2.jpg" 
+                                     alt="Rotaract 2" 
+                                     class="w-full h-48 object-cover">
+                            </div>
+                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event2', 2)">
+                                <img src="/assets/images/rotaract3.jpg" 
+                                     alt="Rotaract 3" 
+                                     class="w-full h-48 object-cover">
+                            </div>
+                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event2', 3)">
+                                <img src="/assets/images/rotaract4.jpg" 
+                                     alt="Rotaract 4" 
+                                     class="w-full h-48 object-cover">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Call to Action -->
-        <div class="bg-[#ECB138] rounded-2xl p-10 text-center shadow-lg">
-            <h2 class="text-3xl font-bold text-black mb-4">Want to be part of our next event?</h2>
-            <p class="text-black/80 mb-8 max-w-xl mx-auto">
-                Join us in making a difference! Stay updated on upcoming programs and volunteer opportunities.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/pages/programs.html"
-                    class="inline-block bg-[#2B4692] text-white font-bold py-3 px-8 rounded-full hover:bg-[#1e3470] transition duration-300 shadow-md">
-                    View Current Programs
-                </a>
-                <a href="/pages/get-involved.html"
-                    class="inline-block bg-white text-[#2B4692] font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 shadow-md">
-                    Get Involved
-                </a>
-            </div>
-        </div>
-
     </div>
+
+    <!-- Lightbox Model -->
+    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 z-10">
+            &times;
+        </button>
+        <button onclick="changeLightboxImage(-1)" class="absolute left-4 text-white text-4xl hover:text-gray-300 z-10">
+            &#10094;
+        </button>
+        <button onclick="changeLightboxImage(1)" class="absolute right-4 text-white text-4xl hover:text-gray-300 z-10">
+            &#10095;
+        </button>
+        <img id="lightbox-img" src="" alt="Event photo" class="max-w-[90%] max-h-[90vh] object-contain">
+    </div>
+
+
 
     <!-- Footer Component -->
     <div w3-include-html="/components/footer.html"></div>
 
-    <!-- Mobile Navbar Logic -->
+
+
+
+    <!-- JS part-->
     <script>
+        // Event expansion toggle
+        function toggleEvent(eventId) {
+            const details = document.getElementById(eventId + '-details');
+            const icon = document.getElementById(eventId + '-icon');
+            const btnText = document.getElementById(eventId + '-btn-text');
+            
+            if (details.classList.contains('hidden')) {
+                details.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+                btnText.textContent = 'Hide Details';
+            } else {
+                details.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+                btnText.textContent = 'View Full Details & Gallery';
+            }
+        }
+
+        // Lightbox functionality
+        let currentEventImages = [];
+        let currentImageIndex = 0;
+
+        function openLightbox(eventId, imageIndex) {
+            // Get all images from the specific event gallery
+            const eventGallery = document.querySelector(`#${eventId}-details .grid`);
+            if (!eventGallery) return;
+            
+            const images = eventGallery.querySelectorAll('img');
+            currentEventImages = Array.from(images).map(img => img.src);
+            currentImageIndex = imageIndex;
+            
+            document.getElementById('lightbox-img').src = currentEventImages[currentImageIndex];
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.getElementById('lightbox').classList.add('flex');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+            document.getElementById('lightbox').classList.remove('flex');
+        }
+
+        function changeLightboxImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = currentEventImages.length - 1;
+            if (currentImageIndex >= currentEventImages.length) currentImageIndex = 0;
+            
+            document.getElementById('lightbox-img').src = currentEventImages[currentImageIndex];
+        }
+
+        // Close lightbox on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+            if (e.key === 'ArrowRight') changeLightboxImage(1);
+        });
+
+        // Mobile Navbar
         w3.includeHTML(function () {
-            // MOBILE MENU LOGIC 
+            // Mobile menu 
             const btn = document.getElementById('mobile-menu-button');
             const menu = document.getElementById('mobile-menu');
 
@@ -184,7 +370,7 @@
                 });
             }
 
-            // MOBILE PROGRAMS DROPDOWN LOGIC
+            // Moblie program logic
             const mobileProgramsButton = document.getElementById('mobile-programs-button');
             const mobileProgramsSubmenu = document.getElementById('mobile-programs-submenu');
             const mobileProgramsIcon = document.getElementById('mobile-programs-icon');
@@ -203,15 +389,13 @@
                 mobileProgramsButton.addEventListener('touchstart', toggleDropdown, { passive: false });
             }
 
-            // ACTIVE LINK HIGHLIGHT LOGIC
+            // Active link highlight
             let currentPath = window.location.pathname;
 
             if (currentPath === '/') {
                 currentPath = '/index.html';
             }
-
             const navLinks = document.querySelectorAll('nav a');
-
             navLinks.forEach(link => {
                 const linkPath = link.getAttribute('href');
 
