@@ -4,19 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Involved - Purpose Pinoy</title>
-    <!-- External css po -->
-    <link rel="stylesheet" href="get-involved.css">
-
     <!-- Tailwind CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
     <!-- Tab Icon -->
     <link rel="icon" type="image/png" sizes="64x64" href="assets/images/Purpose Pinoy Logo .png">
-
-
     <!-- Scripts -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <script src="get-involved.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        section,
+        .content-area,
+        main {
+        font-family: 'Poppins', sans-serif;
+        }
+        nav {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            }
+        .envelope-card:hover .envelope-flap {
+            transform: translateY(-32px);
+        }
+        .envelope-card:hover .envelope-letter {
+            opacity: 1;
+            transform: translate(-50%, -48px);
+        }
+        .envelope-card.active .envelope-flap {
+            transform: translateY(-32px);
+        }
+        .envelope-card.active .envelope-letter {
+            opacity: 1;
+            transform: translate(-50%, -48px);
+        }
+    </style>
 
 </head>
 
@@ -331,6 +352,27 @@
 </section>
     <!-- Footer component po -->
     <div w3-include-html="../components/footer.html"></div>
+
+
+<!--Envelope logic-->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const envelopes = document.querySelectorAll('.envelope-card');
+    envelopes.forEach(envelope => {
+        envelope.addEventListener('click', function() {
+            this.classList.toggle('active');
+            envelopes.forEach(other => {
+                if (other !== this) {
+                    other.classList.remove('active');
+                }
+            });
+        });
+    });
+});
+</script>
+
+
+<!--Mobile logic-->
    <script>
     w3.includeHTML(function () {
         // MOBILE MENU LOGIC 
