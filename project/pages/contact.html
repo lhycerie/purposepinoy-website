@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +7,10 @@
 
     <!-- Tailwind CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
     <!-- Tab Icon -->
     <link rel="icon" type="image/png" sizes="64x64" href="../assets/images/Purpose Pinoy Logo .png">
@@ -28,6 +31,8 @@
     </style>
 </head>
 
+
+
 <body class="font-sans antialiased text-gray-800 relative min-h-screen">
 
     <!-- Blurred Background Layer -->
@@ -47,24 +52,37 @@
         <section class="pt-20">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center min-h-screen">
                 <!-- Left Side Box -->
-                <div class="px-8 md:px-16 py-20 bg-gray-50 flex flex-col justify-center order-2 lg:order-1 relative z-20 lg:mr-[-10%] shadow-2xl">
-                    <h1 class="text-6xl md:text-7xl font-black mb-6 leading-tight">
+                <div class="px-8 md:px-16 py-20 bg-gray-50 flex flex-col justify-center order-2 lg:order-1 relative z-20 lg:mr-[-10%] shadow-2xl"
+                     data-aos="fade-right"
+                     data-aos-duration="1000"
+                     data-aos-delay="200">
+                    <h1 class="text-6xl md:text-7xl font-black mb-6 leading-tight"
+                        data-aos="fade-up"
+                        data-aos-duration="800"
+                        data-aos-delay="400">
                        No question is <span class="text-[#EFB758]">too big</span> or  <span class="text-[#C24229]">too small.</span>
                     </h1>
-                    <p class="text-xl text-gray-600 leading-relaxed mb-12 max-w-md">
+                    <p class="text-xl text-gray-600 leading-relaxed mb-12 max-w-md"
+                       data-aos="fade-up"
+                       data-aos-duration="800"
+                       data-aos-delay="600">
                         Have a question about volunteering, donating, or partnering with us? Don't be shy. We'd love to hear from you!
                     </p>
                     
                     <div class="space-y-6 mb-12">
-                        <div>
+                        <div data-aos="fade-up"
+                             data-aos-duration="800"
+                             data-aos-delay="800">
                             <h3 class="text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Email</h3>
-                            <a href="mailto:hello@purposepinoy.ph" class="text-lg text-[#2B4692] font-semibold hover:text-[#941B12] transition">
+                            <a href="mailto:tech@purposepinoy.org" class="text-lg text-[#2B4692] font-semibold hover:text-[#941B12] transition">
                                tech@purposepinoy.org
                             </a>
                         </div>
-                        <div>
+                        <div data-aos="fade-up"
+                             data-aos-duration="800"
+                             data-aos-delay="1000">
                             <h3 class="text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Phone</h3>
-                            <a href="tel:+639123456789" class="text-lg text-[#2B4692] font-semibold hover:text-[#941B12] transition">
+                            <a href="tel:+639984151108" class="text-lg text-[#2B4692] font-semibold hover:text-[#941B12] transition">
                                 +63 998 415 1108
                             </a>
                         </div>
@@ -72,7 +90,10 @@
                 </div>
 
                 <!-- Image (Right side and behind main text) -->
-                <div class="h-full bg-gradient-to-b from-gray-200 to-gray-300 relative overflow-hidden order-1 lg:order-2 min-h-96 lg:min-h-full flex items-center justify-center z-10">
+                <div class="h-full bg-gradient-to-b from-gray-200 to-gray-300 relative overflow-hidden order-1 lg:order-2 min-h-96 lg:min-h-full flex items-center justify-center z-10"
+                     data-aos="fade-left"
+                     data-aos-duration="1000"
+                     data-aos-delay="200">
                     <img src="/assets/images/contactus.jpg" alt="Team collaboration" class="w-full h-full object-cover">
                 </div>
             </div>
@@ -81,59 +102,95 @@
         <!-- Contact Form -->
         <section id="contact-form" class="py-20 px-4 bg-white">
             <div class="max-w-2xl mx-auto">
-                <div class="mb-12 text-center">
+                <div class="mb-12 text-center"
+                     data-aos="fade-down"
+                     data-aos-duration="800">
                     <h2 class="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
                     <p class="text-gray-600">Fill out the form below and we'll respond within 2 business days.</p>
                 </div>
 
-                <form class="space-y-6 bg-gray-50 p-8 rounded-xl">
+                <form class="space-y-6 bg-gray-50 p-8 rounded-xl"
+                      data-aos="fade-up"
+                      data-aos-duration="1000"
+                      data-aos-delay="200">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
+                        <div data-aos="fade-right"
+                             data-aos-duration="600"
+                             data-aos-delay="400">
                             <label class="block text-gray-900 font-semibold mb-2">First Name *</label>
                             <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="Juan">
                         </div>
-                        <div>
+                        <div data-aos="fade-left"
+                             data-aos-duration="600"
+                             data-aos-delay="400">
                             <label class="block text-gray-900 font-semibold mb-2">Last Name *</label>
                             <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="Dela Cruz">
                         </div>
                     </div>
 
-                    <div>
+                    <div data-aos="fade-up"
+                         data-aos-duration="600"
+                         data-aos-delay="500">
                         <label class="block text-gray-900 font-semibold mb-2">Email Address *</label>
                         <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="juan@example.com">
                     </div>
 
-                    <div>
+                    <div data-aos="fade-up"
+                         data-aos-duration="600"
+                         data-aos-delay="600">
                         <label class="block text-gray-900 font-semibold mb-2">Phone Number</label>
                         <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="+63 912 345 6789">
                     </div>
 
-                    <div>
+                    <div data-aos="fade-up"
+                         data-aos-duration="600"
+                         data-aos-delay="700">
                         <label class="block text-gray-900 font-semibold mb-2">Message *</label>
                         <textarea rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="Tell us more about your inquiry..."></textarea>
                     </div>
 
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3"
+                         data-aos="fade-up"
+                         data-aos-duration="600"
+                         data-aos-delay="800">
                         <input type="checkbox" id="newsletter" class="w-4 h-4 cursor-pointer">
                         <label for="newsletter" class="text-gray-700 cursor-pointer">Keep me updated about Purpose Pinoy</label>
                     </div>
 
-                    <button type="submit" class="w-full bg-[#2B4692] text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition text-lg cursor-pointer">
+                    <button type="submit" 
+                            class="w-full bg-[#2B4692] text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition text-lg cursor-pointer"
+                            data-aos="zoom-in"
+                            data-aos-duration="600"
+                            data-aos-delay="900">
                         Send Message
                     </button>
                 </form>
             </div>
         </section>
-
         <!-- FOOTER COMPONENT -->
         <div w3-include-html="../components/footer.html"></div>
     </div>
+    
+
+
+
+
+
+    <!--JS-->
     <script>
+    //scroll animation
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+    });
     w3.includeHTML(function () {
+        // Refresh animation after components load
+        AOS.refresh();
         // MOBILE MENU LOGIC 
         const btn = document.getElementById('mobile-menu-button');
         const menu = document.getElementById('mobile-menu');
-
         if (btn && menu) {
             btn.addEventListener('click', () => {
                 menu.classList.toggle('hidden');
@@ -144,7 +201,6 @@
         const mobileProgramsButton = document.getElementById('mobile-programs-button');
         const mobileProgramsSubmenu = document.getElementById('mobile-programs-submenu');
         const mobileProgramsIcon = document.getElementById('mobile-programs-icon');
-        
         if (mobileProgramsButton && mobileProgramsSubmenu) {
             const toggleDropdown = (e) => {
                 e.preventDefault();
@@ -154,23 +210,19 @@
                     mobileProgramsIcon.classList.toggle('rotate-180');
                 }
             };
-
             mobileProgramsButton.addEventListener('click', toggleDropdown);
             mobileProgramsButton.addEventListener('touchstart', toggleDropdown, { passive: false });
         }
 
+
         // ACTIVE LINK HIGHLIGHT LOGIC
         let currentPath = window.location.pathname;
-
         if (currentPath === '/') {
             currentPath = '/index.html';
         }
-
         const navLinks = document.querySelectorAll('nav a');
-
         navLinks.forEach(link => {
             const linkPath = link.getAttribute('href');
-
             if (linkPath === currentPath) {
                 if (!link.classList.contains('bg-blue-600')) {
                     link.classList.add('text-blue-600', 'font-bold');
@@ -184,5 +236,4 @@
     });
 </script>
 </body>
-
 </html>
