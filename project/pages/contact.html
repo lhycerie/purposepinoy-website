@@ -16,9 +16,14 @@
     <script src="https://www.w3schools.com/lib/w3.js"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        section,
+        .content-area,
+        main {
+        font-family: 'Poppins', sans-serif;
+        }
+        nav {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
     </style>
 </head>
@@ -28,7 +33,7 @@
     <!-- Blurred Background Layer -->
     <div class="fixed inset-0 z-0">
         <!-- Background image -->
-        <div class="absolute inset-0 bg-[url('../assets/images/contactusbg.jpg')] bg-cover bg-center blur-xs"></div>
+        <div class="absolute inset-0 bg-[url('/assets/images/contactusbg.jpg')] bg-cover bg-center blur-xs"></div>
         <!-- color overlay -->
         <div class="absolute inset-0 bg-[#17395C] opacity-75"></div>
     </div>
@@ -36,8 +41,8 @@
     <!-- Main Content -->
     <div class="relative z-10">
         <!-- NAVBAR COMPONENT -->
-        <div w3-include-html="../components/navbar.html"></div>
-
+        <div w3-include-html="/components/navbar.html"></div>
+ 
         <!-- Hero Section -->
         <section class="pt-20">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center min-h-screen">
@@ -68,7 +73,7 @@
 
                 <!-- Image (Right side and behind main text) -->
                 <div class="h-full bg-gradient-to-b from-gray-200 to-gray-300 relative overflow-hidden order-1 lg:order-2 min-h-96 lg:min-h-full flex items-center justify-center z-10">
-                    <img src="../assets/images/contactus.jpg" alt="Team collaboration" class="w-full h-full object-cover">
+                    <img src="/assets/images/contactus.jpg" alt="Team collaboration" class="w-full h-full object-cover">
                 </div>
             </div>
         </section>
@@ -124,8 +129,60 @@
         <div w3-include-html="../components/footer.html"></div>
     </div>
     <script>
-        w3.includeHTML();
-    </script>
+    w3.includeHTML(function () {
+        // MOBILE MENU LOGIC 
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+
+        // MOBILE PROGRAMS DROPDOWN LOGIC
+        const mobileProgramsButton = document.getElementById('mobile-programs-button');
+        const mobileProgramsSubmenu = document.getElementById('mobile-programs-submenu');
+        const mobileProgramsIcon = document.getElementById('mobile-programs-icon');
+        
+        if (mobileProgramsButton && mobileProgramsSubmenu) {
+            const toggleDropdown = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                mobileProgramsSubmenu.classList.toggle('hidden');
+                if (mobileProgramsIcon) {
+                    mobileProgramsIcon.classList.toggle('rotate-180');
+                }
+            };
+
+            mobileProgramsButton.addEventListener('click', toggleDropdown);
+            mobileProgramsButton.addEventListener('touchstart', toggleDropdown, { passive: false });
+        }
+
+        // ACTIVE LINK HIGHLIGHT LOGIC
+        let currentPath = window.location.pathname;
+
+        if (currentPath === '/') {
+            currentPath = '/index.html';
+        }
+
+        const navLinks = document.querySelectorAll('nav a');
+
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href');
+
+            if (linkPath === currentPath) {
+                if (!link.classList.contains('bg-blue-600')) {
+                    link.classList.add('text-blue-600', 'font-bold');
+                    link.classList.remove('text-gray-600');
+                }
+                if (link.classList.contains('bg-blue-600')) {
+                    link.classList.add('ring-2', 'ring-offset-2', 'ring-blue-600');
+                }
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

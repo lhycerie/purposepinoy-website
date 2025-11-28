@@ -13,19 +13,20 @@
     <!-- Tab Icon -->
     <link rel="icon" type="image/png" sizes="64x64" href="assets/images/Purpose Pinoy Logo .png">
 
+
     <!-- Scripts -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <script src="get-involved.js"></script>
 
 </head>
 
-<body class="bg-gray-50 font-sans antialiased text-gray-800">
+<body class="bg-gray-50 antialiased text-gray-800">
 
     <!-- NAVBAR COMPONENT -->
-    <div w3-include-html="../components/navbar.html"></div>
+    <div w3-include-html="/components/navbar.html"></div>
 
     <!-- Hero Section -->
-<section class="h-[60vh] flex items-center justify-center mt-20 bg-[#17395C] relative overflow-hidden">
+<section class="h-[60vh] flex items-center justify-center bg-[#17395C] relative overflow-hidden">
     <!-- Background Image -->
 <div class="absolute inset-0 z-0">
     <img src="../assets/images/getinvolvedbg.jpg" alt="Background" class="w-full h-full object-cover opacity-40">
@@ -98,8 +99,6 @@
         </div>
     </div>
 </section>
-
-
 
 
 <!-- Member Categories Section -->
@@ -332,9 +331,61 @@
 </section>
     <!-- Footer component po -->
     <div w3-include-html="../components/footer.html"></div>
-    <script>
-        w3.includeHTML();
-    </script>
+   <script>
+    w3.includeHTML(function () {
+        // MOBILE MENU LOGIC 
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+
+        // MOBILE PROGRAMS DROPDOWN LOGIC
+        const mobileProgramsButton = document.getElementById('mobile-programs-button');
+        const mobileProgramsSubmenu = document.getElementById('mobile-programs-submenu');
+        const mobileProgramsIcon = document.getElementById('mobile-programs-icon');
+        
+        if (mobileProgramsButton && mobileProgramsSubmenu) {
+            const toggleDropdown = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                mobileProgramsSubmenu.classList.toggle('hidden');
+                if (mobileProgramsIcon) {
+                    mobileProgramsIcon.classList.toggle('rotate-180');
+                }
+            };
+
+            mobileProgramsButton.addEventListener('click', toggleDropdown);
+            mobileProgramsButton.addEventListener('touchstart', toggleDropdown, { passive: false });
+        }
+
+        // ACTIVE LINK HIGHLIGHT LOGIC
+        let currentPath = window.location.pathname;
+
+        if (currentPath === '/') {
+            currentPath = '/index.html';
+        }
+
+        const navLinks = document.querySelectorAll('nav a');
+
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href');
+
+            if (linkPath === currentPath) {
+                if (!link.classList.contains('bg-blue-600')) {
+                    link.classList.add('text-blue-600', 'font-bold');
+                    link.classList.remove('text-gray-600');
+                }
+                if (link.classList.contains('bg-blue-600')) {
+                    link.classList.add('ring-2', 'ring-offset-2', 'ring-blue-600');
+                }
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
