@@ -12,167 +12,229 @@
     <!-- Tab Icon -->
     <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/Purpose Pinoy Logo .png">
 
-    <!-- Scripts -->
-    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <!-- FONTS: DM Serif Display & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Scripts -->
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+
+    <style>
+        h1,
+        h2,
+        h3,
+        .font-heading {
+            font-family: 'DM Serif Display', serif;
+            letter-spacing: 0.05em;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .stamp-border {
+            border: 8px solid white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
 </head>
 
-<!-- 
-    TODO LIST:
-    [ ] Standardize fonts to Brand Kit 
-    [ ] Standardize page layouts
-    [ ] Add AOS Scroll Animations
-    [ ] Add "Partners" logo strip (Home/About)
-    [ ] Add FAQ Section
--->
 
-<body class="bg-gray-50 font-sans antialiased text-gray-800">
+<body class="bg-[#FDFBF7] text-gray-800 flex flex-col min-h-screen">
 
+    <!-- NAVBAR COMPONENT -->
     <div w3-include-html="/components/navbar.html"></div>
 
-    <!-- Hero Section -->
-    <!-- <section class="relative h-[55vh] flex items-center justify-center">
+    <!-- 1. HERO SECTION -->
+    <section class="relative h-[90vh] flex items-center justify-center overflow-hidden">
 
-        <div class="absolute inset-0 overflow-hidden">
-            <img src="assets/images/image.webp" alt="Background" class="w-full h-full object-cover">
+        <div class="absolute inset-0">
+            <img src="https://plus.unsplash.com/premium_photo-1670552851020-5bfb7d0cadf7?q=80&w=1315&auto=format&fit=crop"
+                alt="Hero Background" class="w-full h-full object-cover brightness-70">
+            <!-- <div class="absolute inset-0 bg-gradient-to-t from-[#17395C]/80 via-transparent to-transparent"></div> -->
         </div>
 
-        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto text-gray-700 bg-white h-full rounded-sm w-[100%]">
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto text-white" data-aos="zoom-in">
+            <!-- <div class="inline-block border-b-4 border-[#ECB138] pb-2 mb-4">
+                <span class="uppercase tracking-[0.2em] text-sm font-bold text-[#ECB138]">Est. 2025 • Manila</span>
+            </div> -->
 
-            <div class="justify-center flex p-8">
-                <img class="h-52" src="/assets/images/Purpose Pinoy Logo .png">
-            </div>
-
-            <h1 class="text-2xl font-extrabold tracking-tight mb-6 leading-tight">
-                Purpose Pinoy: Igniting
-                Entrepreneurship, <span class="text-[#ECB138]">Breaking the Cycle.</span>
+            <h1 class="text-5xl md:text-6xl mb-6 leading-tight drop-shadow-lg">
+                Purpose Pinoy: Igniting <br>
+                <span class="text-[#ECB138] italic">Entrepreneurship.</span>
             </h1>
 
-            <a href="/pages/get-involved.html"
-                class="inline-block bg-[#ECB138] text-black font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:bg-yellow-400 hover:scale-105 transition transform duration-300">
-                Start Your Impact
-            </a>
-        </div>
-    </section> -->
-    <section class="relative h-[85vh] flex items-center justify-center">
-
-        <div class="absolute inset-0 overflow-hidden">
-            <img src="https://plus.unsplash.com/premium_photo-1670552851020-5bfb7d0cadf7?q=80&w=1315&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dauto=format&fit=crop"
-                alt="Hero Background" class="w-full h-full object-cover brightness-60 blur-xs">
-        </div>
-
-        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto text-white">
-
-            <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-                Purpose Pinoy: Igniting
-                Entrepreneurship, <span class="text-[#ECB138]">Breaking the Cycle.</span>
-            </h1>
-
-            <p class="text-lg md:text-2xl mb-10 font-light text-gray-200">
-                Join the Movement. Start Your Impact. Find Your Purpose.
+            <p class="text-lg md:text-xl mb-10 font-light text-gray-100 max-w-3xl mx-auto">
+                Breaking the cycle of poverty through innovation, enterprise, and youth leadership.
             </p>
 
-            <a href="/pages/get-involved.html"
-                class="inline-block bg-[#ECB138] text-black font-bold text-base md:text-lg px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:bg-yellow-400 hover:scale-105 transition transform duration-300">
-                Start Your Impact
-            </a>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center ">
+                <a href="/pages/get-involved.html"
+                    class="inline-block bg-[#ECB138] text-[#17395C] font-bold text-lg px-7 py-3 rounded shadow-lg hover:bg-white transition transform hover:-translate-y-1">
+                    Start Your Impact
+                </a>
+                <a href="/pages/about.html"
+                    class="inline-block border-2 border-white text-white font-bold text-lg px-7 py-3 rounded hover:bg-white hover:text-[#17395C] transition transform hover:-translate-y-1">
+                    Read Our Story
+                </a>
+            </div>
         </div>
     </section>
 
-    <section class="py-20 px-4 bg-white">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <!-- TODO: Add counting animation -->
+    <!-- 2. IMPACT COUNTER -->
+    <section id="impact-counter"
+        class="relative z-20 -mt-12 md:-mt-24 w-full bg-[#17395C] py-9 text-white border-b-8 border-[#A62924] shadow-2xl"
+        data-aos="fade-up">
+        <div
+            class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-blue-800/50">
 
-            <div>
-                <h2 class="text-[#2B4692] font-bold text-sm uppercase tracking-widest mb-2">Who We Are</h2>
-                <h3 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Igniting Entrepreneurship To Break the
-                    Cycle of Poverty</h3>
+            <div class="p-2">
+                <div class="text-3xl md:text-5xl font-heading text-[#ECB138] mb-1">
+                    <span class="count-up" data-target="143">42</span>
+                </div>
+                <div class="text-[10px] md:text-sm font-bold uppercase tracking-widest opacity-80">Families Helped</div>
+            </div>
+
+            <div class="p-2">
+                <div class="text-3xl md:text-5xl font-heading text-[#ECB138] mb-1">
+                    ₱<span class="count-up" data-target="143">8,512</span>
+                </div>
+                <div class="text-[10px] md:text-sm font-bold uppercase tracking-widest opacity-80">Funds Raised</div>
+            </div>
+
+            <div class="p-2">
+                <div class="text-3xl md:text-5xl font-heading text-[#ECB138] mb-1">
+                    <span class="count-up" data-target="6767">543</span>
+                </div>
+                <div class="text-[10px] md:text-sm font-bold uppercase tracking-widest opacity-80">Volunteers</div>
+            </div>
+
+            <div class="p-2">
+                <div class="text-3xl md:text-5xl font-heading text-[#ECB138] mb-1">
+                    <span class="count-up" data-target="69">12</span>
+                </div>
+                <div class="text-[10px] md:text-sm font-bold uppercase tracking-widest opacity-80">Cities Reached</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. WHO WE ARE -->
+    <section class="py-24 px-4 bg-[#FDFBF7]">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+            <div data-aos="fade-right">
+                <span class="text-[#A62924] font-bold text-sm uppercase tracking-widest mb-2 block">Our Mission</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-[#17395C] leading-tight">
+                    Igniting Entrepreneurship To Break the Cycle.
+                </h2>
 
                 <p class="text-lg leading-relaxed text-gray-600 mb-6">
-                    Hey <strong>[TBD]</strong>! Welcome to Purpose Pinoy. We are a dynamic youth movement with a
-                    singular mission: to empower the next generation of Filipinos to be catalysts of economic change.
+                    Welcome to <strong>Purpose Pinoy</strong>. We are a dynamic youth movement with a singular mission:
+                    to empower the next generation of Filipinos to be catalysts of economic change.
                 </p>
                 <p class="text-lg leading-relaxed text-gray-600 mb-8">
                     We believe that poverty is a challenge best fought with innovation and enterprise. We focus on
-                    igniting entrepreneurship to directly break the cycle of poverty in our communities. Ready to turn
-                    your big ideas into real-world impact?
+                    igniting entrepreneurship to directly break the cycle of poverty in our communities.
                 </p>
 
-                <a href="/pages/get-involved.html"
-                    class="inline-block bg-[#941B12] text-white font-bold px-8 py-3 rounded shadow-lg transition-all duration-300 transform hover:bg-red-700 hover:scale-105 hover:-translate-y-1 hover:shadow-xl">
-                    Ignite Change: Volunteer or Partner
+                <a href="/pages/about.html"
+                    class="inline-block text-[#A62924] font-bold border-b-2 border-[#A62924] pb-1 hover:text-[#17395C] hover:border-[#17395C] transition">
+                    Learn more about us &rarr;
                 </a>
             </div>
 
-            <div class="relative">
-                <div class="absolute -inset-4 bg-[#ECB138] rounded-lg opacity-20 transform rotate-3"></div>
+            <div class="relative" data-aos="fade-left">
+                <div class="absolute -bottom-6 -right-6 w-full h-full border-4 border-[#ECB138] rounded-lg"></div>
                 <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1932&auto=format&fit=crop"
-                    alt="Purpose Pinoy Team" class="relative rounded-lg shadow-xl w-full h-auto object-cover">
+                    alt="Purpose Pinoy Team"
+                    class="relative stamp-border rounded-lg w-full h-auto object-cover transform rotate-2 hover:rotate-0 transition duration-500">
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4">
+    <!-- 4. HIGHLIGHTS SECTION -->
+    <section class="py-24 bg-white relative">
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#17395C] via-[#A62924] to-[#ECB138]"></div>
 
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-[#2B4692]">Upcoming Highlights</h2>
-                <p class="text-gray-600 mt-2">See how we are making a difference this season.</p>
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-[#17395C]">Upcoming Highlights</h2>
+                <p class="text-gray-500 mt-4 text-lg font-serif italic">See how we are making a difference this season.
+                </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-                <div
-                    class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
-                    <div class="h-48 bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1701186280075-89b0e7b01b39?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            class="w-full h-full object-cover" alt="Thrift for Good">
+                <!-- Card 1 -->
+                <div class="group bg-[#FDFBF7] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 flex flex-col border border-gray-100"
+                    data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1701186280075-89b0e7b01b39?q=80&w=600&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                            alt="Thrift">
+                        <div
+                            class="absolute top-4 left-4 bg-[#ECB138] text-[#17395C] text-xs font-bold px-3 py-1 uppercase tracking-wider rounded">
+                            Partnership</div>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <span class="text-xs font-bold text-[#ECB138] uppercase mb-2">Partnership</span>
-                        <h3 class="text-xl font-bold mb-3 text-gray-900">Thrift for Good & The HOPE Foundation</h3>
-                        <p class="text-gray-600 text-sm mb-4 flex-1">
-                            Combining sustainable fashion with community impact. We organize thrift trips to raise funds
-                            and host "free shopping" events for women healing from trauma.
-                        </p>
-                        <a href="/pages/programs.html" class="text-[#2B4692] font-bold hover:underline mt-auto">Read
-                            More &rarr;</a>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
-                    <div class="h-48 bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1512909481869-0eaa1e9817ba?q=80&w=2070&auto=format&fit=crop"
-                            class="w-full h-full object-cover" alt="Toy Drive">
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <span class="text-xs font-bold text-[#941B12] uppercase mb-2">Outreach</span>
-                        <h3 class="text-xl font-bold mb-3 text-gray-900">Street Children Christmas Toy Drive</h3>
-                        <p class="text-gray-600 text-sm mb-4 flex-1">
-                            Spread joy this December! A hands-on initiative bringing toys and festive cheer to street
-                            children across selected locations using funds from our thrift program.
-                        </p>
-                        <a href="/pages/programs.html" class="text-[#2B4692] font-bold hover:underline mt-auto">Read
-                            More &rarr;</a>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-2xl font-bold mb-3 text-[#17395C] leading-tight">Thrift for Good</h3>
+                        <p class="text-gray-600 mb-6 flex-1">Combining sustainable fashion with community impact to
+                            raise funds for women healing from trauma.</p>
+                        <a href="/pages/programs.html" class="text-[#A62924] font-bold group-hover:underline">Read More
+                            &rarr;</a>
                     </div>
                 </div>
 
-                <div
-                    class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
-                    <div class="h-48 bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop"
-                            class="w-full h-full object-cover" alt="Relief">
+                <!-- Card 2 -->
+                <div class="group bg-[#FDFBF7] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 flex flex-col border border-gray-100"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1512909481869-0eaa1e9817ba?q=80&w=600&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                            alt="Toy Drive">
+                        <div
+                            class="absolute top-4 left-4 bg-[#A62924] text-white text-xs font-bold px-3 py-1 uppercase tracking-wider rounded">
+                            Outreach</div>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <span class="text-xs font-bold text-[#2B4692] uppercase mb-2">Relief Ops</span>
-                        <h3 class="text-xl font-bold mb-3 text-gray-900">Red Cross PH - Typhoon Relief</h3>
-                        <p class="text-gray-600 text-sm mb-4 flex-1">
-                            Collaborating with Red Cross Philippines in Mandaluyong to provide essential food items and
-                            hygiene kits to families affected by recent typhoons.
-                        </p>
-                        <a href="/pages/programs.html" class="text-[#2B4692] font-bold hover:underline mt-auto">Read
-                            More &rarr;</a>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-2xl font-bold mb-3 text-[#17395C] leading-tight">Christmas Toy Drive</h3>
+                        <p class="text-gray-600 mb-6 flex-1">A hands-on initiative bringing toys and festive cheer to
+                            street children across selected locations.</p>
+                        <a href="/pages/programs.html" class="text-[#A62924] font-bold group-hover:underline">Read More
+                            &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group bg-[#FDFBF7] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 flex flex-col border border-gray-100"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=600&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                            alt="Relief">
+                        <div
+                            class="absolute top-4 left-4 bg-[#17395C] text-white text-xs font-bold px-3 py-1 uppercase tracking-wider rounded">
+                            Relief Ops</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-2xl font-bold mb-3 text-[#17395C] leading-tight">Typhoon Relief</h3>
+                        <p class="text-gray-600 mb-6 flex-1">Collaborating with Red Cross PH to provide essential food
+                            items and hygiene kits to affected families.</p>
+                        <a href="/pages/programs.html" class="text-[#A62924] font-bold group-hover:underline">Read More
+                            &rarr;</a>
                     </div>
                 </div>
 
@@ -180,44 +242,195 @@
         </div>
     </section>
 
-    <!-- Footer Component -->
+    <!-- 5. PARTNERS STRIP -->
+    <!-- <section class="relative py-12 bg-[#E1DBC9]">
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#17395C] via-[#A62924] to-[#ECB138]"></div>
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-[#795950] text-sm font-bold uppercase tracking-[0.2em] mb-10">Trusted by our Partners</p>
+            <div
+                class="flex flex-wrap justify-center items-center gap-8 md:gap-20 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                <svg class="h-10 md:h-16 w-auto" viewBox="0 0 215 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M20 0C25.3043 4.00466e-07 30.3919 2.10669 34.1426 5.85742C34.8157 6.53058 35.4354 7.24719 36 8H20C16.8174 8 13.7651 9.26421 11.5146 11.5146C9.26421 13.7651 8 16.8174 8 20H20L36.9102 9.31934C38.1656 11.3074 39.0611 13.5027 39.5547 15.8027L32 20H40L39.9941 20.4971C39.8669 25.6213 37.776 30.5092 34.1426 34.1426C30.3919 37.8933 25.3043 40 20 40C14.6957 40 9.60815 37.8933 5.85742 34.1426C5.18426 33.4694 4.56459 32.7528 4 32H20C23.1826 32 26.2349 30.7358 28.4854 28.4854C30.5952 26.3755 31.8383 23.5608 31.9854 20.5947L32 20H20L3.08984 30.6787C1.83452 28.6906 0.941002 26.4951 0.447266 24.1953L8 20H0C8.00931e-07 14.6957 2.1067 9.60815 5.85742 5.85742C9.60815 2.1067 14.6957 -5.79361e-10 20 0Z"
+                        fill="#0094F7"></path>
+                    <path
+                        d="M92.2744 30.4434C93.2144 32.2056 95.0286 33.3154 97.3672 33.3154C99.7055 33.3152 101.519 32.2055 102.459 30.4434H105.977C104.813 33.9648 101.583 36.3191 97.3672 36.3193C93.1509 36.3193 89.9205 33.9649 88.7568 30.4434H92.2744Z"
+                        fill="#003253"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M143.503 11.7598C148.863 11.7598 152.618 15.4468 152.618 20.7383C152.618 26.3371 148.453 29.5127 144.049 29.5127C141.318 29.5126 138.997 28.2833 137.768 26.0986V36.2715H134.524V20.7725C134.524 15.2761 138.28 11.7598 143.503 11.7598ZM143.537 14.7637C140.089 14.7637 137.768 17.222 137.768 20.6357C137.768 24.0496 140.089 26.5078 143.537 26.5078C147.019 26.5078 149.341 24.0497 149.341 20.6357C149.341 17.2219 147.019 14.7637 143.537 14.7637Z"
+                        fill="#003253"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M78.0586 11.7598C83.3842 11.7598 87.1395 15.515 87.1396 20.6357C87.1396 25.7566 83.3843 29.5127 78.0586 29.5127C72.7329 29.5127 68.9775 25.7566 68.9775 20.6357C68.9777 15.515 72.7329 11.7598 78.0586 11.7598ZM78.0586 14.7637C74.5765 14.7637 72.255 17.2219 72.2549 20.6357C72.2549 24.0497 74.5764 26.5078 78.0586 26.5078C81.5408 26.5078 83.8623 24.0497 83.8623 20.6357C83.8622 17.2219 81.5407 14.7637 78.0586 14.7637Z"
+                        fill="#003253"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M97.7266 11.7676H106.548V14.668H104.273C105.651 16.2132 106.448 18.2793 106.448 20.6357C106.448 25.7565 102.693 29.5125 97.3672 29.5127C92.0415 29.5127 88.2861 25.7566 88.2861 20.6357C88.2863 15.515 92.0415 11.7598 97.3672 11.7598C97.4878 11.7598 97.6076 11.7637 97.7266 11.7676ZM97.3672 14.7637C93.8851 14.7637 91.5636 17.2219 91.5635 20.6357C91.5635 24.0497 93.885 26.5078 97.3672 26.5078C100.849 26.5076 103.17 24.0495 103.17 20.6357C103.17 17.2221 100.849 14.7639 97.3672 14.7637Z"
+                        fill="#003253"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M116.675 11.7598C122 11.7598 125.756 15.515 125.756 20.6357C125.756 25.7566 122.001 29.5127 116.675 29.5127C111.349 29.5127 107.594 25.7566 107.594 20.6357C107.594 15.515 111.349 11.7598 116.675 11.7598ZM116.675 14.7637C113.193 14.7637 110.871 17.2219 110.871 20.6357C110.871 24.0497 113.193 26.5078 116.675 26.5078C120.157 26.5078 122.479 24.0497 122.479 20.6357C122.478 17.2219 120.157 14.7637 116.675 14.7637Z"
+                        fill="#003253"></path>
+                    <path
+                        d="M160.816 11.7598C164.845 11.7599 167.337 14.0475 167.405 16.9492H164.195C164.093 15.652 162.899 14.6955 160.851 14.6953C158.7 14.6953 157.471 15.7203 157.471 17.0518C157.471 18.6559 159.246 18.8265 161.328 19.0996C164.264 19.4751 167.848 20.0215 167.849 23.8789C167.849 27.2927 165.084 29.5125 160.851 29.5127C156.617 29.5127 153.954 27.259 153.852 24.1865H157.129C157.197 25.5862 158.495 26.5762 160.851 26.5762C163.308 26.576 164.571 25.5179 164.571 24.1865C164.571 22.582 162.796 22.3766 160.68 22.1035C157.744 21.728 154.193 21.182 154.193 17.3242C154.193 14.0128 156.788 11.7598 160.816 11.7598Z"
+                        fill="#003253"></path>
+                    <path
+                        d="M172.983 21.0107C172.983 24.6637 174.998 26.5078 178.07 26.5078C181.143 26.5078 183.157 24.6636 183.157 21.0107V12.2031H186.4V21.0107C186.4 26.6096 183.055 29.5117 178.07 29.5117C173.086 29.5117 169.74 26.6437 169.74 21.0107V12.2031H172.983V21.0107Z"
+                        fill="#003253"></path>
+                    <path d="M55.4824 25.8594H68.0117V29.0684H52V6.74121H55.4824V25.8594Z" fill="#003253"></path>
+                    <path d="M131.442 29.0684H128.199V12.2031H131.442V29.0684Z" fill="#003253"></path>
+                    <path
+                        d="M207.76 11.7598C211.72 11.7598 214.725 14.1496 214.725 19.3047V29.0684H211.481V19.3047C211.481 16.1641 209.809 14.7638 207.453 14.7637C205.166 14.7637 203.458 16.2321 203.458 19.3047V29.0684H200.215V19.3047C200.215 16.2321 198.474 14.7637 196.187 14.7637C193.831 14.7638 192.158 16.164 192.158 19.3047V29.0684H188.915V19.3047C188.915 14.1496 191.92 11.7598 195.88 11.7598C198.474 11.7599 200.659 12.9207 201.819 15.1055C202.98 12.9206 205.131 11.7598 207.76 11.7598Z"
+                        fill="#003253"></path>
+                    <path
+                        d="M129.804 5C131.101 5 132.057 5.95577 132.058 7.25293C132.058 8.55023 131.101 9.54102 129.804 9.54102C128.507 9.54088 127.551 8.55014 127.551 7.25293C127.551 5.95586 128.507 5.00013 129.804 5Z"
+                        fill="#003253"></path>
+                </svg>
+                <svg class="h-10 md:h-16 w-auto" viewBox="0 0 215 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M20 0C25.3043 4.00466e-07 30.3919 2.10669 34.1426 5.85742C34.8157 6.53058 35.4354 7.24719 36 8H20C16.8174 8 13.7651 9.26421 11.5146 11.5146C9.26421 13.7651 8 16.8174 8 20H20L36.9102 9.31934C38.1656 11.3074 39.0611 13.5027 39.5547 15.8027L32 20H40L39.9941 20.4971C39.8669 25.6213 37.776 30.5092 34.1426 34.1426C30.3919 37.8933 25.3043 40 20 40C14.6957 40 9.60815 37.8933 5.85742 34.1426C5.18426 33.4694 4.56459 32.7528 4 32H20C23.1826 32 26.2349 30.7358 28.4854 28.4854C30.5952 26.3755 31.8383 23.5608 31.9854 20.5947L32 20H20L3.08984 30.6787C1.83452 28.6906 0.941002 26.4951 0.447266 24.1953L8 20H0C8.00931e-07 14.6957 2.1067 9.60815 5.85742 5.85742C9.60815 2.1067 14.6957 -5.79361e-10 20 0Z"
+                        fill="#0094F7"></path>
+                    <path
+                        d="M92.2744 30.4434C93.2144 32.2056 95.0286 33.3154 97.3672 33.3154C99.7055 33.3152 101.519 32.2055 102.459 30.4434H105.977C104.813 33.9648 101.583 36.3191 97.3672 36.3193C93.1509 36.3193 89.9205 33.9649 88.7568 30.4434H92.2744Z"
+                        fill="#003253"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M143.503 11.7598C148.863 11.7598 152.618 15.4468 152.618 20.7383C152.618 26.3371 148.453 29.5127 144.049 29.5127C141.318 29.5126 138.997 28.2833 137.768 26.0986V36.2715H134.524V20.7725C134.524 15.2761 138.28 11.7598 143.503 11.7598ZM143.537 14.7637C140.089 14.7637 137.768 17.222 137.768 20.6357C137.768 24.0496 140.089 26.5078 143.537 26.5078C147.019 26.5078 149.341 24.0497 149.341 20.6357C149.341 17.2219 147.019 14.7637 143.537 14.7637Z"
+                        fill="#003253"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M78.0586 11.7598C83.3842 11.7598 87.1395 15.515 87.1396 20.6357C87.1396 25.7566 83.3843 29.5127 78.0586 29.5127C72.7329 29.5127 68.9775 25.7566 68.9775 20.6357C68.9777 15.515 72.7329 11.7598 78.0586 11.7598ZM78.0586 14.7637C74.5765 14.7637 72.255 17.2219 72.2549 20.6357C72.2549 24.0497 74.5764 26.5078 78.0586 26.5078C81.5408 26.5078 83.8623 24.0497 83.8623 20.6357C83.8622 17.2219 81.5407 14.7637 78.0586 14.7637Z"
+                        fill="#003253"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M97.7266 11.7676H106.548V14.668H104.273C105.651 16.2132 106.448 18.2793 106.448 20.6357C106.448 25.7565 102.693 29.5125 97.3672 29.5127C92.0415 29.5127 88.2861 25.7566 88.2861 20.6357C88.2863 15.515 92.0415 11.7598 97.3672 11.7598C97.4878 11.7598 97.6076 11.7637 97.7266 11.7676ZM97.3672 14.7637C93.8851 14.7637 91.5636 17.2219 91.5635 20.6357C91.5635 24.0497 93.885 26.5078 97.3672 26.5078C100.849 26.5076 103.17 24.0495 103.17 20.6357C103.17 17.2221 100.849 14.7639 97.3672 14.7637Z"
+                        fill="#003253"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M116.675 11.7598C122 11.7598 125.756 15.515 125.756 20.6357C125.756 25.7566 122.001 29.5127 116.675 29.5127C111.349 29.5127 107.594 25.7566 107.594 20.6357C107.594 15.515 111.349 11.7598 116.675 11.7598ZM116.675 14.7637C113.193 14.7637 110.871 17.2219 110.871 20.6357C110.871 24.0497 113.193 26.5078 116.675 26.5078C120.157 26.5078 122.479 24.0497 122.479 20.6357C122.478 17.2219 120.157 14.7637 116.675 14.7637Z"
+                        fill="#003253"></path>
+                    <path
+                        d="M160.816 11.7598C164.845 11.7599 167.337 14.0475 167.405 16.9492H164.195C164.093 15.652 162.899 14.6955 160.851 14.6953C158.7 14.6953 157.471 15.7203 157.471 17.0518C157.471 18.6559 159.246 18.8265 161.328 19.0996C164.264 19.4751 167.848 20.0215 167.849 23.8789C167.849 27.2927 165.084 29.5125 160.851 29.5127C156.617 29.5127 153.954 27.259 153.852 24.1865H157.129C157.197 25.5862 158.495 26.5762 160.851 26.5762C163.308 26.576 164.571 25.5179 164.571 24.1865C164.571 22.582 162.796 22.3766 160.68 22.1035C157.744 21.728 154.193 21.182 154.193 17.3242C154.193 14.0128 156.788 11.7598 160.816 11.7598Z"
+                        fill="#003253"></path>
+                    <path
+                        d="M172.983 21.0107C172.983 24.6637 174.998 26.5078 178.07 26.5078C181.143 26.5078 183.157 24.6636 183.157 21.0107V12.2031H186.4V21.0107C186.4 26.6096 183.055 29.5117 178.07 29.5117C173.086 29.5117 169.74 26.6437 169.74 21.0107V12.2031H172.983V21.0107Z"
+                        fill="#003253"></path>
+                    <path d="M55.4824 25.8594H68.0117V29.0684H52V6.74121H55.4824V25.8594Z" fill="#003253"></path>
+                    <path d="M131.442 29.0684H128.199V12.2031H131.442V29.0684Z" fill="#003253"></path>
+                    <path
+                        d="M207.76 11.7598C211.72 11.7598 214.725 14.1496 214.725 19.3047V29.0684H211.481V19.3047C211.481 16.1641 209.809 14.7638 207.453 14.7637C205.166 14.7637 203.458 16.2321 203.458 19.3047V29.0684H200.215V19.3047C200.215 16.2321 198.474 14.7637 196.187 14.7637C193.831 14.7638 192.158 16.164 192.158 19.3047V29.0684H188.915V19.3047C188.915 14.1496 191.92 11.7598 195.88 11.7598C198.474 11.7599 200.659 12.9207 201.819 15.1055C202.98 12.9206 205.131 11.7598 207.76 11.7598Z"
+                        fill="#003253"></path>
+                    <path
+                        d="M129.804 5C131.101 5 132.057 5.95577 132.058 7.25293C132.058 8.55023 131.101 9.54102 129.804 9.54102C128.507 9.54088 127.551 8.55014 127.551 7.25293C127.551 5.95586 128.507 5.00013 129.804 5Z"
+                        fill="#003253"></path>
+                </svg>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 6. FAQ SECTION -->
+    <section class="py-28 bg-[#FDFBF7] relative" id="faq">
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#17395C] via-[#A62924] to-[#ECB138]"></div>
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-[#17395C]">Frequently Asked Questions</h2>
+                <p class="text-gray-500 mt-4 text-lg font-serif italic">
+                    Curious about Purpose Pinoy? Learn how it works and how you can be part of the movement.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                    <button @click="open = !open"
+                        class="w-full flex justify-between items-center px-6 py-4 bg-[#ECB138]/40 text-[#17395C] font-semibold text-lg hover:bg-[#ECB138]/50 transition">
+                        What is Purpose Pinoy?
+                        <i :class="open ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"
+                            class="transition-transform"></i>
+                    </button>
+                    <div x-show="open" x-transition class="px-6 py-4 text-gray-700 bg-white">
+                        Purpose Pinoy is a youth-driven movement focused on empowering young Filipinos through
+                        entrepreneurship, innovation, and community leadership.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                    <button @click="open = !open"
+                        class="w-full flex justify-between items-center px-6 py-4 bg-[#ECB138]/40 text-[#17395C] font-semibold text-lg hover:bg-[#ECB138]/50 transition">
+                        How can I get involved?
+                        <i :class="open ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"
+                            class="transition-transform"></i>
+                    </button>
+                    <div x-show="open" x-transition class="px-6 py-4 text-gray-700 bg-white">
+                        You can participate by joining our programs, volunteering for our outreach projects, or
+                        supporting us through donations.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                    <button @click="open = !open"
+                        class="w-full flex justify-between items-center px-6 py-4 bg-[#ECB138]/40 text-[#17395C] font-semibold text-lg hover:bg-[#ECB138]/50 transition">
+                        Do I need experience to join?
+                        <i :class="open ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"
+                            class="transition-transform"></i>
+                    </button>
+                    <div x-show="open" x-transition class="px-6 py-4 text-gray-700 bg-white">
+                        No experience is needed! We welcome all youth with passion and drive.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- FOOTER -->
     <div w3-include-html="/components/footer.html"></div>
+
+    <!-- Scroll Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
         w3.includeHTML(function () {
 
-            // MOBILE MENU LOGIC 
+            // 1. Initialize AOS Animations
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+
+            // 2. Mobile Menu Logic
             const btn = document.getElementById('mobile-menu-button');
             const menu = document.getElementById('mobile-menu');
-
             if (btn && menu) {
                 btn.addEventListener('click', () => {
                     menu.classList.toggle('hidden');
                 });
             }
 
-            // ACTIVE LINK HIGHLIGHT LOGIC
-            let currentPath = window.location.pathname;
-
-            if (currentPath === '/') {
-                currentPath = '/index.html';
+            // 3. Navbar Scroll Logic (Transparent to Solid)
+            const nav = document.getElementById('main-nav');
+            function updateNavStyle() {
+                if (window.scrollY > 10) {
+                    // Scrolled: Solid White
+                    nav.classList.remove('bg-transparent', 'text-white');
+                    nav.classList.add('bg-white', 'text-gray-600', 'shadow-md');
+                } else {
+                    // Top: Transparent
+                    nav.classList.add('bg-transparent', 'text-white');
+                    nav.classList.remove('bg-white', 'text-gray-600', 'shadow-md');
+                }
             }
 
-            const navLinks = document.querySelectorAll('nav a');
+            if (nav) {
+                updateNavStyle();
+                window.addEventListener('scroll', updateNavStyle);
+            }
 
+            // 4. Highlight Active Link
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => {
                 const linkPath = link.getAttribute('href');
-
-                if (linkPath === currentPath) {
-                    // Standard links
-                    if (!link.classList.contains('bg-blue-600')) {
-                        link.classList.add('text-blue-600', 'font-bold');
-                        link.classList.remove('text-gray-600');
-                    }
-                    // Button links
-                    if (link.classList.contains('bg-blue-600')) {
-                        link.classList.add('ring-2', 'ring-offset-2', 'ring-blue-600');
-                    }
+                if ((linkPath === '/index.html' || linkPath === '/') && (currentPath === '/' || currentPath.endsWith('index.html'))) {
+                    link.classList.add('font-bold', 'underline', 'decoration-2', 'underline-offset-4');
                 }
             });
         });

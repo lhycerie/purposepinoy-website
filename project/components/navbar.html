@@ -1,63 +1,111 @@
-<nav class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4">
-        <div class="flex justify-between items-center h-20">
-            <div class="flex-shrink-0 flex items-center">
-                <a href="/">
-                    <img class="h-12 w-auto" src="/assets/images/Purpose Pinoy Logo .png" alt="Purpose Pinoy Logo">
-                </a>
-            </div>
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="/index.html" class="text-gray-600 hover:text-blue-600 font-medium transition">
-                    Home
-                </a>
-                <a href="/pages/about.html" class="text-gray-600 hover:text-blue-600 font-medium transition">
-                    About Us
-                </a>
-               <!-- Programs Dropdown -->
-                <div class="relative group">
-                <button class="text-gray-600 hover:text-blue-600 font-medium transition flex items-center gap-1">
-                    Programs
-                 <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                 </svg>
-                </button>
-                <!-- Dropdown Menu -->
-                <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                 <a href="/pages/programs.html" class="block px-4 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg transition">
-                     Current Programs
-                </a>
-                 <a href="/pages/pastevents.html" class="block px-4 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-b-lg transition">
-                     Past Events
-                </a>
-                    </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-300 bg-white text-gray-600 shadow-md">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/">
+                        <img class="h-12 w-auto" src="/assets/images/Purpose Pinoy Logo .png" alt="Purpose Pinoy Logo">
+                    </a>
                 </div>
-                <a href="/pages/get-involved.html" class="text-gray-600 hover:text-blue-600 font-medium transition">
-                    Get Involved
-                </a>
-                <a href="/pages/contact.html" class="text-gray-600 hover:text-blue-600 font-medium transition">
-                    Contact Us
-                </a>
-            </div>
-            <div class="md:hidden flex items-center">
-                <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600 focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/index.html" class="nav-text font-medium transition hover:text-[#ECB138]">Home</a>
+                    <a href="/pages/about.html" class="nav-text font-medium transition hover:text-[#ECB138]">About
+                        Us</a>
+
+                    <!-- Dropdown -->
+                    <div class="relative group">
+                        <button class="nav-text font-medium transition flex items-center gap-1 hover:text-[#ECB138]">
+                            Programs
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="/pages/programs.html"
+                                class="block px-4 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg transition">Current
+                                Programs</a>
+                            <a href="/pages/pastevents.html"
+                                class="block px-4 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-b-lg transition">Past
+                                Events</a>
+                        </div>
+                    </div>
+
+                    <a href="/pages/get-involved.html" class="nav-text font-medium transition hover:text-[#ECB138]">Get
+                        Involved</a>
+                    <a href="/pages/contact.html" class="nav-text font-medium transition hover:text-[#ECB138]">Contact
+                        Us</a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="nav-text focus:outline-none hover:text-[#ECB138]">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
             </div>
         </div>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-gray-50 border-t border-gray-200">
-        <a href="/index.html"
-            class="block py-3 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 font-medium">Home</a>
-        <a href="/pages/about.html"
-            class="block py-3 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 font-medium">About Us</a>
-        <a href="/pages/programs.html"
-            class="block py-3 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 font-medium">Programs</a>
-        <a href="/pages/get-involved.html"
-            class="block py-3 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 font-medium">Get Involved</a>
-        <a href="/pages/contact.html"
-            class="block py-3 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 font-medium">Contact Us</a>
-    </div>
-</nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-50 border-t border-gray-200 text-gray-600">
+            <a href="/index.html" class="block py-3 px-4 hover:bg-blue-50 hover:text-blue-600 font-medium">Home</a>
+            <a href="/pages/about.html" class="block py-3 px-4 hover:bg-blue-50 hover:text-blue-600 font-medium">About
+                Us</a>
+
+            <!-- Programs section -->
+            <p class="block py-3 px-4 font-medium text-gray-600">Programs</p>
+
+            <a href="/pages/programs.html" class="block py-2 px-8 hover:bg-blue-50 hover:text-blue-600">Current
+                Programs</a>
+            <a href="/pages/pastevents.html" class="block py-2 px-8 hover:bg-blue-50 hover:text-blue-600">Past
+                Events</a>
+
+            <a href="/pages/get-involved.html"
+                class="block py-3 px-4 hover:bg-blue-50 hover:text-blue-600 font-medium">Get Involved</a>
+            <a href="/pages/contact.html"
+                class="block py-3 px-4 hover:bg-blue-50 hover:text-blue-600 font-medium">Contact Us</a>
+        </div>
+    </nav>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('hidden');
+                    console.log('Menu toggled'); // For debugging
+                });
+            } else {
+                console.error('Mobile menu elements not found');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

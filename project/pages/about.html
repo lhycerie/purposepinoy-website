@@ -15,158 +15,497 @@
     <!-- Scripts -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=Caveat:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <style>
+        h1,
+        h2,
+        h3,
+        .font-heading {
+            font-family: 'DM Serif Display', serif;
+            letter-spacing: 0.05em;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-hand {
+            font-family: 'Caveat', cursive;
+        }
+
+        .washi-tape {
+            position: absolute;
+            height: 35px;
+            width: 120px;
+            background-color: rgba(236, 177, 56, 0.8);
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0.9;
+            z-index: 20;
+            mask-image: repeating-linear-gradient(95deg, #000, #000 10px, transparent 10px, transparent 12px);
+            -webkit-mask-image: repeating-linear-gradient(95deg, #000, #000 10px, transparent 10px, transparent 12px);
+        }
+
+        .paper-card {
+            background-color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .tilt-left {
+            transform: rotate(-1deg);
+        }
+
+        .tilt-right {
+            transform: rotate(1deg);
+        }
+
+        .paper-card:hover {
+            transform: scale(1.01) rotate(0deg) !important;
+            z-index: 10;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .photo-frame {
+            background: white;
+            padding: 10px 10px 40px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: rotate(2deg);
+            transition: transform 0.3s;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 20;
+        }
+
+        .swiper-wrapper {
+            transition-timing-function: linear;
+        }
+
+        .member-card {
+            width: 250px;
+            background: white;
+            padding: 12px 12px 12px 12px;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            white-space: normal;
+            text-align: center;
+            transform: rotate(1deg);
+            transition: transform 0.3s;
+            -webkit-user-drag: none;
+            user-select: none;
+        }
+
+        .member-card img {
+            pointer-events: none;
+        }
+
+        .member-card:hover {
+            transform: scale(1.05) rotate(0deg);
+            z-index: 10;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+    </style>
 </head>
 
-<!-- 
-    TODO LIST:
-    [ ] Standardize fonts to Brand Kit
-    [ ] Standardize page layouts
-    [ ] Add AOS Scroll Animations
-    [ ] Add "Partners" logo strip (Home/About)
-    [ ] Add other UI improvements
--->
-
-<body>
-
-    <!-- Navbar Component -->
+<body
+    class="bg-[#FDFBF7] pt-16 md:pt-20 font-sans antialiased text-gray-800 flex flex-col min-h-screen overflow-x-hidden">
+    <!-- Navbar -->
     <div w3-include-html="/components/navbar.html"></div>
 
+    <!-- HERO -->
+    <section class="relative px-4 pt-8 pb-4 text-center" data-aos="fade-down">
+        <!-- Doodles -->
+        <div class="absolute top-10 left-10 md:left-1/4 w-8 h-8 border-4 border-[#941B12] rounded-full opacity-20">
+        </div>
+        <div class="absolute bottom-10 right-10 md:right-1/4 w-4 h-4 bg-[#2B4692] rotate-45 opacity-20"></div>
 
-    <!-- Content Body -->
-    <section class="bg-[#2B4692] py-10 text-center px-4">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            Our Driving Force
-        </h1>
-        <p class="text-xl text-[#ECB138] font-light max-w-2xl mx-auto">
-            Igniting Entrepreneurship. Breaking the Cycle.
-        </p>
+        <div class="relative z-10">
+            <h1 class="text-5xl md:text-6xl font-heading text-[#17395C] mb-2 leading-tight">
+                Who is <br>
+                <span class="relative inline-block">
+                    Purpose Pinoy?
+                    <svg class="absolute w-full h-4 -bottom-2 left-0 text-[#ECB138]" viewBox="0 0 100 10"
+                        preserveAspectRatio="none">
+                        <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="3" fill="none" />
+                    </svg>
+                </span>
+            </h1>
+        </div>
     </section>
 
-    <div class="max-w-7xl mx-auto px-4 py-12">
+    <div class="max-w-6xl mx-auto px-4 py-12">
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <!-- MISSION & VISION GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start mb-24">
 
-            <!-- MISSION SECTION -->
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col h-full">
-                <div class="bg-[#941B12] h-2 w-full"></div>
-
-                <div class="p-8 flex-1 flex flex-col">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-rocket text-[#941B12] text-xl"></i>
-                        </div>
-                        <h2 class="text-2xl md:text-3xl font-bold text-[#941B12] tracking-widest uppercase">Mission</h2>
-                    </div>
-
-                    <p class="text-base leading-relaxed text-gray-600 text-justify flex-grow">
-                        Purpose Pinoy’s mission is to develop young Filipinos into
-                        <span class="text-[#941B12] font-bold">compassionate, capable, and solutions-oriented
-                            leaders</span>
-                        who can design and implement initiatives that respond to real community
-                        <span class="text-[#941B12] font-bold">needs</span>, observed daily in Metro Manila.
-                        Through <span class="text-[#941B12] font-bold">accessible</span> volunteer programs,
-                        <span class="text-[#941B12] font-bold">youth-led</span> fundraising, and
-                        <span class="text-[#941B12] font-bold">social entrepreneurship</span> projects,
-                        we create avenues for meaningful civic engagement and skill-building.
-                        Our work focuses on reducing poverty through livelihood and financial literacy programs
-                        <span class="text-[#941B12] font-bold">(SDG 1)</span> and expanding access to educational
-                        support
-                        and entrepreneurial pursuits <span class="text-[#941B12] font-bold">(SDG 8)</span>.
-                        By fostering youth leadership grounded in
-                        <span class="text-[#941B12] font-bold">empathy, innovation, and community partnership</span>,
-                        we aim to cultivate changemakers who uplift themselves while uplifting others.
-                    </p>
+            <!-- MISSION POSTER -->
+            <div class="paper-card tilt-left rounded-sm p-8 md:p-12 relative bg-white" data-aos="fade-right">
+                <div class="washi-tape"></div>
+                <div class="text-center mb-6">
+                    <h2
+                        class="text-4xl font-heading text-[#941B12] uppercase tracking-widest inline-block border-b-4 border-[#941B12]">
+                        Mission</h2>
                 </div>
+                <p class="text-lg leading-relaxed text-gray-700 text-justify font-medium">
+                    <span class="font-hand text-2xl text-[#2B4692] block mb-2 text-left">To develop young
+                        Filipinos...</span>
+                    Into <span class="bg-red-100 px-1">compassionate, capable, and solutions-oriented leaders</span>
+                    who can design and implement initiatives that respond to real community <span
+                        class="font-bold text-[#941B12]">needs</span>.
+                    <br><br>
+                    Through <span class="underline decoration-[#ECB138] decoration-4">accessible volunteer
+                        programs</span>,
+                    youth-led fundraising, and social entrepreneurship projects, we create avenues for civic engagement.
+                    <br><br>
+                    Our focus: <span class="font-bold text-[#17395C]">Livelihood (SDG 1)</span> & <span
+                        class="font-bold text-[#17395C]">Education (SDG 8)</span>.
+                </p>
             </div>
 
-            <!-- VISION -->
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col h-full">
-                <div class="bg-[#2B4692] h-2 w-full"></div>
-
-                <div class="p-8 flex-1 flex flex-col">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-eye text-[#2B4692] text-xl"></i>
-                        </div>
-                        <h2 class="text-2xl md:text-3xl font-bold text-[#2B4692] tracking-widest uppercase">Vision</h2>
-                    </div>
-
-                    <p class="text-base leading-relaxed text-gray-600 text-justify flex-grow">
-                        Purpose Pinoy envisions a generation of
-                        <span class="text-[#941B12] font-bold">Filipino youth</span> who are equipped,
-                        <span class="text-[#941B12] font-bold">empowered</span>, and mobilized to drive sustainable
-                        progress
-                        in their communities. Through <span class="text-[#941B12] font-bold">collaborative
-                            planning</span>,
-                        we aspire to build a future where young people play a
-                        <span class="text-[#941B12] font-bold">central role</span> in advancing
-                        <span class="text-[#941B12] font-bold underline decoration-2 underline-offset-4">SDG 1: No
-                            Poverty</span> and
-                        <span class="text-[#941B12] font-bold underline decoration-2 underline-offset-4">SDG 8: Decent
-                            Work And Economic Growth</span>,
-                        creating <span class="text-[#941B12] font-bold">inclusive opportunities</span> that strengthen
-                        community
-                        resilience and open pathways to long-term growth in our
-                        <span class="text-[#941B12] font-bold">homeland</span>. We believe in a Philippines where
-                        <span class="text-[#941B12] font-bold">youth leadership</span> is not an exception but a
-                        standard for national development.
-                    </p>
+            <!-- VISION POSTER -->
+            <div class="paper-card tilt-right rounded-sm p-8 md:p-12 relative bg-white mt-0 md:mt-24"
+                data-aos="fade-left">
+                <div class="washi-tape" style="background-color: rgba(43, 70, 146, 0.8);"></div>
+                <div class="text-center mb-6">
+                    <h2
+                        class="text-4xl font-heading text-[#2B4692] uppercase tracking-widest inline-block border-b-4 border-[#2B4692]">
+                        Vision</h2>
                 </div>
+                <p class="text-lg leading-relaxed text-gray-700 text-justify font-medium">
+                    <span class="font-hand text-2xl text-[#941B12] block mb-2 text-left">We envision a
+                        generation...</span>
+                    Of <span class="text-[#2B4692] font-bold">Filipino youth</span> equipped and mobilized to drive
+                    sustainable progress.
+                    <br><br>
+                    Through collaborative planning, we build a future where young people play a <span
+                        class="font-bold text-[#2B4692]">central role</span> in:
+                <ul class="list-none mt-4 space-y-2 font-hand text-2xl text-gray-700">
+                    <li><i class="fa-solid fa-check text-[#ECB138] mr-2"></i> No Poverty (SDG 1)</li>
+                    <li><i class="fa-solid fa-check text-[#ECB138] mr-2"></i> Decent Work (SDG 8)</li>
+                </ul>
+                <br>
+                We believe <span class="font-bold text-[#2B4692]">youth leadership</span> is the standard for national
+                development.
+                </p>
             </div>
 
         </div>
 
-        <!-- FUTURE CONTENT PLACEHOLDER -->
-        <div class="border-t border-gray-200 pt-12">
-            <h2 class="text-3xl font-bold text-center text-[#2B4692] mb-8">Our Team & History</h2>
-            <div class="bg-white border-2 border-dashed border-gray-300 rounded-xl p-12 text-center text-gray-400">
-                Penge po pang content &lt;33
+        <!-- OUR STORY SECTION -->
+        <div class="relative pt-2">
+            <div class="text-center mb-16" data-aos="zoom-in">
+                <span class="font-hand text-3xl text-[#941B12] block transform -rotate-3">Where it started...</span>
+                <h2 class="text-5xl font-heading text-[#17395C]">Our Story</h2>
             </div>
+
+            <!-- Story 1: The Beginning -->
+            <div class="flex flex-col md:flex-row items-center gap-10 mb-20">
+                <div class="w-full md:w-1/2 relative" data-aos="fade-right">
+                    <!-- Polaroid Frame -->
+                    <div class="photo-frame w-4/5 mx-auto md:w-full rotate-[-3deg]">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1000&auto=format&fit=crop"
+                            alt="Sitio Makabuhay Outreach" class="w-full h-64 object-cover filter sepia-[.2]">
+                        <div class="text-center font-hand text-xl mt-2 text-gray-600">Sitio Makabuhay, 2023</div>
+                    </div>
+                    <!-- Tape -->
+                    <div
+                        class="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-[#A62924] opacity-80 rotate-2 shadow-sm">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2" data-aos="fade-left">
+                    <h3 class="text-3xl font-heading text-[#2B4692] mb-2">Sitio Makabuhay — 2023</h3>
+                    <p class="text-sm font-bold text-[#ECB138] uppercase tracking-widest mb-4">Sophomore Year</p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        In 2024, after years of online learning, our founder, <span
+                            class="font-bold text-[#2B4692]">Athena Hortaleza</span>, joined an outreach visit to Sitio
+                        Makabuhay, one of De La Salle Zobel’s partner communities.
+                        <br><br>
+                        There, she spent time with the mothers, women whose days were devoted to caring for their
+                        families, often with little opportunity to earn from home.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Story 2: Sheconomy -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-10 mb-20">
+                <div class="w-full md:w-1/2 relative" data-aos="fade-left">
+                    <div class="photo-frame w-4/5 mx-auto md:w-full rotate-[2deg]">
+                        <img src="https://plus.unsplash.com/premium_photo-1705717317501-c8e9a28112f0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdvbWVuJTIwd29ya3Nob3B8ZW58MHx8MHx8fDA%3D?q=80&w=1000&auto=format&fit=crop"
+                            alt="Soap Making Workshop" class="w-full h-64 object-cover">
+                        <div class="text-center font-hand text-xl mt-2 text-gray-600">Detergent Making Workshop</div>
+                    </div>
+                    <div
+                        class="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-[#2B4692] opacity-80 -rotate-2 shadow-sm">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 text-left md:text-right" data-aos="fade-right">
+                    <h3 class="text-3xl font-heading text-[#941B12] mb-2">Project: Sheconomy — 2024</h3>
+                    <p class="text-sm font-bold text-[#ECB138] uppercase tracking-widest mb-4">Women Empowerment</p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        With raw materials from <span class="italic">Cyleina Organica</span>, Purpose Pinoy held its
+                        very
+                        first event, a detergent-making workshop that provided <span class="font-bold">77 mothers</span>
+                        with livelihood starter kits and guidance on how to begin reselling from home.
+                        <br><br>
+                        The project raised <span class="font-bold text-[#941B12] bg-red-50 px-1">₱20,450</span> in
+                        funding, turning an everyday household item into a means for income and empowerment.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Story 3: Waste 2 Wash -->
+            <div class="bg-[#17395C] text-white rounded-xl p-8 md:p-12 shadow-xl relative overflow-hidden mb-20"
+                data-aos="fade-down">
+                <!-- Background -->
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-[#ECB138] rounded-full blur-3xl opacity-10 translate-x-1/2 -translate-y-1/2">
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-10 items-center relative z-10">
+                    <div class="w-full md:w-1/3">
+                        <!-- Photos -->
+                        <div class="relative h-64 w-full">
+                            <div class="absolute top-0 left-0 w-full h-full bg-white p-2 transform -rotate-6 shadow-lg">
+                                <img src="https://images.unsplash.com/photo-1546552768-9e3a94b38a59?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c29hcCUyMG1ha2luZ3xlbnwwfHwwfHx8MA%3D%3D?q=80&w=600&auto=format&fit=crop"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute top-4 left-4 w-full h-full bg-white p-2 transform rotate-3 shadow-lg">
+                                <img src="https://plus.unsplash.com/premium_photo-1714060720797-5f303ae1c779?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHNvYXAlMjBtYWtpbmd8ZW58MHx8MHx8fDA%3D?q=80&w=600&auto=format&fit=crop"
+                                    class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <div
+                            class="inline-block bg-[#ECB138] text-[#17395C] font-bold px-3 py-1 text-xs uppercase tracking-widest rounded mb-3">
+                            Current Mission</div>
+                        <h3 class="text-3xl md:text-4xl font-heading text-white mb-4">Pasong Buaya 2025: Waste 2 Wash
+                        </h3>
+                        <p class="text-lg text-blue-100 leading-relaxed mb-6">
+                            Today, Purpose Pinoy’s program partners with 8 local eateries (carinderias) in Pasong Buaya
+                            to
+                            collect used cooking oil and turn it into <strong>Multi-Purpose Cleaning Bars.</strong>
+                            <br><br>
+                            With 15 enthusiastic participants, this act of sustainability reduces waste while creating
+                            detergent bars that do more than clean, they create livelihoods and promote a circular and
+                            sustainable
+                            economy.
+                        </p>
+                        <div class="font-hand text-2xl text-[#ECB138] transform -rotate-1">
+                            "Every bar sold is a step toward empowerment!"
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
 
+    <!-- MEET THE TEAM SECTION -->
+    <div class="relative bg-[#FDFBF7] pb-32">
+        <div class="max-w-6xl mx-auto px-4">
 
+            <!-- Section Header -->
+            <div class="text-center mb-8" data-aos="fade-up">
+                <span class="font-hand text-3xl text-[#941B12] block transform rotate-2">The people behind the
+                    purpose...</span>
+                <h2 class="text-5xl font-heading text-[#17395C]">Meet the Team</h2>
+            </div>
+
+            <!-- 1. GROUP PHOTO -->
+            <div class="max-w-4xl mx-auto relative mb-24" data-aos="fade-up">
+
+                <div class="absolute -top-6 -left-4 text-[#ECB138] text-5xl z-20 transform -rotate-12 drop-shadow-md">
+                    <i class="fa-solid fa-paperclip"></i>
+                </div>
+
+                <!-- Main Photo Card -->
+                <div
+                    class="bg-white p-3 pb-16 shadow-2xl rotate-1 border border-gray-200 relative transform transition hover:rotate-0 duration-500">
+                    <img src="https://www.nicepng.com/png/full/349-3499680_group-placeholder-placeholder-group.png"
+                        class="w-full h-80 object-cover grayscale-[0.1] hover:grayscale-0 transition duration-500"
+                        alt="Purpose Pinoy Team">
+
+                    <div class="absolute bottom-4 left-0 right-0 text-center">
+                        <span class="font-hand text-4xl text-gray-700">Purpose Pinoy</span>
+                    </div>
+
+                    <!-- Sticker -->
+                    <div
+                        class="absolute -bottom-3 -right-3 bg-[#941B12] text-white px-4 py-1 font-bold uppercase tracking-widest text-xs rotate-[-5deg] shadow-lg">
+                        Batch 2025
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 2. MEMBERS SCROLL -->
+        <div class="swiper mySwiper w-full bg-[#ECB138]/10 border-y-4 border-dashed border-[#ECB138]">
+            <div class="swiper-wrapper py-16 ">
+
+                <!-- Member -->
+                <div class="swiper-slide member-card rotate-1">
+                    <div class="h-48 w-full mb-3 overflow-hidden bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-heading text-[#17395C] text-xl">Name</h4>
+                    <p class="font-hand text-[#941B12] text-lg">Founder</p>
+                </div>
+
+                <!-- Member -->
+                <div class="swiper-slide member-card -rotate-1">
+                    <div class="h-48 w-full mb-3 overflow-hidden bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-heading text-[#17395C] text-xl">Name</h4>
+                    <p class="font-hand text-[#941B12] text-lg">Committee Lead</p>
+                </div>
+
+                <!-- Member -->
+                <div class="swiper-slide member-card rotate-2">
+                    <div class="h-48 w-full mb-3 overflow-hidden bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-heading text-[#17395C] text-xl">Name</h4>
+                    <p class="font-hand text-[#941B12] text-lg">Committee Lead</p>
+                </div>
+
+                <!-- Member -->
+                <div class="swiper-slide member-card -rotate-2">
+                    <div class="h-48 w-full mb-3 overflow-hidden bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-heading text-[#17395C] text-xl">Name</h4>
+                    <p class="font-hand text-[#941B12] text-lg">Committee Lead</p>
+                </div>
+
+                <!-- Member -->
+                <div class="swiper-slide member-card rotate-1">
+                    <div class="h-48 w-full mb-3 overflow-hidden bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-heading text-[#17395C] text-xl">Name</h4>
+                    <p class="font-hand text-[#941B12] text-lg">Committee Lead</p>
+                </div>
+
+                <!-- Member -->
+                <div class="swiper-slide member-card rotate-1">
+                    <div class="h-48 w-full mb-3 overflow-hidden bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-heading text-[#17395C] text-xl">Name</h4>
+                    <p class="font-hand text-[#941B12] text-lg">Committee Lead</p>
+                </div>
+
+                <!-- Member -->
+                <div class="swiper-slide member-card -rotate-1">
+                    <div class="h-48 w-full mb-3 overflow-hidden bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-heading text-[#17395C] text-xl">Name</h4>
+                    <p class="font-hand text-[#941B12] text-lg">Committee Lead</p>
+                </div>
+
+                <!-- Member -->
+                <div class="swiper-slide member-card rotate-2">
+                    <div class="h-48 w-full mb-3 overflow-hidden bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-heading text-[#17395C] text-xl">Name</h4>
+                    <p class="font-hand text-[#941B12] text-lg">Committee Lead</p>
+                </div>
+
+                <!-- Member -->
+                <div class="swiper-slide member-card rotate-2">
+                    <div class="h-48 w-full mb-3 overflow-hidden bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-heading text-[#17395C] text-xl">Name</h4>
+                    <p class="font-hand text-[#941B12] text-lg">Committee Lead</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer Component -->
     <div w3-include-html="/components/footer.html"></div>
 
-    <!-- Mobile Navbar Logic -->
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/assets/js/script.js"></script>
+
     <script>
         w3.includeHTML(function () {
 
-            // MOBILE MENU LOGIC 
+            // 1. Initialize AOS Animations
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+
+            // 2. Mobile Menu Logic
             const btn = document.getElementById('mobile-menu-button');
             const menu = document.getElementById('mobile-menu');
-
             if (btn && menu) {
                 btn.addEventListener('click', () => {
                     menu.classList.toggle('hidden');
                 });
             }
 
-            // ACTIVE LINK HIGHLIGHT LOGIC
-            let currentPath = window.location.pathname;
-
-            if (currentPath === '/') {
-                currentPath = '/index.html';
-            }
-
+            // 4. Highlight Active Link
+            const currentPath = window.location.pathname;
             const navLinks = document.querySelectorAll('nav a');
 
             navLinks.forEach(link => {
                 const linkPath = link.getAttribute('href');
 
-                if (linkPath === currentPath) {
-                    // Standard links
-                    if (!link.classList.contains('bg-blue-600')) {
-                        link.classList.add('text-blue-600', 'font-bold');
-                        link.classList.remove('text-gray-600');
-                    }
-                    // Button links
-                    if (link.classList.contains('bg-blue-600')) {
-                        link.classList.add('ring-2', 'ring-offset-2', 'ring-blue-600');
-                    }
+                // Home
+                if (
+                    (linkPath === '/index.html' || linkPath === '/') &&
+                    (currentPath === '/' || currentPath.endsWith('index.html'))
+                ) {
+                    link.classList.add('font-bold', 'underline', 'decoration-2', 'underline-offset-4');
+                }
+
+                // About page
+                else if (
+                    linkPath === '/pages/about.html' &&
+                    currentPath.endsWith('/pages/about.html')
+                ) {
+                    link.classList.add('font-bold', 'underline', 'decoration-2', 'underline-offset-4');
                 }
             });
         });
