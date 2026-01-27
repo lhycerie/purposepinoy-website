@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Contact Us - Purpose Pinoy</title>
 
     <!-- Tailwind CDN -->
@@ -18,15 +18,17 @@
     <!-- Scripts -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
 
+
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
         section,
         .content-area,
         main {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'DM Serif Display', sans-serif;
         }
         nav {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
     </style>
 </head>
@@ -52,11 +54,11 @@
         <section class="pt-20">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center min-h-screen">
                 <!-- Left Side Box -->
-                <div class="px-8 md:px-16 py-20 bg-gray-50 flex flex-col justify-center order-2 lg:order-1 relative z-20 lg:mr-[-10%] shadow-2xl"
+                <div class="px-8 md:px-16 py-10 bg-gray-50 flex flex-col justify-center order-2 lg:order-1 relative z-20 lg:mr-[-10%] shadow-2xl"
                      data-aos="fade-right"
                      data-aos-duration="1000"
                      data-aos-delay="200">
-                    <h1 class="text-6xl md:text-7xl font-black mb-6 leading-tight"
+                    <h1 class="text-6xl md:text-5xl font-black mb-6 leading-tight"
                         data-aos="fade-up"
                         data-aos-duration="800"
                         data-aos-delay="400">
@@ -101,6 +103,8 @@
 
         <!-- Contact Form -->
         <section id="contact-form" class="py-20 px-4 bg-white">
+            <!--Formsubmit plugin-->
+            <form action="https://formsubmit.co/kylesardia123@gmail.com " method="POST">
             <div class="max-w-2xl mx-auto">
                 <div class="mb-12 text-center"
                      data-aos="fade-down"
@@ -118,13 +122,13 @@
                              data-aos-duration="600"
                              data-aos-delay="400">
                             <label class="block text-gray-900 font-semibold mb-2">First Name *</label>
-                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="Juan">
+                            <input type="text" name="fname" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="Juan">
                         </div>
                         <div data-aos="fade-left"
                              data-aos-duration="600"
                              data-aos-delay="400">
                             <label class="block text-gray-900 font-semibold mb-2">Last Name *</label>
-                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="Dela Cruz">
+                            <input type="text" name="lname" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="Dela Cruz">
                         </div>
                     </div>
 
@@ -132,29 +136,21 @@
                          data-aos-duration="600"
                          data-aos-delay="500">
                         <label class="block text-gray-900 font-semibold mb-2">Email Address *</label>
-                        <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="juan@example.com">
+                        <input type="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="juan@example.com">
                     </div>
 
                     <div data-aos="fade-up"
                          data-aos-duration="600"
                          data-aos-delay="600">
                         <label class="block text-gray-900 font-semibold mb-2">Phone Number</label>
-                        <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="+63 912 345 6789">
+                        <input type="tel" name="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="+63 912 345 6789">
                     </div>
 
                     <div data-aos="fade-up"
                          data-aos-duration="600"
                          data-aos-delay="700">
                         <label class="block text-gray-900 font-semibold mb-2">Message *</label>
-                        <textarea rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="Tell us more about your inquiry..."></textarea>
-                    </div>
-
-                    <div class="flex items-center gap-3"
-                         data-aos="fade-up"
-                         data-aos-duration="600"
-                         data-aos-delay="800">
-                        <input type="checkbox" id="newsletter" class="w-4 h-4 cursor-pointer">
-                        <label for="newsletter" class="text-gray-700 cursor-pointer">Keep me updated about Purpose Pinoy</label>
+                        <textarea rows="6" name="message" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2B4692] transition" placeholder="Tell us more about your inquiry..."></textarea>
                     </div>
 
                     <button type="submit" 
@@ -170,12 +166,8 @@
         <!-- FOOTER COMPONENT -->
         <div w3-include-html="../components/footer.html"></div>
     </div>
+
     
-
-
-
-
-
     <!--JS-->
     <script>
     //scroll animation
