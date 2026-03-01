@@ -4,429 +4,968 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Involved - Purpose Pinoy</title>
-    <!-- Tailwind CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Tab Icon -->
     <link rel="icon" type="image/png" sizes="64x64" href="assets/images/Purpose Pinoy Logo .png">
-    <!-- Scripts -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=Caveat:wght@600;700&family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        h1, h2, h3, .font-heading { font-family: 'DM Serif Display', serif; letter-spacing: 0.05em; }
+        body { font-family: 'Inter', sans-serif; }
+        .font-hand { font-family: 'Caveat', cursive; }
+        .font-type  { font-family: 'Special Elite', cursive; }
+        .font-courier { font-family: 'Courier Prime', monospace; }
 
-        section,
-        .content-area,
-        main {
-        font-family: 'Poppins', sans-serif;
+        /* SCROLL REVEAL — base hidden state */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        nav {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        .reveal.reveal-left {
+            transform: translateX(-50px);
+        }
+        .reveal.reveal-right {
+            transform: translateX(50px);
+        }
+        .reveal.reveal-scale {
+            transform: scale(0.88) translateY(20px);
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translate(0) scale(1);
+        }
+
+        /* Staggered */
+        .reveal-stagger > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-stagger.is-visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:0.05s; }
+        .reveal-stagger.is-visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.15s; }
+        .reveal-stagger.is-visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.25s; }
+        .reveal-stagger.is-visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.35s; }
+        .reveal-stagger.is-visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:0.45s; }
+        .reveal-stagger.is-visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:0.55s; }
+        .reveal-stagger.is-visible > *:nth-child(7) { opacity:1; transform:none; transition-delay:0.65s; }
+        .reveal-stagger.is-visible > *:nth-child(8) { opacity:1; transform:none; transition-delay:0.75s; }
+
+        /* TYPING ANIMATION
+         Heading wrapper */
+        #typing-heading {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        /* Single typing span — inline-block*/
+        .typing-main {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            max-width: 0ch;
+            vertical-align: bottom;
+            /* "Why You Should Join" = 19 chars */
+            transition: max-width 1.3s steps(19, end);
+        }
+        .typing-main.type-active { max-width: 25ch; }
+
+        /* Subtitles */
+        .typing-text-2 {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            max-width: 0ch;
+            vertical-align: bottom;
+            transition: max-width 1.4s steps(42, end);
+        }
+        .typing-text-2.type-active { max-width: 50ch; }
+
+        /* Blinking cursor */
+        .tw-cursor {
+            display: inline-block;
+            width: 3px; height: 1em;
+            background: #941B12;
+            vertical-align: text-bottom;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
+        }
+
+        /* Paper-tape label reveal */
+        .paper-tape-reveal {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+        }
+        .paper-tape-reveal.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Card typed body text */
+        @keyframes inkAppear {
+            from { opacity: 0; filter: blur(1px); }
+            to   { opacity: 1; filter: blur(0); }
+        }
+        .tw-card.is-visible .tw-body {
+            animation: inkAppear 0.5s ease both;
+        }
+        .tw-card:nth-child(1).is-visible .tw-body { animation-delay: 0.4s; }
+        .tw-card:nth-child(2).is-visible .tw-body { animation-delay: 0.55s; }
+        .tw-card:nth-child(3).is-visible .tw-body { animation-delay: 0.7s; }
+        .tw-card:nth-child(4).is-visible .tw-body { animation-delay: 0.85s; }
+
+        /* Luggage Tag */
+        .tag-string-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .tag-string {
+            width: 2px;
+            height: 36px;
+            background: repeating-linear-gradient(
+                to bottom,
+                #b8975a 0px, #8a6a30 3px,
+                #c9a96e 3px, #b8975a 6px
+            );
+            border-radius: 1px;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .tag-eyelet {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            border: 2.5px solid #8a8a8a;
+            background: radial-gradient(circle at 35% 30%, #e0e0e0, #a0a0a0);
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+            flex-shrink: 0;
+            margin-bottom: -1px;
+        }
+        .tag-body {
+            position: relative;
+            background: #fffef8;
+            border: 1.5px solid rgba(0,0,0,0.10);
+            box-shadow:
+                2px 4px 12px rgba(0,0,0,0.12),
+                0 1px 3px rgba(0,0,0,0.08),
+                inset 0 1px 0 rgba(255,255,255,0.9);
+            border-radius: 6px 6px 6px 6px;
+            width: 100%;
+            transition: transform 0.28s ease, box-shadow 0.28s ease;
+            overflow: visible;
+        }
+        .tag-hole {
+            width: 14px; height: 14px;
+            background: #f0e8d8;
+            border: 2px solid rgba(0,0,0,0.15);
+            border-radius: 50%;
+            position: absolute;
+            top: -7px; left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+            z-index: 5;
+        }
+        .tag-band {
+            height: 52px;
+            border-radius: 5px 5px 0 0;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .tag-band span { font-size: 0.92rem; }
+        @media (min-width: 768px) { .tag-band span { font-size: 1rem; } }
+        .tag-band::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 2px,
+                transparent 2px, transparent 8px
+            );
+        }
+        .tag-content {
+            padding: 14px 16px 18px;
+            border-top: 1px dashed rgba(0,0,0,0.10);
+        }
+        .tag-content .font-hand { font-size: 1.2rem; line-height: 1.2; }
+        @media (min-width: 768px) { .tag-content .font-hand { font-size: 1.35rem; } }
+        .tag-content p.body-text { font-size: 0.82rem; }
+        @media (min-width: 768px) { .tag-content p.body-text { font-size: 0.875rem; } }
+        .tag-content .cat-label { font-size: 0.72rem; }
+        @media (min-width: 768px) { .tag-content .cat-label { font-size: 0.75rem; } }
+        .tag-rules {
+            background-image: repeating-linear-gradient(
+                to bottom,
+                transparent, transparent 22px,
+                rgba(0,0,0,0.055) 22px, rgba(0,0,0,0.055) 23px
+            );
+        }
+        .tag-body::after {
+            content: '';
+            position: absolute; bottom: -1px; right: -1px;
+            width: 18px; height: 18px;
+            background: #f0e8d8;
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        }
+        .tag-body::before {
+            content: '';
+            position: absolute; bottom: 0; right: 0;
+            width: 20px; height: 20px;
+            border-top: 1.5px solid rgba(0,0,0,0.10);
+            border-left: 1.5px solid rgba(0,0,0,0.10);
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+            z-index: 2;
+        }
+        .tag-item:hover .tag-body {
+            transform: translateY(-6px) rotate(0deg) !important;
+            box-shadow: 4px 14px 28px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.10);
+        }
+        .tag-item:hover .tag-string { height: 42px; }
+        .tag-tl  .tag-body { transform: rotate(-1.8deg); }
+        .tag-tr  .tag-body { transform: rotate(2.2deg);  }
+        .tag-tl2 .tag-body { transform: rotate(-0.8deg); }
+        .tag-tr2 .tag-body { transform: rotate(1.5deg);  }
+        .tag-tl3 .tag-body { transform: rotate(-2.2deg); }
+        .tag-tr3 .tag-body { transform: rotate(0.9deg);  }
+        .tag-tl4 .tag-body { transform: rotate(-1.2deg); }
+        .tag-tr4 .tag-body { transform: rotate(2.8deg);  }
+
+        /* Tag hang animation — only plays when is-visible */
+        @keyframes tagHang {
+            0%   { opacity: 0; transform: translateY(-20px) rotate(-8deg); }
+            60%  { transform: translateY(4px) rotate(2deg); }
+            80%  { transform: translateY(-2px) rotate(-1deg); }
+            100% { opacity: 1; transform: translateY(0) rotate(0deg); }
+        }
+        /* Tags start hidden, animate when .is-visible*/
+        .tag-item { opacity: 0; }
+        .tag-item.is-visible {
+            animation: tagHang 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+        .tag-item.is-visible:nth-child(1) { animation-delay: 0.05s; }
+        .tag-item.is-visible:nth-child(2) { animation-delay: 0.13s; }
+        .tag-item.is-visible:nth-child(3) { animation-delay: 0.21s; }
+        .tag-item.is-visible:nth-child(4) { animation-delay: 0.29s; }
+        .tag-item.is-visible:nth-child(5) { animation-delay: 0.37s; }
+        .tag-item.is-visible:nth-child(6) { animation-delay: 0.45s; }
+        .tag-item.is-visible:nth-child(7) { animation-delay: 0.53s; }
+        .tag-item.is-visible:nth-child(8) { animation-delay: 0.61s; }
+
+        .tag-rod {
+            height: 10px;
+            background: linear-gradient(to bottom, #d0c0a0, #a08060 40%, #c0a878);
+            border-radius: 5px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.4);
+            position: relative;
+        }
+        .tag-rod::before, .tag-rod::after {
+            content: '';
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 16px; height: 16px;
+            background: radial-gradient(circle at 40% 35%, #e0d0b0, #907050);
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .tag-rod::before { left: -4px; }
+        .tag-rod::after  { right: -4px; }
+
+        .tag-section-bg {
+            background-color: #f5efe3;
+            background-image:
+                repeating-linear-gradient(0deg,   transparent, transparent 28px, rgba(0,0,0,0.018) 28px, rgba(0,0,0,0.018) 29px),
+                repeating-linear-gradient(90deg,  transparent, transparent 28px, rgba(0,0,0,0.010) 28px, rgba(0,0,0,0.010) 29px);
+        }
+        .header-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #fffef8;
+            border: 1.5px solid rgba(0,0,0,0.10);
+            border-radius: 4px;
+            padding: 6px 20px 6px 28px;
+            position: relative;
+            box-shadow: 2px 3px 8px rgba(0,0,0,0.10);
+        }
+        .header-tag::before {
+            content: '';
+            position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+            width: 10px; height: 10px; border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #e0e0e0, #909090);
+            border: 1.5px solid #808080;
+        }
+        .header-tag::after {
+            content: '';
+            position: absolute; bottom: -1px; right: -1px;
+            width: 14px; height: 14px;
+            background: #f5efe3;
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        }
+        /* 
+           TYPEWRITER SECTION STYLES
+        */
+        .typewriter-bg {
+            background-color: #f2ece0;
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"),
+                repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(180,160,120,0.12) 27px, rgba(180,160,120,0.12) 28px);
+        }
+        .tw-card {
+            background-color: #fdfaf3;
+            background-image:
+                repeating-linear-gradient(
+                    to bottom,
+                    transparent, transparent 23px,
+                    rgba(150,130,100,0.10) 23px, rgba(150,130,100,0.10) 24px
+                );
+            border: 1px solid rgba(160,140,100,0.30);
+            box-shadow:
+                3px 4px 0px rgba(0,0,0,0.07),
+                6px 8px 0px rgba(0,0,0,0.04),
+                0 1px 3px rgba(0,0,0,0.08);
+            position: relative;
+            /* Start hidden for reveal */
+            opacity: 0;
+            transform: translateY(32px);
+            transition:
+                opacity 0.6s cubic-bezier(0.22,1,0.36,1),
+                transform 0.6s cubic-bezier(0.22,1,0.36,1),
+                box-shadow 0.25s ease;
+            overflow: hidden;
+        }
+        .tw-card.is-visible {
+            opacity: 1;
+            transform: translateY(0) rotate(var(--tilt,0deg));
+        }
+        .tw-card:nth-child(1) { transition-delay: 0.05s; --tilt: -1.2deg; }
+        .tw-card:nth-child(2) { transition-delay: 0.18s; --tilt:  1.4deg; }
+        .tw-card:nth-child(3) { transition-delay: 0.31s; --tilt: -0.6deg; }
+        .tw-card:nth-child(4) { transition-delay: 0.44s; --tilt:  0.9deg; }
+
+        .tw-card::after {
+            content: '';
+            position: absolute; bottom: 0; right: 0;
+            width: 24px; height: 24px;
+            background: linear-gradient(225deg, #e8dfc8 50%, transparent 50%);
+            border-top: 1px solid rgba(160,140,100,0.25);
+            border-left: 1px solid rgba(160,140,100,0.25);
+        }
+        .tw-card::before {
+            content: '';
+            position: absolute; top: 0; bottom: 0; left: 36px;
+            width: 1px;
+            background: rgba(200,100,100,0.15);
+            z-index: 0;
+        }
+        .tw-card:hover {
+            transform: translateY(-5px) rotate(0deg) !important;
+            box-shadow:
+                3px 9px 0px rgba(0,0,0,0.08),
+                6px 16px 0px rgba(0,0,0,0.04),
+                0 4px 20px rgba(0,0,0,0.10);
+        }
+        .tw-key {
+            width: 36px; height: 36px;
+            border-radius: 6px;
+            border: 2px solid currentColor;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Special Elite', cursive;
+            font-size: 1rem;
+            box-shadow: 2px 2px 0 currentColor;
+            flex-shrink: 0;
+            position: relative;
+            background: #fdfaf3;
+        }
+        .tw-key::after {
+            content: '';
+            position: absolute; inset: 3px;
+            border-radius: 3px;
+            background: currentColor;
+            opacity: 0.07;
+        }
+        .tw-stamp {
+            position: absolute; top: 14px; right: 16px;
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            border: 2.5px solid currentColor;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0.12;
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+        .tw-stamp span {
+            font-family: 'Special Elite', cursive;
+            font-size: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .tw-underline {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: rgba(0,0,0,0.18);
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .paper-tape {
+            display: inline-block;
+            background: rgba(43,70,146,0.10);
+            border-top: 1px solid rgba(43,70,146,0.20);
+            border-bottom: 1px solid rgba(43,70,146,0.20);
+            padding: 2px 12px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #2B4692;
+            text-align: center;
+            word-break: break-word;
+        }
+        @media (min-width: 640px) {
+            .paper-tape {
+                padding: 2px 24px;
+                font-size: 0.72rem;
+                letter-spacing: 0.3em;
             }
-        .envelope-card:hover .envelope-flap {
-            transform: translateY(-32px);
         }
-        .envelope-card:hover .envelope-letter {
-            opacity: 1;
-            transform: translate(-50%, -48px);
+        .ink-bar {
+            height: 4px;
+            border-radius: 2px 2px 0 0;
+            opacity: 0.85;
         }
-        .envelope-card.active .envelope-flap {
-            transform: translateY(-32px);
+        .tw-body {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.82rem;
+            line-height: 1.75;
+            color: #3a3228;
         }
-        .envelope-card.active .envelope-letter {
-            opacity: 1;
-            transform: translate(-50%, -48px);
+        @media (min-width: 768px) { .tw-body { font-size: 0.9rem; } }
+        .tw-title {
+            font-family: 'Special Elite', cursive;
+            color: #1a1410;
+            line-height: 1.25;
+            font-size: 1.05rem;
         }
+        @media (min-width: 768px) { .tw-title { font-size: 1.15rem; } }
     </style>
-
 </head>
 
-<body class="bg-gray-50 antialiased text-gray-800">
+<body class="bg-[#FDFBF7] antialiased text-gray-800">
 
-    <!-- NAVBAR COMPONENT -->
     <div w3-include-html="/components/navbar.html"></div>
 
-    <!-- Hero Section -->
-<section class="h-[60vh] flex items-center justify-center bg-[#17395C] relative overflow-hidden">
-    <!-- Background Image -->
-<div class="absolute inset-0 z-0">
-    <img src="../assets/images/getinvolvedbg.jpg" alt="Background" class="w-full h-full object-cover opacity-40">
-    <!-- Blue overlay -->
-    <div class="absolute inset-0 bg-[#17395C] opacity-40"></div>
-</div>
-    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto text-white">
-        <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
-            Get Involved
-        </h1>
-        <p class="text-xl md:text-2xl font-light mb-8">
-            There are many ways to be part of the Purpose Pinoy movement. Find the perfect way to contribute your time, skills, and passion.
-        </p>
-    </div>
-</section>
+    <!-- Hero -->
+    <section class="h-[60vh] flex items-center justify-center bg-[#17395C] relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="../assets/images/getinvolvedbg.jpg" alt="Background" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-[#17395C] opacity-40"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto text-white reveal">
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6">Get Involved</h1>
+            <p class="text-xl md:text-2xl font-light mb-8">
+                There are many ways to be part of the Purpose Pinoy movement. Find the perfect way to contribute your time, skills, and passion.
+            </p>
+        </div>
+    </section>
 
+    <!-- WHY YOU SHOULD JOIN — TYPEWRITER CARDS -->
 
-<!-- Why You Should Join Section -->
-<section class="py-32 px-4 bg-white relative overflow-hidden">
-    <!-- Brush 1 -->
-    <div class="absolute -left-32 top-32 w-[500px] h-24 bg-gradient-to-r from-[#2B4692] via-[#17395C] to-transparent opacity-30 transform -rotate-3"></div>
-    <div class="absolute -left-32 top-36 w-[480px] h-20 bg-gradient-to-r from-[#17395C] via-[#2B4692] to-transparent opacity-20 transform -rotate-2"></div>
-    
-    <!-- Brush 2 -->
-    <div class="absolute -right-32 top-[400px] w-[500px] h-24 bg-gradient-to-l from-[#941B12] via-[#C24229] to-transparent opacity-30 transform rotate-3"></div>
-    <div class="absolute -right-32 top-[420px] w-[480px] h-20 bg-gradient-to-l from-[#C24229] via-[#941B12] to-transparent opacity-20 transform rotate-2"></div>
-    
-    <!-- Brush 3 -->
-    <div class="absolute -left-32 bottom-[300px] w-[500px] h-24 bg-gradient-to-r from-[#ECB138] via-[#EFB758] to-transparent opacity-30 transform -rotate-3"></div>
-    <div class="absolute -left-32 bottom-[280px] w-[480px] h-20 bg-gradient-to-r from-[#EFB758] via-[#ECB138] to-transparent opacity-20 transform -rotate-2"></div>
-    
-    <!-- Brush 4 -->
-    <div class="absolute -right-32 bottom-32 w-[500px] h-24 bg-gradient-to-l from-[#17395C] via-[#2B4692] to-transparent opacity-30 transform rotate-3"></div>
-    <div class="absolute -right-32 bottom-36 w-[480px] h-20 bg-gradient-to-l from-[#2B4692] via-[#17395C] to-transparent opacity-20 transform rotate-2"></div>
+    <section class="typewriter-bg pt-24 pb-16 md:pt-36 md:pb-28 px-4 relative overflow-hidden">
 
-    <div class="max-w-7xl mx-auto relative z-10">
-        <div class="text-center mb-24">
-            <h2 class="text-6xl font-bold text-[#2B4692] mb-8">Why You Should Join</h2>
-            <p class="text-gray-600 text-2xl max-w-3xl mx-auto leading-relaxed">Discover the transformative benefits of being part of the Purpose Pinoy community</p>
+        <!-- Background decorative large type -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+            <span class="font-type text-[18rem] md:text-[28rem] text-black opacity-[0.025] leading-none tracking-tighter whitespace-nowrap">JOIN</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto">
-            <!-- Benefit 1 -->
-            <div class="group">
-                <div class="bg-gradient-to-r from-[#2B4692] to-[#17395C] h-2 w-32 mb-8 group-hover:w-48 transition-all duration-500"></div>
-                <h3 class="font-bold text-4xl text-gray-900 mb-6">Flexible Volunteer Work Hours</h3>
-                <p class="text-gray-600 text-xl leading-relaxed">Work on YOUR availability, both online and in-person. We understand that you have commitments, so we adapt to your schedule.</p>
+        <div class="max-w-5xl mx-auto relative z-10">
+
+            <!-- Section header -->
+            <div class="text-center mb-14 md:mb-20" id="why-join-header">
+
+                <!-- Paper label -->
+                <div class="flex justify-center mb-5 paper-tape-reveal" id="paper-tape-label">
+                    <span class="paper-tape">MEMO — Purpose Pinoy · Recruitment</span>
+                </div>
+
+                <!-- Main heading typing animation -->
+                <h2 class="font-type text-[1.35rem] xs:text-2xl sm:text-4xl md:text-6xl text-[#17395C] mb-3 leading-snug text-center" id="typing-heading">
+                    <span class="typing-main" id="typing-main">Why You Should Join</span><span class="tw-cursor" id="typing-cursor"></span>
+                </h2>
+
+                <!-- sub types in after heading -->
+                <p class="font-hand text-lg sm:text-xl md:text-2xl text-[#941B12] transform -rotate-1 px-4 text-center">
+                    <span class="typing-text-2" id="typing-sub">four reasons, typed fresh just for you...</span>
+                </p>
+
+                <!-- divider -->
+                <div class="flex justify-center mt-5 reveal" id="tw-divider">
+                    <span class="tw-underline">_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
+                </div>
             </div>
 
-            <!-- Benefit 2 -->
-            <div class="group">
-                <div class="bg-gradient-to-r from-[#941B12] to-[#C24229] h-2 w-32 mb-8 group-hover:w-48 transition-all duration-500"></div>
-                <h3 class="font-bold text-4xl text-gray-900 mb-6">Leadership & Early Business Experience</h3>
-                <p class="text-gray-600 text-xl leading-relaxed">Gain hands-on experience in social enterprise, events, and programs that make a real difference in communities.</p>
+            <!-- Cards grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8" id="tw-cards-grid">
+
+                <!-- Card 1 Flexible hours -->
+                <div class="tw-card rounded-sm p-0 overflow-hidden">
+                    <div class="ink-bar bg-[#2B4692]"></div>
+                    <div class="p-6 md:p-8 relative z-10">
+                        <div class="tw-stamp text-[#2B4692]"><span>APPROVED<br>✓</span></div>
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="tw-key text-[#2B4692]">01</div>
+                            <div class="pt-1">
+                                <h3 class="tw-title mt-1">Flexible Volunteer<br>Work Hours</h3>
+                            </div>
+                        </div>
+                        <p class="tw-body pl-[52px]">
+                            Work on <span class="font-bold">YOUR</span> availability —<br>
+                            both online and in-person.<br>
+                            We adapt to your schedule,<br>
+                            not the other way around.
+                        </p>
+                        <div class="mt-5 pl-[52px]">
+                            <span class="font-courier text-[10px] md:text-xs text-[#2B4692] tracking-widest uppercase border border-[#2B4692] border-opacity-30 px-2 py-0.5 rounded-sm">
+                                Flexible · Remote-friendly
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 Leadership experience -->
+                <div class="tw-card rounded-sm p-0 overflow-hidden">
+                    <div class="ink-bar bg-[#941B12]"></div>
+                    <div class="p-6 md:p-8 relative z-10">
+                        <div class="tw-stamp text-[#941B12]"><span>FILED<br>✓</span></div>
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="tw-key text-[#941B12]">02</div>
+                            <div class="pt-1">
+                                <h3 class="tw-title mt-1">Leadership &amp; Early<br>Business Experience</h3>
+                            </div>
+                        </div>
+                        <p class="tw-body pl-[52px]">
+                            Gain hands-on experience in<br>
+                            <span class="font-bold">social enterprise, events,</span><br>
+                            and programs that make a<br>
+                            real difference in communities.
+                        </p>
+                        <div class="mt-5 pl-[52px]">
+                            <span class="font-courier text-[10px] md:text-xs text-[#941B12] tracking-widest uppercase border border-[#941B12] border-opacity-30 px-2 py-0.5 rounded-sm">
+                                Leadership · Social Enterprise
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 Extracurricular -->
+                <div class="tw-card rounded-sm p-0 overflow-hidden">
+                    <div class="ink-bar bg-[#c8920a]"></div>
+                    <div class="p-6 md:p-8 relative z-10">
+                        <div class="tw-stamp text-[#c8920a]"><span>NOTED<br>✓</span></div>
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="tw-key text-[#c8920a]">03</div>
+                            <div class="pt-1">
+                                <h3 class="tw-title mt-1">Business-Related<br>Extracurricular Experience</h3>
+                            </div>
+                        </div>
+                        <p class="tw-body pl-[52px]">
+                            Strengthen your college apps<br>
+                            and resume with <span class="font-bold">meaningful</span><br>
+                            real-world business experience<br>
+                            that sets you apart.
+                        </p>
+                        <div class="mt-5 pl-[52px]">
+                            <span class="font-courier text-[10px] md:text-xs text-[#c8920a] tracking-widest uppercase border border-[#c8920a] border-opacity-30 px-2 py-0.5 rounded-sm">
+                                Resume · College Apps
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 Community Impact -->
+                <div class="tw-card rounded-sm p-0 overflow-hidden">
+                    <div class="ink-bar bg-[#17395C]"></div>
+                    <div class="p-6 md:p-8 relative z-10">
+                        <div class="tw-stamp text-[#17395C]"><span>URGENT<br>!</span></div>
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="tw-key text-[#17395C]">04</div>
+                            <div class="pt-1">
+                                <h3 class="tw-title mt-1">Real-World Exposure to<br>Community Impact</h3>
+                            </div>
+                        </div>
+                        <p class="tw-body pl-[52px]">
+                            Learn business operations &amp;<br>
+                            project management while<br>
+                            creating <span class="font-bold">tangible, positive</span><br>
+                            change in real communities.
+                        </p>
+                        <div class="mt-5 pl-[52px]">
+                            <span class="font-courier text-[10px] md:text-xs text-[#17395C] tracking-widest uppercase border border-[#17395C] border-opacity-30 px-2 py-0.5 rounded-sm">
+                                Impact · SDG 1 · SDG 8
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /grid -->
+
+            <!-- Footer line -->
+            <div class="mt-12 text-center reveal">
+                <span class="tw-underline text-sm opacity-60">
+                    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                </span>
+                <p class="font-courier text-xs text-gray-400 mt-2 tracking-widest uppercase">
+                    cc: Future Leaders of the Philippines &nbsp;|&nbsp; ref: Purpose Pinoy 2025
+                </p>
             </div>
 
-            <!-- Benefit 3 -->
-            <div class="group">
-                <div class="bg-gradient-to-r from-[#ECB138] to-[#EFB758] h-2 w-32 mb-8 group-hover:w-48 transition-all duration-500"></div>
-                <h3 class="font-bold text-4xl text-gray-900 mb-6">Business-Related Extracurricular Experience</h3>
-                <p class="text-gray-600 text-xl leading-relaxed">Strengthen your college applications and resume with meaningful real-world business experience.</p>
-            </div>
-
-            <!-- Benefit 4 -->
-            <div class="group">
-                <div class="bg-gradient-to-r from-[#17395C] to-[#2B4692] h-2 w-32 mb-8 group-hover:w-48 transition-all duration-500"></div>
-                <h3 class="font-bold text-4xl text-gray-900 mb-6">Real-World Exposure to Community Impact</h3>
-                <p class="text-gray-600 text-xl leading-relaxed">Learn about business operations and project management while creating tangible positive change.</p>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <!-- MEMBER CATEGORIES LUGGAGE TAGS -->
+    <section class="tag-section-bg py-16 md:py-24 px-4 overflow-hidden">
+        <div class="max-w-6xl mx-auto">
 
-<!-- Member Categories Section -->
-<section class="py-32 px-4 bg-white relative overflow-hidden">
-    <div class="max-w-7xl mx-auto relative z-10">
-        <!-- Header -->
-        <div class="text-center mb-20">
-            <div class="flex justify-center mb-8">
-                <img src="../assets/images/Purpose Pinoy Logo .png" alt="Purpose Pinoy Logo" class="h-24">
+            <!-- Section header -->
+            <div class="text-center mb-4 reveal">
+                <div class="flex justify-center mb-5">
+                    <img src="../assets/images/Purpose Pinoy Logo .png" alt="Purpose Pinoy Logo" class="h-16 md:h-20">
+                </div>
+                <div class="flex justify-center mb-4">
+                    <div class="header-tag">
+                        <span class="font-hand text-xl text-gray-500 ml-1">pick your tag, find your place...</span>
+                    </div>
+                </div>
+                <h2 class="font-heading text-4xl md:text-5xl text-[#17395C] mt-4 mb-2">Member Categories</h2>
             </div>
-            <h2 class="text-6xl font-extrabold tracking-tight text-gray-900">MEMBER CATEGORIES</h2>
-            <p class="text-gray-600 text-xl mt-4">Tap each envelope to discover the role</p>
+
+            <!-- Hanging rod -->
+            <div class="px-2 md:px-6 mt-10 mb-0 reveal">
+                <div class="tag-rod"></div>
+            </div>
+
+            <!-- Tags grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-0 px-2 md:px-6" id="tags-grid">
+
+                <!-- 1. Programs & Planning -->
+                <div class="tag-item tag-tl cursor-pointer group">
+                    <div class="tag-string-wrap items-center">
+                        <div class="tag-eyelet"></div>
+                        <div class="tag-string"></div>
+                        <div class="tag-body tag-rules">
+                            <div class="tag-hole"></div>
+                            <div class="tag-band" style="background: linear-gradient(135deg, #3d5ab5, #2B4692);">
+                                <span class="font-heading text-white text-center px-2 z-10 relative leading-tight">Programs &amp;<br>Planning</span>
+                            </div>
+                            <div class="tag-content">
+                                <p class="font-hand text-[#941B12] text-lg leading-none mb-2">Lead the mission!</p>
+                                <p class="body-text text-gray-600 leading-relaxed">
+                                    Coordinate <strong>educational &amp; community projects</strong>. Pitch ideas for fundraisers and vocational training workshops that empower local families.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Marketing -->
+                <div class="tag-item tag-tr cursor-pointer group">
+                    <div class="tag-string-wrap items-center">
+                        <div class="tag-eyelet"></div>
+                        <div class="tag-string"></div>
+                        <div class="tag-body tag-rules">
+                            <div class="tag-hole"></div>
+                            <div class="tag-band" style="background: linear-gradient(135deg, #b82117, #941B12);">
+                                <span class="font-heading text-white text-center px-2 z-10 relative">Marketing</span>
+                            </div>
+                            <div class="tag-content">
+                                <p class="font-hand text-[#2B4692] text-lg leading-none mb-2">Tell our story!</p>
+                                <p class="body-text text-gray-600 leading-relaxed">
+                                    Create <strong>campaigns, social media content</strong>, and video projects that inspire others to join and spread our cause.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Logistics -->
+                <div class="tag-item tag-tl2 cursor-pointer group">
+                    <div class="tag-string-wrap items-center">
+                        <div class="tag-eyelet"></div>
+                        <div class="tag-string"></div>
+                        <div class="tag-body tag-rules">
+                            <div class="tag-hole"></div>
+                            <div class="tag-band" style="background: linear-gradient(135deg, #f5c253, #d4a020);">
+                                <span class="font-heading text-[#5a3e00] text-center px-2 z-10 relative">Logistics</span>
+                            </div>
+                            <div class="tag-content">
+                                <p class="font-hand text-[#941B12] text-lg leading-none mb-2">Be the backbone!</p>
+                                <p class="body-text text-gray-600 leading-relaxed">
+                                    Organize projects, manage materials, and coordinate with <strong>partner communities, sponsors, and schools</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Finance -->
+                <div class="tag-item tag-tr2 cursor-pointer group">
+                    <div class="tag-string-wrap items-center">
+                        <div class="tag-eyelet"></div>
+                        <div class="tag-string"></div>
+                        <div class="tag-body tag-rules">
+                            <div class="tag-hole"></div>
+                            <div class="tag-band" style="background: linear-gradient(135deg, #1f4570, #17395C);">
+                                <span class="font-heading text-white text-center px-2 z-10 relative">Finance</span>
+                            </div>
+                            <div class="tag-content">
+                                <p class="font-hand text-[#2B4692] text-lg leading-none mb-2">Keep us sustainable!</p>
+                                <p class="body-text text-gray-600 leading-relaxed">
+                                    Handle <strong>budget tracking, fundraising plans</strong>, and project expense management to keep initiatives impactful.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Ambassadors -->
+                <div class="tag-item tag-tl3 cursor-pointer group">
+                    <div class="tag-string-wrap items-center">
+                        <div class="tag-eyelet"></div>
+                        <div class="tag-string"></div>
+                        <div class="tag-body tag-rules">
+                            <div class="tag-hole"></div>
+                            <div class="tag-band" style="background: linear-gradient(135deg, #d4533a, #C24229);">
+                                <span class="font-heading text-white text-center px-2 z-10 relative">Ambassadors</span>
+                            </div>
+                            <div class="tag-content">
+                                <p class="font-hand text-[#941B12] text-lg leading-none mb-2">Be our voice!</p>
+                                <p class="body-text text-gray-600 leading-relaxed">
+                                    Represent us in school events, engage new members, and build <strong>community partnerships</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Tech -->
+                <div class="tag-item tag-tr3 cursor-pointer group">
+                    <div class="tag-string-wrap items-center">
+                        <div class="tag-eyelet"></div>
+                        <div class="tag-string"></div>
+                        <div class="tag-body tag-rules">
+                            <div class="tag-hole"></div>
+                            <div class="tag-band" style="background: linear-gradient(135deg, #26C6DA, #00838F);">
+                                <span class="font-heading text-white text-center px-2 z-10 relative">Tech</span>
+                            </div>
+                            <div class="tag-content">
+                                <p class="font-hand text-[#2B4692] text-lg leading-none mb-2">Power our digital world!</p>
+                                <p class="body-text text-gray-600 leading-relaxed">
+                                    Maintain <strong>digital systems, platforms</strong>, account setups, troubleshooting, and overall digital security.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Sponsorships -->
+                <div class="tag-item tag-tl4 cursor-pointer group">
+                    <div class="tag-string-wrap items-center">
+                        <div class="tag-eyelet"></div>
+                        <div class="tag-string"></div>
+                        <div class="tag-body tag-rules">
+                            <div class="tag-hole"></div>
+                            <div class="tag-band" style="background: linear-gradient(135deg, #AB47BC, #7B1FA2);">
+                                <span class="font-heading text-white text-center px-2 z-10 relative">Sponsorships</span>
+                            </div>
+                            <div class="tag-content">
+                                <p class="font-hand text-[#941B12] text-lg leading-none mb-2">Build bridges!</p>
+                                <p class="body-text text-gray-600 leading-relaxed">
+                                    Forge relationships with <strong>companies, NGOs, and schools</strong> through partnerships and collaborative initiatives.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Internal -->
+                <div class="tag-item tag-tr4 cursor-pointer group">
+                    <div class="tag-string-wrap items-center">
+                        <div class="tag-eyelet"></div>
+                        <div class="tag-string"></div>
+                        <div class="tag-body tag-rules">
+                            <div class="tag-hole"></div>
+                            <div class="tag-band" style="background: linear-gradient(135deg, #66BB6A, #388E3C);">
+                                <span class="font-heading text-white text-center px-2 z-10 relative">Internal</span>
+                            </div>
+                            <div class="tag-content">
+                                <p class="font-hand text-[#2B4692] text-lg leading-none mb-2">Keep us together!</p>
+                                <p class="body-text text-gray-600 leading-relaxed">
+                                    Oversee membership, handle concerns, and strengthen <strong>organizational culture</strong> through engagement activities.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /grid -->
+
+            <!-- Apply Now -->
+            <div class="text-center mt-16 md:mt-20 reveal">
+                <div class="flex justify-center mb-4">
+                    <div class="header-tag">
+                        <span class="font-hand text-lg text-gray-500 ml-1">ready to claim your tag?</span>
+                    </div>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdocn4Z-a-P-8eINRfLDTZdMf5l11gfilLTBano_1ja-Y22RA/formResponse"
+                   target="_blank" rel="noopener noreferrer"
+                   class="inline-block bg-[#2B4692] text-white font-bold px-10 md:px-16 py-5 md:py-6 rounded-xl text-xl md:text-2xl hover:bg-[#17395C] active:scale-95 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                    Apply Now
+                </a>
+            </div>
+
         </div>
-        <!-- Categories - (Envelope Style wowow:O astig) -->
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-20">
-            
-            <!-- Programs & Planning -->
-            <div class="envelope-card group relative cursor-pointer">
-                <div class="relative h-48">
-                    <div class="absolute bottom-0 left-0 right-0 h-32 bg-[#2B4692] rounded shadow-xl"></div>
-                    <div class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#3d5ab5] rounded-t origin-bottom transform transition-transform duration-500 shadow-xl"
-                         style="clip-path: polygon(0 40%, 50% 100%, 100% 40%, 100% 0, 0 0);">
-                    </div>
-                    <div class="envelope-letter absolute top-8 left-1/2 transform -translate-x-1/2 w-[85%] h-28 bg-white rounded shadow-lg transition-all duration-500 opacity-0 border border-gray-200 p-3">
-                        <div class="h-2 bg-[#2B4692] rounded mb-2 w-3/4"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2 w-5/6"></div>
-                        <div class="h-1 bg-gray-300 rounded w-4/5"></div>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <h3 class="text-base font-bold text-gray-900">Programs & Planning</h3>
-                </div>
-            </div>
+    </section>
 
-            <!-- Marketing -->
-            <div class="envelope-card group relative cursor-pointer">
-                <div class="relative h-48">
-                    <div class="absolute bottom-0 left-0 right-0 h-32 bg-[#941B12] rounded shadow-xl"></div>
-                    <div class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#b82117] rounded-t origin-bottom transform transition-transform duration-500 shadow-xl"
-                         style="clip-path: polygon(0 40%, 50% 100%, 100% 40%, 100% 0, 0 0);"></div>
-                    <div class="envelope-letter absolute top-8 left-1/2 transform -translate-x-1/2 w-[85%] h-28 bg-white rounded shadow-lg transition-all duration-500 opacity-0 border border-gray-200 p-3">
-                        <div class="h-2 bg-[#941B12] rounded mb-2 w-3/4"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2 w-5/6"></div>
-                        <div class="h-1 bg-gray-300 rounded w-4/5"></div>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <h3 class="text-base font-bold text-gray-900">Marketing</h3>
-                </div>
-            </div>
-
-            <!-- Logistics -->
-            <div class="envelope-card group relative cursor-pointer">
-                <div class="relative h-48">
-                    <div class="absolute bottom-0 left-0 right-0 h-32 bg-[#ECB138] rounded shadow-xl"></div>
-                    <div class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#f5c253] rounded-t origin-bottom transform transition-transform duration-500 shadow-xl"
-                         style="clip-path: polygon(0 40%, 50% 100%, 100% 40%, 100% 0, 0 0);"></div>
-                    <div class="envelope-letter absolute top-8 left-1/2 transform -translate-x-1/2 w-[85%] h-28 bg-white rounded shadow-lg transition-all duration-500 opacity-0 border border-gray-200 p-3">
-                        <div class="h-2 bg-[#ECB138] rounded mb-2 w-3/4"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2 w-5/6"></div>
-                        <div class="h-1 bg-gray-300 rounded w-4/5"></div>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <h3 class="text-base font-bold text-gray-900">Logistics</h3>
-                </div>
-            </div>
-
-            <!-- Finance -->
-            <div class="envelope-card group relative cursor-pointer">
-                <div class="relative h-48">
-                    <div class="absolute bottom-0 left-0 right-0 h-32 bg-[#17395C] rounded shadow-xl"></div>
-                    <div class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#1f4570] rounded-t origin-bottom transform transition-transform duration-500 shadow-xl"
-                         style="clip-path: polygon(0 40%, 50% 100%, 100% 40%, 100% 0, 0 0);"></div>
-                    <div class="envelope-letter absolute top-8 left-1/2 transform -translate-x-1/2 w-[85%] h-28 bg-white rounded shadow-lg transition-all duration-500 opacity-0 border border-gray-200 p-3">
-                        <div class="h-2 bg-[#17395C] rounded mb-2 w-3/4"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2 w-5/6"></div>
-                        <div class="h-1 bg-gray-300 rounded w-4/5"></div>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <h3 class="text-base font-bold text-gray-900">Finance</h3>
-                </div>
-            </div>
-
-            <!-- Ambassadors -->
-            <div class="envelope-card group relative cursor-pointer">
-                <div class="relative h-48">
-                    <div class="absolute bottom-0 left-0 right-0 h-32 bg-[#C24229] rounded shadow-xl"></div>
-                    <div class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#d4533a] rounded-t origin-bottom transform transition-transform duration-500 shadow-xl"
-                         style="clip-path: polygon(0 40%, 50% 100%, 100% 40%, 100% 0, 0 0);"></div>
-                    <div class="envelope-letter absolute top-8 left-1/2 transform -translate-x-1/2 w-[85%] h-28 bg-white rounded shadow-lg transition-all duration-500 opacity-0 border border-gray-200 p-3">
-                        <div class="h-2 bg-[#C24229] rounded mb-2 w-3/4"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2 w-5/6"></div>
-                        <div class="h-1 bg-gray-300 rounded w-4/5"></div>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <h3 class="text-base font-bold text-gray-900">Ambassadors</h3>
-                </div>
-            </div>
-
-            <!-- Tech -->
-            <div class="envelope-card group relative cursor-pointer">
-                <div class="relative h-48">
-                    <div class="absolute bottom-0 left-0 right-0 h-32 bg-[#00BCD4] rounded shadow-xl"></div>
-                    <div class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#26C6DA] rounded-t origin-bottom transform transition-transform duration-500 shadow-xl"
-                         style="clip-path: polygon(0 40%, 50% 100%, 100% 40%, 100% 0, 0 0);"></div>
-                    <div class="envelope-letter absolute top-8 left-1/2 transform -translate-x-1/2 w-[85%] h-28 bg-white rounded shadow-lg transition-all duration-500 opacity-0 border border-gray-200 p-3">
-                        <div class="h-2 bg-[#00BCD4] rounded mb-2 w-3/4"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2 w-5/6"></div>
-                        <div class="h-1 bg-gray-300 rounded w-4/5"></div>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <h3 class="text-base font-bold text-gray-900">Tech</h3>
-                </div>
-            </div>
-
-            <!-- Sponsorships -->
-            <div class="envelope-card group relative cursor-pointer">
-                <div class="relative h-48">
-                    <div class="absolute bottom-0 left-0 right-0 h-32 bg-[#9C27B0] rounded shadow-xl"></div>
-                    <div class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#AB47BC] rounded-t origin-bottom transform transition-transform duration-500 shadow-xl"
-                         style="clip-path: polygon(0 40%, 50% 100%, 100% 40%, 100% 0, 0 0);"></div>
-                    <div class="envelope-letter absolute top-8 left-1/2 transform -translate-x-1/2 w-[85%] h-28 bg-white rounded shadow-lg transition-all duration-500 opacity-0 border border-gray-200 p-3">
-                        <div class="h-2 bg-[#9C27B0] rounded mb-2 w-3/4"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2 w-5/6"></div>
-                        <div class="h-1 bg-gray-300 rounded w-4/5"></div>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <h3 class="text-base font-bold text-gray-900">Sponsorships</h3>
-                </div>
-            </div>
-
-            <!-- Internal -->
-            <div class="envelope-card group relative cursor-pointer">
-                <div class="relative h-48">
-                    <div class="absolute bottom-0 left-0 right-0 h-32 bg-[#4CAF50] rounded shadow-xl"></div>
-                    <div class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#66BB6A] rounded-t origin-bottom transform transition-transform duration-500 shadow-xl"
-                         style="clip-path: polygon(0 40%, 50% 100%, 100% 40%, 100% 0, 0 0);"></div>
-                    <div class="envelope-letter absolute top-8 left-1/2 transform -translate-x-1/2 w-[85%] h-28 bg-white rounded shadow-lg transition-all duration-500 opacity-0 border border-gray-200 p-3">
-                        <div class="h-2 bg-[#4CAF50] rounded mb-2 w-3/4"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2"></div>
-                        <div class="h-1 bg-gray-300 rounded mb-2 w-5/6"></div>
-                        <div class="h-1 bg-gray-300 rounded w-4/5"></div>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <h3 class="text-base font-bold text-gray-900">Internal</h3>
-                </div>
-            </div>
-        </div>
-
-        <!-- Descriptions -->
-        <div class="max-w-5xl mx-auto space-y-10">
-            <div class="text-center">
-                <h4 class="text-2xl font-bold text-[#2B4692] mb-3">Programs & Planning</h4>
-                <p class="text-gray-700 text-lg leading-relaxed">
-                    Lead or coordinate educational and community projects! Pitch <span class="italic">your</span> ideas for <span class="font-semibold">fundraisers, vocational training workshops</span>, or other initiatives that empower local families and students.
-                </p>
-            </div>
-
-            <div class="text-center">
-                <h4 class="text-2xl font-bold text-[#941B12] mb-3">Marketing</h4>
-                <p class="text-gray-700 text-lg leading-relaxed">
-                    Bring Purpose Pinoy's story to life through creative campaigns, social media content, and video projects that inspire others to join our cause and spread awareness.
-                </p>
-            </div>
-
-            <div class="text-center">
-                <h4 class="text-2xl font-bold text-[#ECB138] mb-3">Logistics</h4>
-                <p class="text-gray-700 text-lg leading-relaxed">
-                    Be the backbone of every event! Help organize projects, manage materials, and coordinate with partner communities, sponsors, and schools to ensure everything runs smoothly.
-                </p>
-            </div>
-
-            <div class="text-center">
-                <h4 class="text-2xl font-bold text-[#17395C] mb-3">Finance</h4>
-                <p class="text-gray-700 text-lg leading-relaxed">
-                    Take charge of budget tracking, fundraising plans, and project expense management to keep our initiatives sustainable and impactful.
-                </p>
-            </div>
-
-            <div class="text-center">
-                <h4 class="text-2xl font-bold text-[#C24229] mb-3">Ambassadors</h4>
-                <p class="text-gray-700 text-lg leading-relaxed">
-                    Be the face and voice of Purpose Pinoy! Engage new members, promote our initiatives, and represent us in school collaborations, events, and community partnerships.
-                </p>
-            </div>
-
-            <div class="text-center">
-                <h4 class="text-2xl font-bold text-[#00BCD4] mb-3">Tech</h4>
-                <p class="text-gray-700 text-lg leading-relaxed">
-                    Maintains the organization's digital systems, platforms, and technical infrastructure. They handle digital management, account setups, troubleshooting, and the overall digital security of the organization.
-                </p>
-            </div>
-
-            <div class="text-center">
-                <h4 class="text-2xl font-bold text-[#9C27B0] mb-3">Sponsorships</h4>
-                <p class="text-gray-700 text-lg leading-relaxed">
-                    Builds relationships with companies, NGOs, schools, and community organizations that can support the organization's mission through partnerships and collaborative initiatives.
-                </p>
-            </div>
-
-            <div class="text-center">
-                <h4 class="text-2xl font-bold text-[#4CAF50] mb-3">Internal</h4>
-                <p class="text-gray-700 text-lg leading-relaxed">
-                    Ensures a healthy and supportive internal environment for all members. They oversee membership systems, handle member concerns, and strengthen organizational culture through engagement activities and initiatives.
-                </p>
-            </div>
-        </div>
-
-        <!-- Apply now button po w/ forms link -->
-        <div class="text-center mt-20">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdocn4Z-a-P-8eINRfLDTZdMf5l11gfilLTBano_1ja-Y22RA/formResponse" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#2B4692] text-white font-bold px-16 py-6 rounded-xl text-2xl hover:bg-[#17395C] transform hover:scale-105 transition-all duration-300 shadow-2xl">
-                Apply Now
-            </a>
-        </div>
-    </div>
-
-</section>
-    <!-- Footer component po -->
     <div w3-include-html="../components/footer.html"></div>
 
+    <script>
+        //  W3 HTML includes + nav init
+        w3.includeHTML(function () {
+            const btn  = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+            if (btn && menu) btn.addEventListener('click', () => menu.classList.toggle('hidden'));
 
-<!--Envelope logic-->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    const envelopes = document.querySelectorAll('.envelope-card');
-    envelopes.forEach(envelope => {
-        envelope.addEventListener('click', function() {
-            this.classList.toggle('active');
-            envelopes.forEach(other => {
-                if (other !== this) {
-                    other.classList.remove('active');
-                }
-            });
-        });
-    });
-});
-</script>
-
-
-<!--Mobile logic-->
-   <script>
-    w3.includeHTML(function () {
-        // MOBILE MENU LOGIC 
-        const btn = document.getElementById('mobile-menu-button');
-        const menu = document.getElementById('mobile-menu');
-
-        if (btn && menu) {
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-            });
-        }
-
-        // MOBILE PROGRAMS DROPDOWN LOGIC
-        const mobileProgramsButton = document.getElementById('mobile-programs-button');
-        const mobileProgramsSubmenu = document.getElementById('mobile-programs-submenu');
-        const mobileProgramsIcon = document.getElementById('mobile-programs-icon');
-        
-        if (mobileProgramsButton && mobileProgramsSubmenu) {
-            const toggleDropdown = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                mobileProgramsSubmenu.classList.toggle('hidden');
-                if (mobileProgramsIcon) {
-                    mobileProgramsIcon.classList.toggle('rotate-180');
-                }
-            };
-
-            mobileProgramsButton.addEventListener('click', toggleDropdown);
-            mobileProgramsButton.addEventListener('touchstart', toggleDropdown, { passive: false });
-        }
-
-        // ACTIVE LINK HIGHLIGHT LOGIC
-        let currentPath = window.location.pathname;
-
-        if (currentPath === '/') {
-            currentPath = '/index.html';
-        }
-
-        const navLinks = document.querySelectorAll('nav a');
-
-        navLinks.forEach(link => {
-            const linkPath = link.getAttribute('href');
-
-            if (linkPath === currentPath) {
-                if (!link.classList.contains('bg-blue-600')) {
-                    link.classList.add('text-blue-600', 'font-bold');
-                    link.classList.remove('text-gray-600');
-                }
-                if (link.classList.contains('bg-blue-600')) {
-                    link.classList.add('ring-2', 'ring-offset-2', 'ring-blue-600');
-                }
+            const mobileProgramsButton  = document.getElementById('mobile-programs-button');
+            const mobileProgramsSubmenu = document.getElementById('mobile-programs-submenu');
+            const mobileProgramsIcon    = document.getElementById('mobile-programs-icon');
+            if (mobileProgramsButton && mobileProgramsSubmenu) {
+                const toggle = (e) => {
+                    e.preventDefault(); e.stopPropagation();
+                    mobileProgramsSubmenu.classList.toggle('hidden');
+                    if (mobileProgramsIcon) mobileProgramsIcon.classList.toggle('rotate-180');
+                };
+                mobileProgramsButton.addEventListener('click',      toggle);
+                mobileProgramsButton.addEventListener('touchstart',  toggle, { passive: false });
             }
-        });
-    });
-</script>
-</body>
 
+            let p = window.location.pathname;
+            if (p === '/') p = '/index.html';
+            document.querySelectorAll('nav a').forEach(l => {
+                if (l.getAttribute('href') === p && !l.classList.contains('bg-blue-600')) {
+                    l.classList.add('text-blue-600', 'font-bold');
+                    l.classList.remove('text-gray-600');
+                }
+            });
+        });
+
+        // Intersection Observer — Scroll Reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target); //once 
+                }
+            });
+        }, { threshold: 0.15 });
+
+        // Observe all .reveal elements
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Observe reveal-stagger parents
+        document.querySelectorAll('.reveal-stagger').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Typing animation — Why You Should Join
+        const typingHeadingEl = document.getElementById('typing-heading');
+        const typingMainEl    = document.getElementById('typing-main');
+        const typingSub       = document.getElementById('typing-sub');
+        const paperTape       = document.getElementById('paper-tape-label');
+
+        let typingTriggered = false;
+
+        //Observe the entire typewriter section
+        const typewriterSection = document.querySelector('.typewriter-bg');
+
+        const typingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !typingTriggered) {
+                    typingTriggered = true;
+                    typingObserver.disconnect();
+
+                    // Step 1: slide in paper tape
+                    paperTape.classList.add('is-visible');
+
+                    // Step 2: type heading (1300ms)
+                    setTimeout(() => {
+                        typingMainEl.classList.add('type-active');
+                    }, 100);
+
+                    // Step 3: type subtitle after heading finishes
+                    setTimeout(() => {
+                        typingSub.classList.add('type-active');
+                    }, 100 + 1000);
+
+                    // Step 4: reveal divider after subtitle finishes
+                    setTimeout(() => {
+                        const divider = document.getElementById('tw-divider');
+                        if (divider) divider.classList.add('is-visible');
+                    }, 100 + 1000 + 1500);
+                }
+            });
+        }, { threshold: 0.35 });
+
+        if (typewriterSection) typingObserver.observe(typewriterSection);
+
+        //4. Typewriter Cards — scroll reveal
+        const cardsGrid = document.getElementById('tw-cards-grid');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.tw-card').forEach(card => {
+                        card.classList.add('is-visible');
+                    });
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        if (cardsGrid) cardObserver.observe(cardsGrid);
+
+        //5. Luggage Tags scroll reveal (hang animation)
+        const tagsGrid = document.getElementById('tags-grid');
+        const tagObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.tag-item').forEach(tag => {
+                        tag.classList.add('is-visible');
+                    });
+                    tagObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        if (tagsGrid) tagObserver.observe(tagsGrid);
+
+        // 6. Hero reveal on load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    el.classList.add('is-visible');
+                }
+            });
+        });
+    </script>
+</body>
 </html>
