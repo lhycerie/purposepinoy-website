@@ -124,6 +124,10 @@
             z-index: 10;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
+
+        .swiper-slide {
+            width: auto !important;
+        }
     </style>
 </head>
 
@@ -508,6 +512,21 @@
                     link.classList.add('font-bold', 'underline', 'decoration-2', 'underline-offset-4');
                 }
             });
+
+            // 5. Initialize autoscroll
+            if (typeof Swiper !== 'undefined') {
+                new Swiper('.mySwiper', {
+                    slidesPerView: 'auto',
+                    spaceBetween: 20,
+                    loop: true,
+                    speed: 6000, 
+                    autoplay: {
+                        delay: 0,
+                        disableOnInteraction: false,
+                    },
+                    allowTouchMove: false,
+                });
+            }
         });
     </script>
 

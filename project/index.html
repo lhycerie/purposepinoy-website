@@ -323,59 +323,140 @@
 
     <!-- 6. FAQ SECTION -->
     <section class="py-28 bg-[#FDFBF7] relative" id="faq">
-        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#17395C] via-[#A62924] to-[#ECB138]"></div>
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#17395C] via-[#941B12] to-[#ECB138]"></div>
+        
         <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-[#17395C]">Frequently Asked Questions</h2>
-                <p class="text-gray-500 mt-4 text-lg font-serif italic">
-                    Curious about Purpose Pinoy? Learn how it works and how you can be part of the movement.
-                </p>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-heading text-[#17395C]">Frequently Asked Questions</h2>
+                <p class="font-hand text-xl text-[#941B12] mt-2">Everything you need to know about our journey.</p>
             </div>
 
-            <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-                    <button @click="open = !open"
-                        class="w-full flex justify-between items-center px-6 py-4 bg-[#ECB138]/40 text-[#17395C] font-semibold text-lg hover:bg-[#ECB138]/50 transition">
-                        What is Purpose Pinoy?
-                        <i :class="open ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"
-                            class="transition-transform"></i>
-                    </button>
-                    <div x-show="open" x-transition class="px-6 py-4 text-gray-700 bg-white">
-                        Purpose Pinoy is a youth-driven movement focused on empowering young Filipinos through
-                        entrepreneurship, innovation, and community leadership.
+            <div class="space-y-12">
+                
+                <div data-aos="fade-up">
+                    <span class="inline-block bg-[#2B4692] text-white text-xs font-bold px-4 py-1.5 mb-4 rounded-full uppercase tracking-widest shadow-sm">
+                        About Us
+                    </span>
+                    <div class="space-y-4">
+                        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden bg-white">
+                            <button @click="open = !open" class="w-full flex justify-between items-center px-6 py-4 text-left bg-white text-[#17395C] font-semibold hover:bg-gray-50 transition">
+                                What is Purpose Pinoy?
+                                <i :class="open ? 'fa-solid fa-minus' : 'fa-solid fa-plus'" class="text-[#ECB138]"></i>
+                            </button>
+                            <div x-show="open" x-transition class="px-6 py-4 text-gray-600 border-t border-gray-100 leading-relaxed">
+                                Purpose Pinoy is a passionate, student-driven volunteer organization dedicated to helping people in need. We focus on community service, organizing outreaches, and running donation drives, with a special focus on helping street children and orphanages.
+                            </div>
+                        </div>
+                        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden bg-white">
+                            <button @click="open = !open" class="w-full flex justify-between items-center px-6 py-4 text-left bg-white text-[#17395C] font-semibold hover:bg-gray-50 transition">
+                                Do I have to be from a specific school to join?
+                                <i :class="open ? 'fa-solid fa-minus' : 'fa-solid fa-plus'" class="text-[#ECB138]"></i>
+                            </button>
+                            <div x-show="open" x-transition class="px-6 py-4 text-gray-600 border-t border-gray-100">
+                                Not at all! We are an organization outside of school. We welcome students from different schools, strands, and locations who share a common goal of making a positive impact.
+                            </div>
+                        </div>
+                        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden bg-white">
+                            <button @click="open = !open" class="w-full flex justify-between items-center px-6 py-4 text-left bg-white text-[#17395C] font-semibold hover:bg-gray-50 transition">
+                                I have never joined an organization outside of school before. Is that okay?
+                                <i :class="open ? 'fa-solid fa-minus' : 'fa-solid fa-plus'" class="text-[#ECB138]"></i>
+                            </button>
+                            <div x-show="open" x-transition class="px-6 py-4 text-gray-600 border-t border-gray-100">
+                                Absolutely! Many of our members are joining an outside organization for the very first time. Purpose Pinoy is a highly supportive environment perfect for stepping out of your comfort zone, meeting new people, and growing your skills.
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- FAQ Item 2 -->
-                <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-                    <button @click="open = !open"
-                        class="w-full flex justify-between items-center px-6 py-4 bg-[#ECB138]/40 text-[#17395C] font-semibold text-lg hover:bg-[#ECB138]/50 transition">
-                        How can I get involved?
-                        <i :class="open ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"
-                            class="transition-transform"></i>
-                    </button>
-                    <div x-show="open" x-transition class="px-6 py-4 text-gray-700 bg-white">
-                        You can participate by joining our programs, volunteering for our outreach projects, or
-                        supporting us through donations.
+                <div data-aos="fade-up">
+                    <span class="inline-block bg-[#2B4692] text-white text-xs font-bold px-4 py-1.5 mb-4 rounded-full uppercase tracking-widest shadow-sm">
+                        Involvement & Departments
+                    </span>
+                    <div class="space-y-4">
+                        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden bg-white">
+                            <button @click="open = !open" class="w-full flex justify-between items-center px-6 py-4 text-left bg-white text-[#17395C] font-semibold hover:bg-gray-50 transition">
+                                What departments or teams can I join?
+                                <i :class="open ? 'fa-solid fa-minus' : 'fa-solid fa-plus'" class="text-[#ECB138]"></i>
+                            </button>
+                            <div x-show="open" x-transition class="px-6 py-4 text-gray-600 border-t border-gray-100 space-y-3">
+                                <p>When you apply, you can join various teams that fit your skills, including:</p>
+                                <ul class="list-none space-y-2 pl-2">
+                                    <li><strong class="text-[#941B12]">Operations:</strong> Planning logistics and executing outreaches on the ground.</li>
+                                    <li><strong class="text-[#941B12]">External Affairs:</strong> Connecting with sponsors and handling public relations.</li>
+                                    <li><strong class="text-[#941B12]">Creatives:</strong> Designing visual content and social media branding.</li>
+                                    <li><strong class="text-[#941B12]">IT:</strong> Technical support and digital platform management.</li>
+                                    <li><strong class="text-[#941B12]">Internal Affairs:</strong> Organising team-building and keeping the org running smoothly.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden bg-white">
+                            <button @click="open = !open" class="w-full flex justify-between items-center px-6 py-4 text-left bg-white text-[#17395C] font-semibold hover:bg-gray-50 transition">
+                                Are outreaches held online or face-to-face (F2F)?
+                                <i :class="open ? 'fa-solid fa-minus' : 'fa-solid fa-plus'" class="text-[#ECB138]"></i>
+                            </button>
+                            <div x-show="open" x-transition class="px-6 py-4 text-gray-600 border-t border-gray-100">
+                                We utilize our Meetings channels for online planning and committee sync-ups. Actual outreaches, gift-giving, and specific activities are scheduled as face-to-face events depending on the project.
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- FAQ Item 3 -->
-                <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-                    <button @click="open = !open"
-                        class="w-full flex justify-between items-center px-6 py-4 bg-[#ECB138]/40 text-[#17395C] font-semibold text-lg hover:bg-[#ECB138]/50 transition">
-                        Do I need experience to join?
-                        <i :class="open ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"
-                            class="transition-transform"></i>
-                    </button>
-                    <div x-show="open" x-transition class="px-6 py-4 text-gray-700 bg-white">
-                        No experience is needed! We welcome all youth with passion and drive.
+                <div data-aos="fade-up">
+                    <span class="inline-block bg-[#2B4692] text-white text-xs font-bold px-4 py-1.5 mb-4 rounded-full uppercase tracking-widest shadow-sm">
+                        Membership & Commitments
+                    </span>
+                    <div class="space-y-4">
+                        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden bg-white">
+                            <button @click="open = !open" class="w-full flex justify-between items-center px-6 py-4 text-left bg-white text-[#17395C] font-semibold hover:bg-gray-50 transition">
+                                What if I get busy with schoolwork and exams?
+                                <i :class="open ? 'fa-solid fa-minus' : 'fa-solid fa-plus'" class="text-[#ECB138]"></i>
+                            </button>
+                            <div x-show="open" x-transition class="px-6 py-4 text-gray-600 border-t border-gray-100">
+                                We are students first! We completely understand that your academic responsibilities are the priority. If you need to focus on your studies, just communicate with your Department Head so we can cover your tasks.
+                            </div>
+                        </div>
+                        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden bg-white">
+                            <button @click="open = !open" class="w-full flex justify-between items-center px-6 py-4 text-left bg-white text-[#17395C] font-semibold hover:bg-gray-50 transition">
+                                Will I receive a certificate for my volunteer work?
+                                <i :class="open ? 'fa-solid fa-minus' : 'fa-solid fa-plus'" class="text-[#ECB138]"></i>
+                            </button>
+                            <div x-show="open" x-transition class="px-6 py-4 text-gray-600 border-t border-gray-100">
+                                Yes! Active members and volunteers can request a certificate of participation or a record of volunteer hours for their portfolio or school requirements.
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div data-aos="fade-up">
+                    <span class="inline-block bg-[#2B4692] text-white text-xs font-bold px-4 py-1.5 mb-4 rounded-full uppercase tracking-widest shadow-sm">
+                        Donations & Support
+                    </span>
+                    <div class="space-y-4">
+                        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden bg-white">
+                            <button @click="open = !open" class="w-full flex justify-between items-center px-6 py-4 text-left bg-white text-[#17395C] font-semibold hover:bg-gray-50 transition">
+                                What kind of donations do you accept?
+                                <i :class="open ? 'fa-solid fa-minus' : 'fa-solid fa-plus'" class="text-[#ECB138]"></i>
+                            </button>
+                            <div x-show="open" x-transition class="px-6 py-4 text-gray-600 border-t border-gray-100">
+                                Aside from monetary donations raised during fundraisers, we often accept in-kind donations such as canned goods, rice, toys, school supplies, and clothes, depending on the specific needs of our upcoming outreaches.
+                            </div>
+                        </div>
+                        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl shadow-sm overflow-hidden bg-white">
+                            <button @click="open = !open" class="w-full flex justify-between items-center px-6 py-4 text-left bg-white text-[#17395C] font-semibold hover:bg-gray-50 transition">
+                                How can my friends or family support Purpose Pinoy if they can't join?
+                                <i :class="open ? 'fa-solid fa-minus' : 'fa-solid fa-plus'" class="text-[#ECB138]"></i>
+                            </button>
+                            <div x-show="open" x-transition class="px-6 py-4 text-gray-600 border-t border-gray-100">
+                                They can support our advocacy by interacting with our official posts on social media, donating to our fundraisers, or dropping off in-kind donations during our active charity drives!                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
+    
 
 
 

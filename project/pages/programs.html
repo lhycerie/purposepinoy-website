@@ -16,128 +16,134 @@
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        h1, h2, h3, .font-heading {
+            font-family: 'DM Serif Display', serif;
+            letter-spacing: 0.05em;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF7; 
+        }
+
+        .font-hand {
+            font-family: 'Caveat', cursive;
+        }
+
+        .program-card {
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 
-<!-- 
-    TODO LIST:
-    [ ] Standardize fonts to Brand Kit
-    [ ] Standardize page layouts
-    [ ] Add AOS Scroll Animations
-    [ ] Add other UI improvements
--->
-
-<body>
-    <!-- Navbar Component -->
+<body class="antialiased text-gray-800">
     <div w3-include-html="/components/navbar.html"></div>
 
-    <!-- HERO HEADER -->
-    <section class="bg-[#ECB138] py-10 text-center px-4">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-black mb-4">
-            Our Impact in Action
-        </h1>
-        <p class="text-xl text-black/80 font-light max-w-2xl mx-auto">
-            Real initiatives. Real change. See what we are working on.
-        </p>
+    <section class="bg-[#FDFBF7] py-10 pt-24 px-4 relative overflow-hidden">
+        <div class="absolute top-10 right-10 w-24 h-24 border-2 border-[#ECB138]/20 rounded-full rotate-12"></div>
+        
+        <div class="max-w-6xl mx-auto flex flex-col items-center text-center" data-aos="fade-down">
+            <div class="relative z-10">
+                <h1 class="text-5xl md:text-7xl font-heading text-[#17395C] mb-4 leading-tight">
+                    Our Impact
+                    <span class="relative inline-block">
+                        In Action
+                        <svg class="absolute w-full h-4 -bottom-3 left-0 text-[#ECB138]" viewBox="0 0 100 10"
+                            preserveAspectRatio="none">
+                            <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="none" />
+                        </svg>
+                    </span>
+                </h1>
+                <p class="text-xl text-gray-600 font-light max-w-xl mx-auto mt-8">
+                    Real initiatives. Real change. <br>
+                    <span class="font-hand text-2xl text-[#941B12]">Explore our current journey.</span>
+                </p>
+            </div>
+        </div>
     </section>
 
-    <!-- MAIN CONTENT -->
-    <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="max-w-6xl mx-auto px-4 mb-32">
 
-        <!-- Section Title -->
-        <div class="mb-10 border-b border-gray-200 pb-4">
-            <h2 class="text-3xl font-bold text-[#2B4692]">Current Programs</h2>
-            <p class="text-gray-500 mt-1">Ongoing initiatives for this season.</p>
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
 
-        <!-- PROGRAMS -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-
-            <!-- Program 1: Thrift for Good -->
-            <div
-                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
+            <div class="program-card rounded-xl overflow-hidden flex flex-col" data-aos="fade-up">
                 <div class="h-56 bg-gray-200 relative">
                     <img src="https://images.unsplash.com/photo-1701186280075-89b0e7b01b39?q=80&w=1170&auto=format&fit=crop"
                         class="w-full h-full object-cover" alt="Thrift for Good">
-                    <div
-                        class="absolute top-4 left-4 bg-[#ECB138] text-black text-xs font-bold px-3 py-1 rounded-full uppercase">
+                    <div class="absolute top-4 left-4 bg-[#ECB138] text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                         Partnership
                     </div>
                 </div>
-                <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-3 text-gray-900">Thrift for Good & The HOPE Foundation</h3>
-                    <p class="text-gray-600 text-sm mb-4 flex-1 leading-relaxed text-justify">
+                <div class="p-8 flex-1 flex flex-col">
+                    <h3 class="text-2xl font-heading mb-3 text-[#17395C]">Thrift for Good & The HOPE Foundation</h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-1 leading-relaxed text-justify">
                         Our Thrift for Good initiative combines sustainable fashion with community impact. We organize
                         group thrift trips to source clothing, sell curated pieces online to raise funds, and then
-                        donate unsold items to the HOPE Foundation. During our visit, members host a “free shopping”
-                        event, promoting dignity and confidence for women and girls healing from trauma. We will also
-                        conduct a basic perfume-making vocational workshop to equip them with hands-on skills.
+                        donate unsold items to the HOPE Foundation. 
                         <br><br>
-                        <strong>Impact:</strong> Hosting "free shopping" events to promote dignity for women healing
-                        from trauma.
+                        <span class="font-bold text-[#ECB138]">Impact:</span> Promoting dignity and confidence for women and girls healing from trauma.
                     </p>
-                    <button
-                        class="w-full bg-gray-100 text-[#2B4692] font-bold py-2 rounded hover:bg-[#2B4692] hover:text-white transition">
-                        Volunteer for this
+                    <button class="w-full border-2 border-[#ECB138] text-[#ECB138] font-bold py-2 rounded hover:bg-[#ECB138] hover:text-white transition-all duration-300">
+                        Volunteer
                     </button>
                 </div>
             </div>
 
-            <!-- Program 2: Toy Drive -->
-            <div
-                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
+            <div class="program-card rounded-xl overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="100">
                 <div class="h-56 bg-gray-200 relative">
                     <img src="https://images.unsplash.com/photo-1512909481869-0eaa1e9817ba?q=80&w=2070&auto=format&fit=crop"
                         class="w-full h-full object-cover" alt="Toy Drive">
-                    <div
-                        class="absolute top-4 left-4 bg-[#941B12] text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
+                    <div class="absolute top-4 left-4 bg-[#941B12] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                         Outreach
                     </div>
                 </div>
-                <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-3 text-gray-900">Street Children Christmas Toy Drive</h3>
-                    <p class="text-gray-600 text-sm mb-4 flex-1 leading-relaxed text-justify">
+                <div class="p-8 flex-1 flex flex-col">
+                    <h3 class="text-2xl font-heading mb-3 text-[#17395C]">Street Children Christmas Toy Drive</h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-1 leading-relaxed text-justify">
                         Spread joy this December with our road-trip style outreach! The Street Children Christmas Toy
-                        Drive is a hands-on initiative designed to bring festive cheer and inclusion to street children
-                        across selected locations. Funds raised from our Thrift for Good program will be used to
-                        purchase and distribute toys, ensuring every child receives a gift and experiences the holiday
-                        season with warmth.
-
+                        Drive is designed to bring festive cheer and inclusion to street children
+                        across selected locations.
                         <br><br>
-                        <strong>Impact:</strong> Distributing toys and gifts to ensure every child experiences the
-                        warmth of the holidays.
+                        <span class="font-bold text-[#941B12]">Impact:</span> Ensuring every child experiences the holiday season with warmth.
                     </p>
-                    <button
-                        class="w-full bg-gray-100 text-[#941B12] font-bold py-2 rounded hover:bg-[#941B12] hover:text-white transition">
+                    <button class="w-full border-2 border-[#941B12] text-[#941B12] font-bold py-2 rounded hover:bg-[#941B12] hover:text-white transition-all duration-300">
                         Donate Toys
                     </button>
                 </div>
             </div>
 
-            <!-- Program 3: Relief Ops -->
-            <div
-                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
+            <div class="program-card rounded-xl overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="200">
                 <div class="h-56 bg-gray-200 relative">
                     <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop"
                         class="w-full h-full object-cover" alt="Relief">
-                    <div
-                        class="absolute top-4 left-4 bg-[#2B4692] text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
+                    <div class="absolute top-4 left-4 bg-[#2B4692] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                         Relief Ops
                     </div>
                 </div>
-                <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-3 text-gray-900">Red Cross PH - Typhoon Uwan Relief</h3>
-                    <p class="text-gray-600 text-sm mb-4 flex-1 leading-relaxed text-justify">
-                        We are committed to immediate relief efforts by collaborating with Red Cross Philippines in
-                        Mandaluyong. We are fundraising to provide essential goods to families affected by recent
-                        typhoons. Our focus is on practical assistance through food items (canned goods, instant
-                        noodles, bottled water) and vital hygiene kits (toothbrushes, toothpaste, sanitary napkins,
-                        etc.).
+                <div class="p-8 flex-1 flex flex-col">
+                    <h3 class="text-2xl font-heading mb-3 text-[#17395C]">Red Cross PH - Typhoon Uwan Relief</h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-1 leading-relaxed text-justify">
+                        Immediate relief efforts by collaborating with Red Cross Philippines in Mandaluyong. 
+                        Our focus is on practical assistance through food items and vital hygiene kits for families affected by recent typhoons.
                         <br><br>
-                        <strong>Impact:</strong> Providing essential food items (canned goods, rice) and vital hygiene
-                        kits.
+                        <span class="font-bold text-[#2B4692]">Impact:</span> Providing essential food items and vital hygiene kits.
                     </p>
-                    <button
-                        class="w-full bg-gray-100 text-[#2B4692] font-bold py-2 rounded hover:bg-[#2B4692] hover:text-white transition">
+                    <button class="w-full border-2 border-[#2B4692] text-[#2B4692] font-bold py-2 rounded hover:bg-[#2B4692] hover:text-white transition-all duration-300">
                         Donate Funds
                     </button>
                 </div>
@@ -145,71 +151,54 @@
 
         </div>
 
-        <!-- Call to Action Banner -->
-        <div class="bg-[#2B4692] rounded-2xl p-10 text-center text-white shadow-lg relative overflow-hidden">
-            <div
-                class="absolute top-0 left-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-x-10 -translate-y-10">
-            </div>
+        <div class="bg-[#17395C] rounded-2xl p-12 text-center text-white shadow-xl relative overflow-hidden" data-aos="zoom-in">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-[#ECB138] opacity-10 rounded-full translate-x-10 -translate-y-10"></div>
 
-            <h2 class="text-3xl font-bold mb-4 relative z-10">Have an idea for a program?</h2>
-            <p class="text-blue-100 mb-8 max-w-xl mx-auto relative z-10">
+            <h2 class="text-4xl font-heading mb-4 relative z-10">Have an idea for a program?</h2>
+            <p class="text-blue-100 mb-8 max-w-xl mx-auto relative z-10 text-lg">
                 We are always looking for new ways to help our community. If you have a project proposal or want to lead
                 an initiative, let us know!
             </p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdR8mEZzAJTeVyYDWpfMV8C02dideY84v8CbBK2JZjed0EVaw/viewform"
                 target="_blank"
-                class="inline-block bg-[#ECB138] text-black font-bold py-3 px-8 rounded-full hover:bg-white hover:text-[#2B4692] transition duration-300 shadow-md relative z-10">
+                class="inline-block bg-[#ECB138] text-black font-bold py-3 px-10 rounded-full hover:bg-white hover:text-[#17395C] transition duration-300 shadow-lg relative z-10">
                 Propose a Project
             </a>
         </div>
 
     </div>
 
-
-    <!-- Footer Component -->
     <div w3-include-html="/components/footer.html"></div>
 
-    <!-- Mobile Navbar Logic -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         w3.includeHTML(function () {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true
+            });
 
-            // MOBILE MENU LOGIC 
+            // Mobile Menu Logic 
             const btn = document.getElementById('mobile-menu-button');
             const menu = document.getElementById('mobile-menu');
-
             if (btn && menu) {
                 btn.addEventListener('click', () => {
                     menu.classList.toggle('hidden');
                 });
             }
 
-            // ACTIVE LINK HIGHLIGHT LOGIC
-            let currentPath = window.location.pathname;
-
-            if (currentPath === '/') {
-                currentPath = '/index.html';
-            }
-
+            // Highlight Logic
+            const currentPath = window.location.pathname;
             const navLinks = document.querySelectorAll('nav a');
-
             navLinks.forEach(link => {
                 const linkPath = link.getAttribute('href');
-
-                if (linkPath === currentPath) {
-                    // Standard links
-                    if (!link.classList.contains('bg-blue-600')) {
-                        link.classList.add('text-blue-600', 'font-bold');
-                        link.classList.remove('text-gray-600');
-                    }
-                    // Button links
-                    if (link.classList.contains('bg-blue-600')) {
-                        link.classList.add('ring-2', 'ring-offset-2', 'ring-blue-600');
-                    }
+                if (linkPath === currentPath || (currentPath === '/' && linkPath === '/index.html')) {
+                    link.classList.add('text-[#2B4692]', 'font-bold');
                 }
             });
         });
     </script>
 
 </body>
-
 </html>

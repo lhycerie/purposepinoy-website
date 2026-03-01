@@ -15,13 +15,32 @@
     <!-- Scripts -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
+        h1, h2, h3, .font-heading {
+            font-family: 'DM Serif Display', serif;
+            letter-spacing: 0.05em;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF7; 
+        }
+
+        .font-hand {
+            font-family: 'Caveat', cursive;
+        }
+
         .event-card-hero {
             position: relative;
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
             overflow: hidden;
         }
         
@@ -60,54 +79,62 @@
     </style>
 </head>
 
-<body>
+<body class="antialiased text-gray-800">
+
     <!-- Navbar Component -->
     <div w3-include-html="/components/navbar.html"></div>
 
-    <!-- HERO HEADER -->
-    <section class="bg-[#2B4692] py-10 text-center px-4">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            Past Events
-        </h1>
-        <p class="text-xl text-white/90 font-light max-w-2xl mx-auto">
-            Celebrating the meaningful moments and impact we've created together.
-        </p>
+    <section class="bg-[#FDFBF7] py-10 pt-24 px-4 relative overflow-hidden">
+        <div class="absolute top-10 right-10 w-24 h-24 border-2 border-[#ECB138]/20 rounded-full rotate-12"></div>
+        
+        <div class="max-w-6xl mx-auto flex flex-col items-center text-center" data-aos="fade-down">
+            <div class="relative z-10">
+                <h1 class="text-5xl md:text-7xl font-heading text-[#17395C] mb-4 leading-tight">
+                    Memories of
+                    <span class="relative inline-block">
+                        Purpose
+                        <svg class="absolute w-full h-4 -bottom-3 left-0 text-[#ECB138]" viewBox="0 0 100 10"
+                            preserveAspectRatio="none">
+                            <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="none" />
+                        </svg>
+                    </span>
+                </h1>
+                <p class="text-xl text-gray-600 font-light max-w-xl mx-auto mt-8">
+                    Celebrating the meaningful moments and impact we've created together. <br>
+                    <span class="font-hand text-2xl text-[#941B12]">A look back at our journey.</span>
+                </p>
+            </div>
+        </div>
     </section>
 
     <!-- MAIN CONTENT -->
-    <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="max-w-5xl mx-auto px-4">
 
         <!-- Event 1: Pasong Buaya -->
-        <div class="mb-12 bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
-            <!-- Card Hero with Blurred Background -->
-            <div class="event-card-hero min-h-[500px] md:min-h-[600px]" style="background-image: url('/assets/images/pasongbuaya1.png');">
-                <div class="event-card-content p-8 md:p-12 flex flex-col justify-center min-h-[500px] md:min-h-[600px]">
+        <div class="mb-12 bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100" data-aos="fade-up">
+
+            <div class="event-card-hero min-h-[350px] md:min-h-[400px]" style="background-image: url('/assets/images/pasongbuaya1.png');">
+                <div class="event-card-content p-8 md:p-12 flex flex-col justify-center min-h-[500px]">
                     <div class="max-w-2xl">
-                        <div class="inline-block bg-[#ECB138] text-black text-xs font-bold px-3 py-1 rounded-full uppercase mb-4">
+                        <div class="inline-block bg-[#ECB138] text-black text-xs font-bold px-3 py-1 rounded-full uppercase mb-4 tracking-wider">
                             Community Outreach
                         </div>
-                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
-                            Pasong Buaya
-                        </h2>
-                        <p class="text-white text-lg leading-relaxed mb-6 drop-shadow-md">
-                            Our team visited the Pasong Buaya community to conduct educational workshops and distribute essential supplies. This event brought together volunteers and community members in a meaningful exchange of knowledge, resources, and hope.
+                        <h2 class="text-4xl md:text-5xl font-heading text-white mb-4 drop-shadow-lg">Pasong Buaya</h2>
+                        <p class="text-white text-lg leading-relaxed mb-6 drop-shadow-md font-light">
+                            Our team visited the Pasong Buaya community to conduct educational workshops and distribute essential supplies. This event brought together volunteers and community members in a meaningful exchange.
                         </p>
-                        
+
                         <!-- Quick Info -->
-                        <div class="space-y-2 mb-6">
+                        <div class="space-y-2 mb-8">
                             <div class="flex items-center text-white">
                                 <i class="fas fa-map-marker-alt w-5 text-[#ECB138]"></i>
                                 <span class="ml-2 drop-shadow-md">Pasong Buaya, Philippines</span>
                             </div>
-                            <div class="flex items-center text-white">
-                                <i class="fas fa-calendar-alt w-5 text-[#ECB138]"></i>
-                                <span class="ml-2 drop-shadow-md">Date: [Add Date]</span>
-                            </div>
                         </div>
 
-                        <!-- Expand Button -->
+                         <!-- Expand button -->
                         <button onclick="toggleEvent('event1')" 
-                                class="inline-flex items-center gap-2 bg-white text-[#2B4692] font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition shadow-lg">
+                                class="inline-flex items-center gap-2 bg-white text-[#17395C] font-bold px-8 py-3 rounded-full hover:bg-[#ECB138] hover:text-black transition-all duration-300 shadow-lg">
                             <span id="event1-btn-text">View Full Details & Gallery</span>
                             <i id="event1-icon" class="fas fa-chevron-down rotate-transition"></i>
                         </button>
@@ -115,63 +142,41 @@
                 </div>
             </div>
 
-            <!-- Expandable Section -->
-            <div id="event1-details" class="hidden">
-                <div class="px-6 md:px-8 py-8">
-                    
-                    <!-- Full Description -->
-                    <div class="mb-8">
-                        <h3 class="text-xl font-bold text-[#2B4692] mb-3">About This Event</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            Through interactive sessions and personal connections, we were able to make a lasting impact on the lives of local students and families. Our volunteers worked closely with community leaders to identify needs and deliver meaningful support.
-                        </p>
-                    </div>
+            <!-- Expandable section -->
+            <div id="event1-details" class="hidden bg-[#FDFBF7]/50">
+                <div class="px-6 md:px-12 py-12 border-t border-gray-100">
 
-                    <!-- Impact Stats -->
-                    <div class="bg-gray-50 rounded-lg p-6 mb-8">
-                        <h3 class="font-bold text-[#2B4692] mb-4 text-lg">Impact Highlights</h3>
-                        <ul class="space-y-3 text-gray-600">
-                            <li class="flex items-start">
-                                <span class="text-[#ECB138] mr-3 text-xl">✓</span>
-                                <span>Reached over 100 students with educational materials</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-[#ECB138] mr-3 text-xl">✓</span>
-                                <span>Distributed school supplies and hygiene kits</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-[#ECB138] mr-3 text-xl">✓</span>
-                                <span>Conducted motivational workshops and activities</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <div class="grid md:grid-cols-2 gap-12">
 
-                    <!-- Photo Gallery -->
-                    <div>
-                        <h3 class="text-xl font-bold text-[#2B4692] mb-4">Photo Gallery</h3>
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                            <!-- Add your additional photos here -->
-                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event1', 0)">
-                                <img src="/assets/images/pasongbuaya5.jpg" 
-                                     alt="Pasong Buaya 1" 
-                                     class="w-full h-48 object-cover">
+                        <!-- Description -->
+                        <div>
+                            <h3 class="text-2xl font-heading text-[#17395C] mb-4">About This Event</h3>
+                            <p class="text-gray-600 leading-relaxed mb-8 text-justify">
+                                Through interactive sessions and personal connections, we were able to make a lasting impact 
+                                on the lives of local students and families. Our volunteers worked closely with community leaders 
+                                to identify needs and deliver meaningful support.                            
+                            </p>
+
+                            <!-- Impact -->
+                            <div class="bg-white p-6 rounded-xl border border-[#ECB138]/30 shadow-sm">
+                                <h3 class="font-heading text-[#2B4692] mb-4 text-lg">Impact Highlights</h3>
+                                <ul class="space-y-3 text-gray-600">
+                                    <li class="flex items-start"><span class="text-[#ECB138] mr-3 font-bold">✓</span><span>Reached over 100 students with educational materials</span></li>
+                                    <li class="flex items-start"><span class="text-[#ECB138] mr-3 font-bold">✓</span><span>Distributed school supplies and hygiene kits</span></li>
+                                    <li class="flex items-start"><span class="text-[#ECB138] mr-3 font-bold">✓</span><span>Conducted motivational workshops and activities</span></li>
+                                </ul>
                             </div>
-                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event1', 1)">
-                                <img src="/assets/images/pasongbuaya2.JPG" 
-                                     alt="Pasong Buaya 2" 
-                                     class="w-full h-48 object-cover">
+                        </div>
+
+                        <!-- Photo Gallery -->
+                        <div>
+                            <h3 class="text-2xl font-heading text-[#17395C] mb-4">Photo Gallery</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="gallery-img cursor-pointer overflow-hidden rounded-xl shadow-md" onclick="openLightbox('event1', 0)"><img src="/assets/images/pasongbuaya5.jpg" class="w-full h-44 object-cover"></div>
+                                <div class="gallery-img cursor-pointer overflow-hidden rounded-xl shadow-md" onclick="openLightbox('event1', 1)"><img src="/assets/images/pasongbuaya2.JPG" class="w-full h-44 object-cover"></div>
+                                <div class="gallery-img cursor-pointer overflow-hidden rounded-xl shadow-md" onclick="openLightbox('event1', 2)"><img src="/assets/images/pasongbuaya3.JPG" class="w-full h-44 object-cover"></div>
+                                <div class="gallery-img cursor-pointer overflow-hidden rounded-xl shadow-md" onclick="openLightbox('event1', 3)"><img src="/assets/images/pasongbuaya4.JPG" class="w-full h-44 object-cover"></div>
                             </div>
-                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event1', 2)">
-                                <img src="/assets/images/pasongbuaya3.JPG" 
-                                     alt="Pasong Buaya 3" 
-                                     class="w-full h-48 object-cover">
-                            </div>
-                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event1', 3)">
-                                <img src="/assets/images/pasongbuaya4.JPG" 
-                                     alt="Pasong Buaya 4" 
-                                     class="w-full h-48 object-cover">
-                            </div>
-                           
                         </div>
                     </div>
                 </div>
@@ -179,27 +184,20 @@
         </div>
 
         <!-- Event 2: ROTARACT X PURPOSE PINOY -->
-        <div class="mb-12 bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
-            <!-- Blurred bg -->
-            <div class="event-card-hero min-h-[400px] md:min-h-[500px]" style="background-image: url('/assets/images/rotaract1.png');">
-                <div class="event-card-content p-6 md:p-10 flex flex-col justify-center min-h-[400px] md:min-h-[500px]">
+        <div class="mb-12 bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100" data-aos="fade-up">
+            <div class="event-card-hero min-h-[500px]" style="background-image: url('/assets/images/rotaract1.png');">
+                <div class="event-card-content p-8 md:p-12 flex flex-col justify-center min-h-[500px]">
                     <div class="max-w-2xl">
-                        <div class="inline-block bg-[#941B12] text-white text-xs font-bold px-3 py-1 rounded-full uppercase mb-4">
+                        <div class="inline-block bg-[#941B12] text-white text-xs font-bold px-3 py-1 rounded-full uppercase mb-4 tracking-wider">
                             Partnership
                         </div>
-                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
-                            ROTARACT X PURPOSE PINOY
-                        </h2>
-                        <p class="text-white text-lg leading-relaxed mb-6 drop-shadow-md">
-                            In partnership with Rotaract, we launched a community support initiative to provide micro-entrepreneurs and small business owners with resources and mentorship.
+                        <h2 class="text-4xl md:text-5xl font-heading text-white mb-4 drop-shadow-lg">ROTARACT X PURPOSE PINOY</h2>
+                        <p class="text-white text-lg leading-relaxed mb-6 drop-shadow-md font-light">
+                            In partnership with Rotaract, we launched a community support initiative to provide micro-entrepreneurs and small business owners with resources and mentorship.                        
                         </p>
-                        
+
                         <!-- Quick Info -->
                         <div class="space-y-2 mb-6">
-                            <div class="flex items-center text-white">
-                                <i class="fas fa-map-marker-alt w-5 text-[#ECB138]"></i>
-                                <span class="ml-2 drop-shadow-md">Local Community, Philippines</span>
-                            </div>
                             <div class="flex items-center text-white">
                                 <i class="fas fa-handshake w-5 text-[#ECB138]"></i>
                                 <span class="ml-2 drop-shadow-md">Partner: Rotaract Philippines</span>
@@ -208,7 +206,7 @@
 
                         <!-- Expand button -->
                         <button onclick="toggleEvent('event2')" 
-                                class="inline-flex items-center gap-2 bg-white text-[#2B4692] font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition shadow-lg">
+                                class="inline-flex items-center gap-2 bg-white text-[#17395C] font-bold px-8 py-3 rounded-full hover:bg-[#ECB138] hover:text-black transition-all duration-300 shadow-lg">
                             <span id="event2-btn-text">View Full Details & Gallery</span>
                             <i id="event2-icon" class="fas fa-chevron-down rotate-transition"></i>
                         </button>
@@ -217,60 +215,36 @@
             </div>
 
             <!-- Expandable section -->
-            <div id="event2-details" class="hidden">
-                <div class="px-6 md:px-8 py-8">
-                    
-                    <!-- Description -->
-                    <div class="mb-8">
-                        <h3 class="text-xl font-bold text-[#2B4692] mb-3">About This Event</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            This collaboration brought together young professionals and community members to foster economic empowerment and sustainable livelihoods in underserved areas. We focused on building lasting relationships and providing practical business support.
-                        </p>
-                    </div>
+            <div id="event2-details" class="hidden bg-[#FDFBF7]/50">
+                <div class="px-6 md:px-12 py-12 border-t border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-12">
 
-                    <!-- Impact -->
-                    <div class="bg-gray-50 rounded-lg p-6 mb-8">
-                        <h3 class="font-bold text-[#2B4692] mb-4 text-lg">Impact Highlights</h3>
-                        <ul class="space-y-3 text-gray-600">
-                            <li class="flex items-start">
-                                <span class="text-[#ECB138] mr-3 text-xl">✓</span>
-                                <span>Supported local sari-sari store owners</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-[#ECB138] mr-3 text-xl">✓</span>
-                                <span>Provided business mentorship and resources</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-[#ECB138] mr-3 text-xl">✓</span>
-                                <span>Built lasting partnerships with community entrepreneurs</span>
-                            </li>
-                        </ul>
-                    </div>
+                        <!-- Description -->
+                        <div>
+                            <h3 class="text-2xl font-heading text-[#17395C] mb-4">About This Event</h3>
+                            <p class="text-gray-600 leading-relaxed mb-8 text-justify">
+                                This collaboration brought together young professionals and community members to foster economic empowerment and sustainable livelihoods in underserved areas. We focused on building lasting relationships and providing practical business support.
+                            </p>
 
-                    <!-- Photo Gallery -->
-                    <div>
-                        <h3 class="text-xl font-bold text-[#2B4692] mb-4">Photo Gallery</h3>
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                            <!-- Photo gallery -->
-                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event2', 0)">
-                                <img src="/assets/images/rotaract5.jpg" 
-                                     alt="Rotaract 1" 
-                                     class="w-full h-48 object-cover">
+                            <!-- Impact -->
+                            <div class="bg-white p-6 rounded-xl border border-[#ECB138]/30 shadow-sm">
+                                <h3 class="font-heading text-[#2B4692] mb-4 text-lg">Impact Highlights</h3>
+                                <ul class="space-y-3 text-gray-600">
+                                    <li class="flex items-start"><span class="text-[#ECB138] mr-3 font-bold">✓</span><span>Supported local sari-sari store owners</span></li>
+                                    <li class="flex items-start"><span class="text-[#ECB138] mr-3 font-bold">✓</span><span>Provided business mentorship and resources</span></li>
+                                    <li class="flex items-start"><span class="text-[#ECB138] mr-3 font-bold">✓</span><span>Built lasting partnerships with community entrepreneurs</span></li>
+                                </ul>
                             </div>
-                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event2', 1)">
-                                <img src="/assets/images/rotaract2.jpg" 
-                                     alt="Rotaract 2" 
-                                     class="w-full h-48 object-cover">
-                            </div>
-                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event2', 2)">
-                                <img src="/assets/images/rotaract3.jpg" 
-                                     alt="Rotaract 3" 
-                                     class="w-full h-48 object-cover">
-                            </div>
-                            <div class="gallery-img cursor-pointer overflow-hidden rounded-lg" onclick="openLightbox('event2', 3)">
-                                <img src="/assets/images/rotaract4.jpg" 
-                                     alt="Rotaract 4" 
-                                     class="w-full h-48 object-cover">
+                        </div>
+
+                        <!-- Photo Gallery -->
+                        <div>
+                            <h3 class="text-2xl font-heading text-[#17395C] mb-4">Photo Gallery</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="gallery-img cursor-pointer overflow-hidden rounded-xl shadow-md" onclick="openLightbox('event2', 0)"><img src="/assets/images/rotaract5.jpg" class="w-full h-44 object-cover"></div>
+                                <div class="gallery-img cursor-pointer overflow-hidden rounded-xl shadow-md" onclick="openLightbox('event2', 1)"><img src="/assets/images/rotaract2.jpg" class="w-full h-44 object-cover"></div>
+                                <div class="gallery-img cursor-pointer overflow-hidden rounded-xl shadow-md" onclick="openLightbox('event2', 2)"><img src="/assets/images/rotaract3.jpg" class="w-full h-44 object-cover"></div>
+                                <div class="gallery-img cursor-pointer overflow-hidden rounded-xl shadow-md" onclick="openLightbox('event2', 3)"><img src="/assets/images/rotaract4.jpg" class="w-full h-44 object-cover"></div>
                             </div>
                         </div>
                     </div>
@@ -280,28 +254,17 @@
     </div>
 
     <!-- Lightbox Model -->
-    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
-        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 z-10">
-            &times;
-        </button>
-        <button onclick="changeLightboxImage(-1)" class="absolute left-4 text-white text-4xl hover:text-gray-300 z-10">
-            &#10094;
-        </button>
-        <button onclick="changeLightboxImage(1)" class="absolute right-4 text-white text-4xl hover:text-gray-300 z-10">
-            &#10095;
-        </button>
-        <img id="lightbox-img" src="" alt="Event photo" class="max-w-[90%] max-h-[90vh] object-contain">
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-5xl hover:text-[#ECB138] transition">&times;</button>
+        <button onclick="changeLightboxImage(-1)" class="absolute left-6 text-white text-4xl hover:text-[#ECB138] transition">&#10094;</button>
+        <button onclick="changeLightboxImage(1)" class="absolute right-6 text-white text-4xl hover:text-[#ECB138] transition">&#10095;</button>
+        <img id="lightbox-img" src="" alt="Event photo" class="max-w-full max-h-[85vh] object-contain rounded-lg">
     </div>
-
-
 
     <!-- Footer Component -->
     <div w3-include-html="/components/footer.html"></div>
 
-
-
-
-    <!-- JS part-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Event expansion toggle
         function toggleEvent(eventId) {
@@ -325,7 +288,6 @@
         let currentImageIndex = 0;
 
         function openLightbox(eventId, imageIndex) {
-            // Get all images from the specific event gallery
             const eventGallery = document.querySelector(`#${eventId}-details .grid`);
             if (!eventGallery) return;
             
@@ -344,6 +306,7 @@
         }
 
         function changeLightboxImage(direction) {
+            if (currentEventImages.length === 0) return;
             currentImageIndex += direction;
             if (currentImageIndex < 0) currentImageIndex = currentEventImages.length - 1;
             if (currentImageIndex >= currentEventImages.length) currentImageIndex = 0;
@@ -353,21 +316,22 @@
 
         // Close lightbox on escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') changeLightboxImage(-1);
-            if (e.key === 'ArrowRight') changeLightboxImage(1);
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+                if (e.key === 'ArrowRight') changeLightboxImage(1);
+            }
         });
 
-        // Mobile Navbar
+        // Initialize components and Navbar
         w3.includeHTML(function () {
-            // Mobile menu 
+            AOS.init({ duration: 800, once: true });
+
             const btn = document.getElementById('mobile-menu-button');
             const menu = document.getElementById('mobile-menu');
-
             if (btn && menu) {
-                btn.addEventListener('click', () => {
-                    menu.classList.toggle('hidden');
-                });
+                btn.addEventListener('click', () => menu.classList.toggle('hidden'));
             }
 
             // Moblie program logic
@@ -380,38 +344,27 @@
                     e.preventDefault();
                     e.stopPropagation();
                     mobileProgramsSubmenu.classList.toggle('hidden');
-                    if (mobileProgramsIcon) {
-                        mobileProgramsIcon.classList.toggle('rotate-180');
-                    }
+                    if (mobileProgramsIcon) mobileProgramsIcon.classList.toggle('rotate-180');
                 };
-
                 mobileProgramsButton.addEventListener('click', toggleDropdown);
                 mobileProgramsButton.addEventListener('touchstart', toggleDropdown, { passive: false });
             }
 
             // Active link highlight
             let currentPath = window.location.pathname;
+            if (currentPath === '/' || currentPath === '') currentPath = '/index.html';
 
-            if (currentPath === '/') {
-                currentPath = '/index.html';
-            }
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
+            document.querySelectorAll('nav a').forEach(link => {
                 const linkPath = link.getAttribute('href');
-
                 if (linkPath === currentPath) {
-                    if (!link.classList.contains('bg-blue-600')) {
-                        link.classList.add('text-blue-600', 'font-bold');
-                        link.classList.remove('text-gray-600');
-                    }
-                    if (link.classList.contains('bg-blue-600')) {
-                        link.classList.add('ring-2', 'ring-offset-2', 'ring-blue-600');
+                    if (!link.classList.contains('bg-[#17395C]')) {
+                        link.classList.add('text-[#2B4692]', 'font-bold');
+                    } else {
+                        link.classList.add('ring-2', 'ring-offset-2', 'ring-[#2B4692]');
                     }
                 }
             });
         });
     </script>
-
 </body>
-
 </html>
